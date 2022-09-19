@@ -51,4 +51,5 @@ bot.register('/newtoken', newToken)
 
 bot.set_default_handler(default_message_handler)
 
-bot.listen()
+def startBot():
+    bot.listen()
