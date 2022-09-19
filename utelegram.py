@@ -2,6 +2,17 @@ import time
 import gc
 import urequests
 
+TYPING = "typing"
+UPLOAD_PHOTO = "upload_photo"
+RECORD_VIDEO = "record_video"
+UPLOAD_VIDEO = "upload_video"
+RECORD_VOICE = "record_voice"
+UPLOAD_VOICE = "upload_voice"
+UPLOAD_DOCUMENT = "upload_document"
+CHOOSE_STICKER = "choose_sticker"
+FIND_LOCATION = "find_location"
+RECORD_VIDEO_NOTE = "record_video_note"
+UPLOAD_VIDEO_NOTE = "upload_video_note"
 
 class ubot:
     
@@ -28,6 +39,16 @@ class ubot:
         try:
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
             response = urequests.post(self.url + '/sendMessage', json=data, headers=headers)
+            response.close()
+            return True
+        except:
+            return False
+    
+    def sendAction(self, chat_id, action):
+        data = {'chat_id': chat_id, 'action': action}
+        try:
+            headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+            response = urequests.post(self.url + '/sendChatAction', json=data, headers=headers)
             response.close()
             return True
         except:
