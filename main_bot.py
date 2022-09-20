@@ -3,7 +3,6 @@ import json
 import tuya_micropython as tuya
 
 CONFIG_FILE = "config.json"
-CHAT_ID_ADMIN = "xxx"
 
 def loadConfiguration():
     return json.load(open(CONFIG_FILE, "a+"))
@@ -71,5 +70,6 @@ bot.register('/newtoken', newToken)
 bot.set_default_handler(default_message_handler)
 
 def startBot():
-    bot.send(CHAT_ID_ADMIN, 'Bot avviato')
+    config = loadConfiguration()
+    bot.send(config["chat_id_admin"], 'Bot avviato')
     bot.listen()
