@@ -1,3 +1,4 @@
+import json
 import time
 import gc
 import urequests
@@ -44,11 +45,29 @@ class ubot:
         except:
             return False
     
+    def sendAndGetMessage(self, chat_id, text):
+        data = {'chat_id': chat_id, 'text': text}
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        response = urequests.post(self.url + '/sendMessage', json=data, headers=headers)
+        toReturn = response.json()
+        response.close()
+        return toReturn["result"]
+    
     def sendAction(self, chat_id, action):
         data = {'chat_id': chat_id, 'action': action}
         try:
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
             response = urequests.post(self.url + '/sendChatAction', json=data, headers=headers)
+            response.close()
+            return True
+        except:
+            return False
+    
+    def editMessageText(self, chat_id, message_id, text):
+        data = {'chat_id': chat_id, 'message_id': message_id, 'text': text}
+        try:
+            headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+            response = urequests.post(self.url + '/editMessageText', json=data, headers=headers)
             response.close()
             return True
         except:

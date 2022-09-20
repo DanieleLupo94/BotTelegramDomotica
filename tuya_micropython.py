@@ -8,20 +8,25 @@ CONFIG_FILE = "tuyaConfig.json"
 def loadConfiguration():
     return json.load(open(CONFIG_FILE, "r"))
 
+def writeAccessToken(access_token):
+	t = {"access_token":access_token}
+	f = open("access_token", "w")
+	json.dump(t, f)
+	f.close()
+
 def readAccessTokenFromFile():
 	try:
-		return json.load(open("access_token", "r+"))
+		r = json.load(open("access_token", "r"))
+		return r
 	except:
 		return None
 		
 def getAccessToken():
 	fromFile = readAccessTokenFromFile()
-	if fromFile is not None:
-		print(f"Ho letto il token dal file {fromFile}")
+	if fromFile is not None and fromFile['access_token'] != '':
 		access_token = fromFile["access_token"]
 		return access_token
 
-	print("Richiedo il token")
 	config = loadConfiguration()
 	data={
 			"userName": f"{config['username']}",
@@ -34,22 +39,15 @@ def getAccessToken():
 	for k in data.keys():
 		data_encoded = f'{data_encoded}&{k}={data[k]}'
 	auth = requests.post("https://px1.tuyaus.com/homeassistant/auth.do", headers={"Content-Type": "application/x-www-form-urlencoded"}, data=data_encoded).json()
-	print(f'{auth}')
-	try:
-		auth["responseStatus"]
-		if auth["responseStatus"] == 'error':
-			return None
-	except KeyError as e:
-		pass
+	if auth['access_token'] is None:
+		raise Exception(f'{auth}')
 	access_token = auth["access_token"]
+	writeAccessToken(access_token)
 	#refresh_token = auth["refresh_token"]
-	print("Scrivo il token sul file")
-	print(f"{{\"access_token\":\"{access_token}\"}}", file=open("access_token", "w+"))
 	return access_token
 
 def getDevices():
 	access_token = getAccessToken()
-	print(f'access_token {access_token}')
 	devices = requests.post(
     "https://px1.tuyaus.com/homeassistant/skill",
     json={"header": {"name": "Discovery", "namespace": "discovery", "payloadVersion": 1}, "payload": {"accessToken": access_token}}).json()
@@ -88,7 +86,5 @@ def refreshToken():
 	refresh_token = auth["refresh_token"]
 
 def getNewToken():
-	print("Reset token")
-	f = open("access_token", "w")
-	f.close()
+	writeAccessToken("")
 	getAccessToken()
