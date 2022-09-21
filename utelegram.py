@@ -63,6 +63,18 @@ class ubot:
         except:
             return False
     
+    def sendFileAndGetMessage(self, chat_id, file, caption=""):
+        raise Exception("Metodo non ancora implementato.")
+        data = {'chat_id': chat_id, 'caption': caption, 'document': file}
+        print(f"Provo a mandare {data}")
+        #headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        headers = {'content-type': 'multipart/form-data'}
+        response = urequests.post(self.url + '/sendDocument', data=data, headers=headers, stream=True)
+        toReturn = response.json()
+        print(f"response json {response.json()}")
+        response.close()
+        return toReturn["result"]
+    
     def editMessageText(self, chat_id, message_id, text):
         data = {'chat_id': chat_id, 'message_id': message_id, 'text': text}
         try:
