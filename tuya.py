@@ -1,9 +1,9 @@
-import urequests as requests
+import requests
 import json
 
 # TODO: Rendere tutto generico e chiamabile dal main_boot
 
-CONFIG_FILE = "tuyaConfig.json"
+CONFIG_FILE = "config.json"
 
 def loadConfiguration():
     return json.load(open(CONFIG_FILE, "r"))
@@ -59,7 +59,10 @@ def turnOn():
 	turnon = requests.post(
     "https://px1.tuyaus.com/homeassistant/skill",
     json={"header": {"name": "turnOnOff", "namespace": "control", "payloadVersion": 1}, "payload": {"accessToken": access_token, "devId": f'{config["idLuce"]}', "value":"1"}}).json()
-	return turnon
+	if turnon['header']['code'] in 'SUCCESS':
+		return True
+	else:
+		return False
 	
 def turnOff():
 	config = loadConfiguration()
@@ -67,24 +70,11 @@ def turnOff():
 	turnoff = requests.post(
 	"https://px1.tuyaus.com/homeassistant/skill",
 	json={"header": {"name": "turnOnOff", "namespace": "control", "payloadVersion": 1}, "payload": {"accessToken": access_token, "devId": f'{config["idLuce"]}', "value":"0"}}).json()
-	return turnoff
-
-def refreshToken():
-	global access_token
-	global refresh_token
-	if (access_token == '' or refresh_token == ''):
-		return getAccessToken()
-	auth = requests.post(
-		"https://px1.tuyaus.com/homeassistant/access.do",
-		data={
-			"grant_type": "refresh_token",
-			"refresh_token": refresh_token,
-			"rand": 23
-		},
-	).json()
-	access_token = auth["access_token"]
-	refresh_token = auth["refresh_token"]
+	if turnoff['header']['code'] in 'SUCCESS':
+		return True
+	else:
+		return False
 
 def getNewToken():
 	writeAccessToken("")
-	getAccessToken()
+	return True, getAccessToken()
