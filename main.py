@@ -1,8 +1,9 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
-import json
 from utils import loadConfiguration
 import tuya
+import os
+import datetime
 
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'Hello {update.effective_user.first_name}')
@@ -56,6 +57,41 @@ async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    try:
+        k = await context.bot.send_message(update.message.chat_id, "Sto scattando una foto...")
+        now = datetime.datetime.now()
+        filename = now.strftime("%Y%m%d%H%M%S")
+        filename = f"{filename}.png"
+        os.system(f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
+        f = open(filename, "rb")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_photo")
+        await context.bot.send_photo(chat_id=update.message.chat_id, photo=f, caption=f"{filename}")
+        f.close()
+        await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
+        os.system(f"rm {filename}")
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+
+async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    try:
+        k = await context.bot.send_message(update.message.chat_id, "Sto registrando un video...")
+        now = datetime.datetime.now()
+        filename = now.strftime("%Y%m%d%H%M%S")
+        video = f"{filename}.h264"
+        filename = f"{filename}.mp4"
+        os.system("raspivid -t 5000 -n -o {}".format(video))
+        os.system("MP4Box -add {} -fps 30 {}".format(video, filename))
+        f = open(filename, "rb")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_video")
+        await context.bot.send_video(chat_id=update.message.chat_id, video=f, caption=f"{filename}")
+        f.close()
+        await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
+        os.system(f"rm {filename}")
+        os.system(f"rm {video}")
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
@@ -66,6 +102,8 @@ app.add_handler(CommandHandler("accendiluce", accendiLuce))
 app.add_handler(CommandHandler("spegniluce", spegniLuce))
 app.add_handler(CommandHandler("newtoken", newToken))
 app.add_handler(CommandHandler("getlogfile", getLogFile))
+app.add_handler(CommandHandler("getpic", getPic))
+app.add_handler(CommandHandler("getrec", getRec))
 
 try:
     app.run_polling()

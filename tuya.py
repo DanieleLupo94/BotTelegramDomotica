@@ -1,31 +1,28 @@
 import requests
 import json
+from utils import loadConfiguration
+from utils import saveConfiguration
 
 # TODO: Rendere tutto generico e chiamabile dal main_boot
 
 CONFIG_FILE = "config.json"
 
-def loadConfiguration():
-    return json.load(open(CONFIG_FILE, "r"))
-
 def writeAccessToken(access_token):
-	t = {"access_token":access_token}
-	f = open("access_token", "w")
-	json.dump(t, f)
-	f.close()
+	config = loadConfiguration()
+	config["access_token"] = access_token
+	saveConfiguration(config)
 
 def readAccessTokenFromFile():
 	try:
-		r = json.load(open("access_token", "r"))
-		return r
+		config = loadConfiguration()
+		return config["access_token"]
 	except:
 		return None
 		
 def getAccessToken():
 	fromFile = readAccessTokenFromFile()
-	if fromFile is not None and fromFile['access_token'] != '':
-		access_token = fromFile["access_token"]
-		return access_token
+	if fromFile is not None and fromFile != '':
+		return fromFile
 
 	config = loadConfiguration()
 	data={
