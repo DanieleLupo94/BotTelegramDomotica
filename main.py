@@ -1,6 +1,6 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
-from utils import loadConfiguration
+from utils import loadConfiguration, getConfigFileVariable
 import tuya
 import os
 import datetime
@@ -121,6 +121,21 @@ async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+async def getConfigFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
+    try:
+        k = await context.bot.send_message(update.message.chat_id, "Recupero del file di configurazione in corso...")
+        fileName = getConfigFileVariable() 
+        f = open(f"{fileName}", "rb")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_document")
+        await context.bot.sendDocument(chat_id=k.chat_id, document=f, filename=f"{fileName}")
+        f.close()
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+
+
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
@@ -134,6 +149,8 @@ app.add_handler(CommandHandler("getlogfile", getLogFile))
 app.add_handler(CommandHandler("getpic", getPic))
 app.add_handler(CommandHandler("getrec", getRec))
 app.add_handler(CommandHandler("printtoken", printToken))
+app.add_handler(CommandHandler("getconfigfile", getConfigFile))
+
 
 try:
     app.run_polling()
