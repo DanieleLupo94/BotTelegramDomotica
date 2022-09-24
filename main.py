@@ -9,6 +9,9 @@ async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_
     await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Accensione della luce in corso...")
         t = tuya.turnOn()
@@ -22,6 +25,9 @@ async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Spegnimento della luce in corso...")
         t = tuya.turnOff()
@@ -35,6 +41,9 @@ async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def newToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Richiesta del token in corso...")
         t, token = tuya.getNewToken()
@@ -48,6 +57,9 @@ async def newToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Recupero del file in corso...")
         f = open("logBot.txt", "rb")
@@ -58,6 +70,9 @@ async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto scattando una foto...")
         now = datetime.datetime.now()
@@ -74,6 +89,9 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto registrando un video...")
         now = datetime.datetime.now()
@@ -92,6 +110,17 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
+    try:
+        k = await context.bot.send_message(update.message.chat_id, "Leggo il token dal file...")
+        config = loadConfiguration()
+        await context.bot.edit_message_text(f'Il token letto dal file è {config["access_token"]}', chat_id=update.message.chat_id, message_id=k.message_id)
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
@@ -104,6 +133,7 @@ app.add_handler(CommandHandler("newtoken", newToken))
 app.add_handler(CommandHandler("getlogfile", getLogFile))
 app.add_handler(CommandHandler("getpic", getPic))
 app.add_handler(CommandHandler("getrec", getRec))
+app.add_handler(CommandHandler("printtoken", printToken))
 
 try:
     app.run_polling()
