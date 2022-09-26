@@ -1,5 +1,5 @@
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
 from utils import loadConfiguration
 import tuya
 import os
@@ -8,7 +8,14 @@ import datetime
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
-async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    try:
+        config = loadConfiguration()
+        await context.bot.send_message(chat_id=config["chat_id_admin"], text="Errore error_handler")
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+
+async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
     try:
         k = await context.bot.send_message(update.message.chat_id, "Accensione della luce in corso...")
         t = tuya.turnOn()
@@ -17,11 +24,13 @@ async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
             msg = "Luce accesa"
         else:
             msg = "Impossibile accendere la luce"
-        await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
+        m = await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
+        if cancellaMessaggio == True:
+            await context.bot.delete_message(chat_id=update.message.chat_id, message_id=m.message_id)
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
-async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
     try:
         k = await context.bot.send_message(update.message.chat_id, "Spegnimento della luce in corso...")
         t = tuya.turnOff()
@@ -30,7 +39,9 @@ async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
             msg = "Luce spenta"
         else:
             msg = "Impossibile spegnere la luce"
-        await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
+        m = await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
+        if cancellaMessaggio == True:
+            await context.bot.delete_message(chat_id=update.message.chat_id, message_id=m.message_id)
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
@@ -92,18 +103,52 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+async def keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    keyboard = [
+        [InlineKeyboardButton("Accendi la luce", callback_data="command:accendi"), InlineKeyboardButton("Spegni la luce", callback_data="command:spegni")],
+        [InlineKeyboardButton("Foto", callback_data="command:foto"), InlineKeyboardButton("Video", callback_data="command:video")],
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text('Azioni disponibili', reply_markup=reply_markup)
+
+async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    query = update.callback_query
+    await query.answer()
+    if "command:" in query.data:
+        match query.data:
+            case "command:accendi":
+                return await accendiLuce(query, context, True)
+            case "command:spegni":
+                return await spegniLuce(query, context, True)
+            case "command:foto":
+                return await getPic(query, context)
+            case "command:video":
+                return await getRec(query, context)
+        #await query.edit_message_text(text=f"Azione non definita")
+    await query.edit_message_text(text=f"Azione non definita")
+
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
 
+
+
 # Setto gli handler
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_handler))
+app.add_handler(CallbackQueryHandler(button))
+
 app.add_handler(CommandHandler("accendiluce", accendiLuce))
 app.add_handler(CommandHandler("spegniluce", spegniLuce))
 app.add_handler(CommandHandler("newtoken", newToken))
 app.add_handler(CommandHandler("getlogfile", getLogFile))
 app.add_handler(CommandHandler("getpic", getPic))
 app.add_handler(CommandHandler("getrec", getRec))
+app.add_handler(CommandHandler("keyboard", keyboard))
+
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_handler))
+
+
+# Error handler
+#app.add_error_handler(error_handler)
 
 try:
     app.run_polling()
