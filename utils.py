@@ -13,3 +13,6 @@ def saveConfiguration(config):
     json.dump(config, f)
     f.close()
     return True
+
+def getConfigFileVariable():
+    return CONFIG_FILE
