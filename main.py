@@ -1,6 +1,6 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
-from utils import loadConfiguration, getConfigVariable
+from utils import loadConfiguration, getConfigFileVariable
 import tuya
 import os
 import datetime
