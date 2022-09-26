@@ -125,17 +125,16 @@ async def keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     query = update.callback_query
     await query.answer()
-    if "command:" in query.data:
-        match query.data:
-            case "command:accendi":
-                return await accendiLuce(query, context, True)
-            case "command:spegni":
-                return await spegniLuce(query, context, True)
-            case "command:foto":
-                return await getPic(query, context)
-            case "command:video":
-                return await getRec(query, context)
-        #await query.edit_message_text(text=f"Azione non definita")
+    data = query.data
+    if "command:accendi" in data:
+        return await accendiLuce(query, context, True)
+    elif "command:spegni" in data:
+        return await spegniLuce(query, context, True)
+    elif "command:foto" in data:
+        return await getPic(query, context)
+    elif "command:video" in data:
+        return await getRec(query, context)
+    #await query.edit_message_text(text=f"Azione non definita")
     await query.edit_message_text(text=f"Azione non definita")
 
 async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
