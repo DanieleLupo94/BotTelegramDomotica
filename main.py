@@ -1,6 +1,6 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
-from utils import loadConfiguration
+from utils import loadConfiguration, getConfigVariable
 import tuya
 import os
 import datetime
@@ -8,14 +8,10 @@ import datetime
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
-async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    try:
-        config = loadConfiguration()
-        await context.bot.send_message(chat_id=config["chat_id_admin"], text="Errore error_handler")
-    except Exception as e:
-        await update.message.reply_text(f'Errore: {repr(e)}')
-
 async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Accensione della luce in corso...")
         t = tuya.turnOn()
@@ -31,6 +27,9 @@ async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancel
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Spegnimento della luce in corso...")
         t = tuya.turnOff()
@@ -46,6 +45,9 @@ async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancell
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def newToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Richiesta del token in corso...")
         t, token = tuya.getNewToken()
@@ -59,6 +61,9 @@ async def newToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Recupero del file in corso...")
         f = open("logBot.txt", "rb")
@@ -69,6 +74,9 @@ async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto scattando una foto...")
         now = datetime.datetime.now()
@@ -85,6 +93,9 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto registrando un video...")
         now = datetime.datetime.now()
@@ -127,11 +138,33 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         #await query.edit_message_text(text=f"Azione non definita")
     await query.edit_message_text(text=f"Azione non definita")
 
+async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
+    try:
+        k = await context.bot.send_message(update.message.chat_id, "Leggo il token dal file...")
+        config = loadConfiguration()
+        await context.bot.edit_message_text(f'Il token letto dal file è {config["access_token"]}', chat_id=update.message.chat_id, message_id=k.message_id)
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+
+async def getConfigFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
+    try:
+        k = await context.bot.send_message(update.message.chat_id, "Recupero del file di configurazione in corso...")
+        fileName = getConfigFileVariable() 
+        f = open(f"{fileName}", "rb")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_document")
+        await context.bot.sendDocument(chat_id=k.chat_id, document=f, filename=f"{fileName}")
+        f.close()
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
-
-
 
 # Setto gli handler
 app.add_handler(CallbackQueryHandler(button))
@@ -143,9 +176,10 @@ app.add_handler(CommandHandler("getlogfile", getLogFile))
 app.add_handler(CommandHandler("getpic", getPic))
 app.add_handler(CommandHandler("getrec", getRec))
 app.add_handler(CommandHandler("keyboard", keyboard))
+app.add_handler(CommandHandler("printtoken", printToken))
+app.add_handler(CommandHandler("getconfigfile", getConfigFile))
 
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_handler))
-
 
 # Error handler
 #app.add_error_handler(error_handler)
