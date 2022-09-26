@@ -5,8 +5,13 @@ import tuya
 import os
 import datetime
 
+EMOJI_LUCE_ACCESA = "\U0001F31E"
+EMOJI_LUCE_SPENTA = "\U0001F31A"
+EMOJI_FOTO = "\U0001F4F8"
+EMOJI_VIDEO = "\U0001F3A5"
+
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
+    await update.message.reply_text(f'Hello \U0001F643 {update.effective_user.first_name}')
 
 async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
     config = loadConfiguration()
@@ -116,8 +121,8 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
-        [InlineKeyboardButton("Accendi la luce", callback_data="command:accendi"), InlineKeyboardButton("Spegni la luce", callback_data="command:spegni")],
-        [InlineKeyboardButton("Foto", callback_data="command:foto"), InlineKeyboardButton("Video", callback_data="command:video")],
+        [InlineKeyboardButton(f"{EMOJI_LUCE_ACCESA} Accendi la luce", callback_data="command:accendi"), InlineKeyboardButton(f"{EMOJI_LUCE_SPENTA} Spegni la luce", callback_data="command:spegni")],
+        [InlineKeyboardButton(f"{EMOJI_FOTO} Foto", callback_data="command:foto"), InlineKeyboardButton(f"{EMOJI_VIDEO} Video", callback_data="command:video")],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Azioni disponibili', reply_markup=reply_markup)
