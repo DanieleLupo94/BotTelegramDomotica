@@ -4,14 +4,18 @@ from utils import loadConfiguration, getConfigFileVariable
 import tuya
 import os
 import datetime
+import sensoreDHT11 as dht11
 
+EMOJI_TESTA = "\U0001F643"
 EMOJI_LUCE_ACCESA = "\U0001F31E"
 EMOJI_LUCE_SPENTA = "\U0001F31A"
 EMOJI_FOTO = "\U0001F4F8"
 EMOJI_VIDEO = "\U0001F3A5"
+EMOJI_UMIDITA = "\U0001F4A7"
+EMOJI_TEMP = "\U0001F321"
 
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello \U0001F643 {update.effective_user.first_name}')
+    await update.message.reply_text(f'Hello {EMOJI_TESTA} {update.effective_user.first_name}')
 
 async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
     config = loadConfiguration()
@@ -123,6 +127,7 @@ async def keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
         [InlineKeyboardButton(f"{EMOJI_LUCE_ACCESA} Accendi la luce", callback_data="command:accendi"), InlineKeyboardButton(f"{EMOJI_LUCE_SPENTA} Spegni la luce", callback_data="command:spegni")],
         [InlineKeyboardButton(f"{EMOJI_FOTO} Foto", callback_data="command:foto"), InlineKeyboardButton(f"{EMOJI_VIDEO} Video", callback_data="command:video")],
+        [InlineKeyboardButton(f"{EMOJI_UMIDITA} Umidità e temperatura {EMOJI_TEMP}", callback_data="command:humidityTemperature")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Azioni disponibili', reply_markup=reply_markup)
@@ -139,7 +144,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return await getPic(query, context)
     elif "command:video" in data:
         return await getRec(query, context)
-    #await query.edit_message_text(text=f"Azione non definita")
+    elif "command:humidityTemperature" in data:
+        return await readHT(query, context)
     await query.edit_message_text(text=f"Azione non definita")
 
 async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -167,6 +173,17 @@ async def getConfigFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+async def readHT(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    k = await context.bot.send_message(update.message.chat_id, "Calcolo della temperatura e dell'umidità in corso...")
+    try:
+        h, t = dht11.readHumidityTemperature()
+        msg = 'Temperatura={0:0.1f}C Humidity={1:0.1f}%'.format(t, h)
+        await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
+    except Exception as e:
+        await update.message.reply_text(f'Errore: {repr(e)}')
+    
+
+
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
 
@@ -182,6 +199,7 @@ app.add_handler(CommandHandler("getrec", getRec))
 app.add_handler(CommandHandler("keyboard", keyboard))
 app.add_handler(CommandHandler("printtoken", printToken))
 app.add_handler(CommandHandler("getconfigfile", getConfigFile))
+app.add_handler(CommandHandler("readht", readHT))
 
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_handler))
 
