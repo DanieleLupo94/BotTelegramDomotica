@@ -1,7504 +1,1853 @@
-EMOJI_LIST = [
-  {
-    "code": "U0001F600",
-    "name": "grinning face"
-  },
-  {
-    "code": "U0001F603",
-    "name": "grinning face with big eyes"
-  },
-  {
-    "code": "U0001F604",
-    "name": "grinning face with smiling eyes"
-  },
-  {
-    "code": "U0001F601",
-    "name": "beaming face with smiling eyes"
-  },
-  {
-    "code": "U0001F606",
-    "name": "grinning squinting face"
-  },
-  {
-    "code": "U0001F605",
-    "name": "grinning face with sweat"
-  },
-  {
-    "code": "U0001F923",
-    "name": "rolling on the floor laughing"
-  },
-  {
-    "code": "U0001F602",
-    "name": "face with tears of joy"
-  },
-  {
-    "code": "U0001F642",
-    "name": "slightly smiling face"
-  },
-  {
-    "code": "U0001F643",
-    "name": "upside-down face"
-  },
-  {
-    "code": "U0001FAE0",
-    "name": "melting face"
-  },
-  {
-    "code": "U0001F609",
-    "name": "winking face"
-  },
-  {
-    "code": "U0001F60A",
-    "name": "smiling face with smiling eyes"
-  },
-  {
-    "code": "U0001F607",
-    "name": "smiling face with halo"
-  },
-  {
-    "code": "U0001F970",
-    "name": "smiling face with hearts"
-  },
-  {
-    "code": "U0001F60D",
-    "name": "smiling face with heart-eyes"
-  },
-  {
-    "code": "U0001F929",
-    "name": "star-struck"
-  },
-  {
-    "code": "U0001F618",
-    "name": "face blowing a kiss"
-  },
-  {
-    "code": "U0001F617",
-    "name": "kissing face"
-  },
-  {
-    "code": "U000263A",
-    "name": "smiling face"
-  },
-  {
-    "code": "U0001F61A",
-    "name": "kissing face with closed eyes"
-  },
-  {
-    "code": "U0001F619",
-    "name": "kissing face with smiling eyes"
-  },
-  {
-    "code": "U0001F972",
-    "name": "smiling face with tear"
-  },
-  {
-    "code": "U0001F60B",
-    "name": "face savoring food"
-  },
-  {
-    "code": "U0001F61B",
-    "name": "face with tongue"
-  },
-  {
-    "code": "U0001F61C",
-    "name": "winking face with tongue"
-  },
-  {
-    "code": "U0001F92A",
-    "name": "zany face"
-  },
-  {
-    "code": "U0001F61D",
-    "name": "squinting face with tongue"
-  },
-  {
-    "code": "U0001F911",
-    "name": "money-mouth face"
-  },
-  {
-    "code": "U0001F917",
-    "name": "smiling face with open hands"
-  },
-  {
-    "code": "U0001F92D",
-    "name": "face with hand over mouth"
-  },
-  {
-    "code": "U0001FAE2",
-    "name": "face with open eyes and hand over mouth"
-  },
-  {
-    "code": "U0001FAE3",
-    "name": "face with peeking eye"
-  },
-  {
-    "code": "U0001F92B",
-    "name": "shushing face"
-  },
-  {
-    "code": "U0001F914",
-    "name": "thinking face"
-  },
-  {
-    "code": "U0001FAE1",
-    "name": "saluting face"
-  },
-  {
-    "code": "U0001F910",
-    "name": "zipper-mouth face"
-  },
-  {
-    "code": "U0001F928",
-    "name": "face with raised eyebrow"
-  },
-  {
-    "code": "U0001F610",
-    "name": "neutral face"
-  },
-  {
-    "code": "U0001F611",
-    "name": "expressionless face"
-  },
-  {
-    "code": "U0001F636",
-    "name": "face without mouth"
-  },
-  {
-    "code": "U0001FAE5",
-    "name": "dotted line face"
-  },
-  {
-    "code": "U0001F636",
-    "name": "face in clouds"
-  },
-  {
-    "code": "U0001F60F",
-    "name": "smirking face"
-  },
-  {
-    "code": "U0001F612",
-    "name": "unamused face"
-  },
-  {
-    "code": "U0001F644",
-    "name": "face with rolling eyes"
-  },
-  {
-    "code": "U0001F62C",
-    "name": "grimacing face"
-  },
-  {
-    "code": "U0001F62E",
-    "name": "face exhaling"
-  },
-  {
-    "code": "U0001F925",
-    "name": "lying face"
-  },
-  {
-    "code": "U0001FAE8",
-    "name": "⊛ shaking face"
-  },
-  {
-    "code": "U0001F60C",
-    "name": "relieved face"
-  },
-  {
-    "code": "U0001F614",
-    "name": "pensive face"
-  },
-  {
-    "code": "U0001F62A",
-    "name": "sleepy face"
-  },
-  {
-    "code": "U0001F924",
-    "name": "drooling face"
-  },
-  {
-    "code": "U0001F634",
-    "name": "sleeping face"
-  },
-  {
-    "code": "U0001F637",
-    "name": "face with medical mask"
-  },
-  {
-    "code": "U0001F912",
-    "name": "face with thermometer"
-  },
-  {
-    "code": "U0001F915",
-    "name": "face with head-bandage"
-  },
-  {
-    "code": "U0001F922",
-    "name": "nauseated face"
-  },
-  {
-    "code": "U0001F92E",
-    "name": "face vomiting"
-  },
-  {
-    "code": "U0001F927",
-    "name": "sneezing face"
-  },
-  {
-    "code": "U0001F975",
-    "name": "hot face"
-  },
-  {
-    "code": "U0001F976",
-    "name": "cold face"
-  },
-  {
-    "code": "U0001F974",
-    "name": "woozy face"
-  },
-  {
-    "code": "U0001F635",
-    "name": "face with crossed-out eyes"
-  },
-  {
-    "code": "U0001F635",
-    "name": "face with spiral eyes"
-  },
-  {
-    "code": "U0001F92F",
-    "name": "exploding head"
-  },
-  {
-    "code": "U0001F920",
-    "name": "cowboy hat face"
-  },
-  {
-    "code": "U0001F973",
-    "name": "partying face"
-  },
-  {
-    "code": "U0001F978",
-    "name": "disguised face"
-  },
-  {
-    "code": "U0001F60E",
-    "name": "smiling face with sunglasses"
-  },
-  {
-    "code": "U0001F913",
-    "name": "nerd face"
-  },
-  {
-    "code": "U0001F9D0",
-    "name": "face with monocle"
-  },
-  {
-    "code": "U0001F615",
-    "name": "confused face"
-  },
-  {
-    "code": "U0001FAE4",
-    "name": "face with diagonal mouth"
-  },
-  {
-    "code": "U0001F61F",
-    "name": "worried face"
-  },
-  {
-    "code": "U0001F641",
-    "name": "slightly frowning face"
-  },
-  {
-    "code": "U0002639",
-    "name": "frowning face"
-  },
-  {
-    "code": "U0001F62E",
-    "name": "face with open mouth"
-  },
-  {
-    "code": "U0001F62F",
-    "name": "hushed face"
-  },
-  {
-    "code": "U0001F632",
-    "name": "astonished face"
-  },
-  {
-    "code": "U0001F633",
-    "name": "flushed face"
-  },
-  {
-    "code": "U0001F97A",
-    "name": "pleading face"
-  },
-  {
-    "code": "U0001F979",
-    "name": "face holding back tears"
-  },
-  {
-    "code": "U0001F626",
-    "name": "frowning face with open mouth"
-  },
-  {
-    "code": "U0001F627",
-    "name": "anguished face"
-  },
-  {
-    "code": "U0001F628",
-    "name": "fearful face"
-  },
-  {
-    "code": "U0001F630",
-    "name": "anxious face with sweat"
-  },
-  {
-    "code": "U0001F625",
-    "name": "sad but relieved face"
-  },
-  {
-    "code": "U0001F622",
-    "name": "crying face"
-  },
-  {
-    "code": "U0001F62D",
-    "name": "loudly crying face"
-  },
-  {
-    "code": "U0001F631",
-    "name": "face screaming in fear"
-  },
-  {
-    "code": "U0001F616",
-    "name": "confounded face"
-  },
-  {
-    "code": "U0001F623",
-    "name": "persevering face"
-  },
-  {
-    "code": "U0001F61E",
-    "name": "disappointed face"
-  },
-  {
-    "code": "U0001F613",
-    "name": "downcast face with sweat"
-  },
-  {
-    "code": "U0001F629",
-    "name": "weary face"
-  },
-  {
-    "code": "U0001F62B",
-    "name": "tired face"
-  },
-  {
-    "code": "U0001F971",
-    "name": "yawning face"
-  },
-  {
-    "code": "U0001F624",
-    "name": "face with steam from nose"
-  },
-  {
-    "code": "U0001F621",
-    "name": "enraged face"
-  },
-  {
-    "code": "U0001F620",
-    "name": "angry face"
-  },
-  {
-    "code": "U0001F92C",
-    "name": "face with symbols on mouth"
-  },
-  {
-    "code": "U0001F608",
-    "name": "smiling face with horns"
-  },
-  {
-    "code": "U0001F47F",
-    "name": "angry face with horns"
-  },
-  {
-    "code": "U0001F480",
-    "name": "skull"
-  },
-  {
-    "code": "U0002620",
-    "name": "skull and crossbones"
-  },
-  {
-    "code": "U0001F4A9",
-    "name": "pile of poo"
-  },
-  {
-    "code": "U0001F921",
-    "name": "clown face"
-  },
-  {
-    "code": "U0001F479",
-    "name": "ogre"
-  },
-  {
-    "code": "U0001F47A",
-    "name": "goblin"
-  },
-  {
-    "code": "U0001F47B",
-    "name": "ghost"
-  },
-  {
-    "code": "U0001F47D",
-    "name": "alien"
-  },
-  {
-    "code": "U0001F47E",
-    "name": "alien monster"
-  },
-  {
-    "code": "U0001F916",
-    "name": "robot"
-  },
-  {
-    "code": "U0001F63A",
-    "name": "grinning cat"
-  },
-  {
-    "code": "U0001F638",
-    "name": "grinning cat with smiling eyes"
-  },
-  {
-    "code": "U0001F639",
-    "name": "cat with tears of joy"
-  },
-  {
-    "code": "U0001F63B",
-    "name": "smiling cat with heart-eyes"
-  },
-  {
-    "code": "U0001F63C",
-    "name": "cat with wry smile"
-  },
-  {
-    "code": "U0001F63D",
-    "name": "kissing cat"
-  },
-  {
-    "code": "U0001F640",
-    "name": "weary cat"
-  },
-  {
-    "code": "U0001F63F",
-    "name": "crying cat"
-  },
-  {
-    "code": "U0001F63E",
-    "name": "pouting cat"
-  },
-  {
-    "code": "U0001F648",
-    "name": "see-no-evil monkey"
-  },
-  {
-    "code": "U0001F649",
-    "name": "hear-no-evil monkey"
-  },
-  {
-    "code": "U0001F64A",
-    "name": "speak-no-evil monkey"
-  },
-  {
-    "code": "U0001F48C",
-    "name": "love letter"
-  },
-  {
-    "code": "U0001F498",
-    "name": "heart with arrow"
-  },
-  {
-    "code": "U0001F49D",
-    "name": "heart with ribbon"
-  },
-  {
-    "code": "U0001F496",
-    "name": "sparkling heart"
-  },
-  {
-    "code": "U0001F497",
-    "name": "growing heart"
-  },
-  {
-    "code": "U0001F493",
-    "name": "beating heart"
-  },
-  {
-    "code": "U0001F49E",
-    "name": "revolving hearts"
-  },
-  {
-    "code": "U0001F495",
-    "name": "two hearts"
-  },
-  {
-    "code": "U0001F49F",
-    "name": "heart decoration"
-  },
-  {
-    "code": "U0002763",
-    "name": "heart exclamation"
-  },
-  {
-    "code": "U0001F494",
-    "name": "broken heart"
-  },
-  {
-    "code": "U0002764",
-    "name": "heart on fire"
-  },
-  {
-    "code": "U0002764",
-    "name": "mending heart"
-  },
-  {
-    "code": "U0002764",
-    "name": "red heart"
-  },
-  {
-    "code": "U0001FA77",
-    "name": "⊛ pink heart"
-  },
-  {
-    "code": "U0001F9E1",
-    "name": "orange heart"
-  },
-  {
-    "code": "U0001F49B",
-    "name": "yellow heart"
-  },
-  {
-    "code": "U0001F49A",
-    "name": "green heart"
-  },
-  {
-    "code": "U0001F499",
-    "name": "blue heart"
-  },
-  {
-    "code": "U0001FA75",
-    "name": "⊛ light blue heart"
-  },
-  {
-    "code": "U0001F49C",
-    "name": "purple heart"
-  },
-  {
-    "code": "U0001F90E",
-    "name": "brown heart"
-  },
-  {
-    "code": "U0001F5A4",
-    "name": "black heart"
-  },
-  {
-    "code": "U0001FA76",
-    "name": "⊛ grey heart"
-  },
-  {
-    "code": "U0001F90D",
-    "name": "white heart"
-  },
-  {
-    "code": "U0001F48B",
-    "name": "kiss mark"
-  },
-  {
-    "code": "U0001F4AF",
-    "name": "hundred points"
-  },
-  {
-    "code": "U0001F4A2",
-    "name": "anger symbol"
-  },
-  {
-    "code": "U0001F4A5",
-    "name": "collision"
-  },
-  {
-    "code": "U0001F4AB",
-    "name": "dizzy"
-  },
-  {
-    "code": "U0001F4A6",
-    "name": "sweat droplets"
-  },
-  {
-    "code": "U0001F4A8",
-    "name": "dashing away"
-  },
-  {
-    "code": "U0001F573",
-    "name": "hole"
-  },
-  {
-    "code": "U0001F4AC",
-    "name": "speech balloon"
-  },
-  {
-    "code": "U0001F441",
-    "name": "eye in speech bubble"
-  },
-  {
-    "code": "U0001F5E8",
-    "name": "left speech bubble"
-  },
-  {
-    "code": "U0001F5EF",
-    "name": "right anger bubble"
-  },
-  {
-    "code": "U0001F4AD",
-    "name": "thought balloon"
-  },
-  {
-    "code": "U0001F4A4",
-    "name": "ZZZ"
-  },
-  {
-    "code": "U0001F44B",
-    "name": "waving hand"
-  },
-  {
-    "code": "U0001F91A",
-    "name": "raised back of hand"
-  },
-  {
-    "code": "U0001F590",
-    "name": "hand with fingers splayed"
-  },
-  {
-    "code": "U000270B",
-    "name": "raised hand"
-  },
-  {
-    "code": "U0001F596",
-    "name": "vulcan salute"
-  },
-  {
-    "code": "U0001FAF1",
-    "name": "rightwards hand"
-  },
-  {
-    "code": "U0001FAF2",
-    "name": "leftwards hand"
-  },
-  {
-    "code": "U0001FAF3",
-    "name": "palm down hand"
-  },
-  {
-    "code": "U0001FAF4",
-    "name": "palm up hand"
-  },
-  {
-    "code": "U0001FAF7",
-    "name": "⊛ leftwards pushing hand"
-  },
-  {
-    "code": "U0001FAF8",
-    "name": "⊛ rightwards pushing hand"
-  },
-  {
-    "code": "U0001F44C",
-    "name": "OK hand"
-  },
-  {
-    "code": "U0001F90C",
-    "name": "pinched fingers"
-  },
-  {
-    "code": "U0001F90F",
-    "name": "pinching hand"
-  },
-  {
-    "code": "U000270C",
-    "name": "victory hand"
-  },
-  {
-    "code": "U0001F91E",
-    "name": "crossed fingers"
-  },
-  {
-    "code": "U0001FAF0",
-    "name": "hand with index finger and thumb crossed"
-  },
-  {
-    "code": "U0001F91F",
-    "name": "love-you gesture"
-  },
-  {
-    "code": "U0001F918",
-    "name": "sign of the horns"
-  },
-  {
-    "code": "U0001F919",
-    "name": "call me hand"
-  },
-  {
-    "code": "U0001F448",
-    "name": "backhand index pointing left"
-  },
-  {
-    "code": "U0001F449",
-    "name": "backhand index pointing right"
-  },
-  {
-    "code": "U0001F446",
-    "name": "backhand index pointing up"
-  },
-  {
-    "code": "U0001F595",
-    "name": "middle finger"
-  },
-  {
-    "code": "U0001F447",
-    "name": "backhand index pointing down"
-  },
-  {
-    "code": "U000261D",
-    "name": "index pointing up"
-  },
-  {
-    "code": "U0001FAF5",
-    "name": "index pointing at the viewer"
-  },
-  {
-    "code": "U0001F44D",
-    "name": "thumbs up"
-  },
-  {
-    "code": "U0001F44E",
-    "name": "thumbs down"
-  },
-  {
-    "code": "U000270A",
-    "name": "raised fist"
-  },
-  {
-    "code": "U0001F44A",
-    "name": "oncoming fist"
-  },
-  {
-    "code": "U0001F91B",
-    "name": "left-facing fist"
-  },
-  {
-    "code": "U0001F91C",
-    "name": "right-facing fist"
-  },
-  {
-    "code": "U0001F44F",
-    "name": "clapping hands"
-  },
-  {
-    "code": "U0001F64C",
-    "name": "raising hands"
-  },
-  {
-    "code": "U0001FAF6",
-    "name": "heart hands"
-  },
-  {
-    "code": "U0001F450",
-    "name": "open hands"
-  },
-  {
-    "code": "U0001F932",
-    "name": "palms up together"
-  },
-  {
-    "code": "U0001F91D",
-    "name": "handshake"
-  },
-  {
-    "code": "U0001F64F",
-    "name": "folded hands"
-  },
-  {
-    "code": "U000270D",
-    "name": "writing hand"
-  },
-  {
-    "code": "U0001F485",
-    "name": "nail polish"
-  },
-  {
-    "code": "U0001F933",
-    "name": "selfie"
-  },
-  {
-    "code": "U0001F4AA",
-    "name": "flexed biceps"
-  },
-  {
-    "code": "U0001F9BE",
-    "name": "mechanical arm"
-  },
-  {
-    "code": "U0001F9BF",
-    "name": "mechanical leg"
-  },
-  {
-    "code": "U0001F9B5",
-    "name": "leg"
-  },
-  {
-    "code": "U0001F9B6",
-    "name": "foot"
-  },
-  {
-    "code": "U0001F442",
-    "name": "ear"
-  },
-  {
-    "code": "U0001F9BB",
-    "name": "ear with hearing aid"
-  },
-  {
-    "code": "U0001F443",
-    "name": "nose"
-  },
-  {
-    "code": "U0001F9E0",
-    "name": "brain"
-  },
-  {
-    "code": "U0001FAC0",
-    "name": "anatomical heart"
-  },
-  {
-    "code": "U0001FAC1",
-    "name": "lungs"
-  },
-  {
-    "code": "U0001F9B7",
-    "name": "tooth"
-  },
-  {
-    "code": "U0001F9B4",
-    "name": "bone"
-  },
-  {
-    "code": "U0001F440",
-    "name": "eyes"
-  },
-  {
-    "code": "U0001F441",
-    "name": "eye"
-  },
-  {
-    "code": "U0001F445",
-    "name": "tongue"
-  },
-  {
-    "code": "U0001F444",
-    "name": "mouth"
-  },
-  {
-    "code": "U0001FAE6",
-    "name": "biting lip"
-  },
-  {
-    "code": "U0001F476",
-    "name": "baby"
-  },
-  {
-    "code": "U0001F9D2",
-    "name": "child"
-  },
-  {
-    "code": "U0001F466",
-    "name": "boy"
-  },
-  {
-    "code": "U0001F467",
-    "name": "girl"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person"
-  },
-  {
-    "code": "U0001F471",
-    "name": "person: blond hair"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man"
-  },
-  {
-    "code": "U0001F9D4",
-    "name": "person: beard"
-  },
-  {
-    "code": "U0001F9D4",
-    "name": "man: beard"
-  },
-  {
-    "code": "U0001F9D4",
-    "name": "woman: beard"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man: red hair"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man: curly hair"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man: white hair"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man: bald"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman: red hair"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person: red hair"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman: curly hair"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person: curly hair"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman: white hair"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person: white hair"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman: bald"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person: bald"
-  },
-  {
-    "code": "U0001F471",
-    "name": "woman: blond hair"
-  },
-  {
-    "code": "U0001F471",
-    "name": "man: blond hair"
-  },
-  {
-    "code": "U0001F9D3",
-    "name": "older person"
-  },
-  {
-    "code": "U0001F474",
-    "name": "old man"
-  },
-  {
-    "code": "U0001F475",
-    "name": "old woman"
-  },
-  {
-    "code": "U0001F64D",
-    "name": "person frowning"
-  },
-  {
-    "code": "U0001F64D",
-    "name": "man frowning"
-  },
-  {
-    "code": "U0001F64D",
-    "name": "woman frowning"
-  },
-  {
-    "code": "U0001F64E",
-    "name": "person pouting"
-  },
-  {
-    "code": "U0001F64E",
-    "name": "man pouting"
-  },
-  {
-    "code": "U0001F64E",
-    "name": "woman pouting"
-  },
-  {
-    "code": "U0001F645",
-    "name": "person gesturing NO"
-  },
-  {
-    "code": "U0001F645",
-    "name": "man gesturing NO"
-  },
-  {
-    "code": "U0001F645",
-    "name": "woman gesturing NO"
-  },
-  {
-    "code": "U0001F646",
-    "name": "person gesturing OK"
-  },
-  {
-    "code": "U0001F646",
-    "name": "man gesturing OK"
-  },
-  {
-    "code": "U0001F646",
-    "name": "woman gesturing OK"
-  },
-  {
-    "code": "U0001F481",
-    "name": "person tipping hand"
-  },
-  {
-    "code": "U0001F481",
-    "name": "man tipping hand"
-  },
-  {
-    "code": "U0001F481",
-    "name": "woman tipping hand"
-  },
-  {
-    "code": "U0001F64B",
-    "name": "person raising hand"
-  },
-  {
-    "code": "U0001F64B",
-    "name": "man raising hand"
-  },
-  {
-    "code": "U0001F64B",
-    "name": "woman raising hand"
-  },
-  {
-    "code": "U0001F9CF",
-    "name": "deaf person"
-  },
-  {
-    "code": "U0001F9CF",
-    "name": "deaf man"
-  },
-  {
-    "code": "U0001F9CF",
-    "name": "deaf woman"
-  },
-  {
-    "code": "U0001F647",
-    "name": "person bowing"
-  },
-  {
-    "code": "U0001F647",
-    "name": "man bowing"
-  },
-  {
-    "code": "U0001F647",
-    "name": "woman bowing"
-  },
-  {
-    "code": "U0001F926",
-    "name": "person facepalming"
-  },
-  {
-    "code": "U0001F926",
-    "name": "man facepalming"
-  },
-  {
-    "code": "U0001F926",
-    "name": "woman facepalming"
-  },
-  {
-    "code": "U0001F937",
-    "name": "person shrugging"
-  },
-  {
-    "code": "U0001F937",
-    "name": "man shrugging"
-  },
-  {
-    "code": "U0001F937",
-    "name": "woman shrugging"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "health worker"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man health worker"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman health worker"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "student"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man student"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman student"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "teacher"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man teacher"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman teacher"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "judge"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man judge"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman judge"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "farmer"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man farmer"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman farmer"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "cook"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man cook"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman cook"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "mechanic"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man mechanic"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman mechanic"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "factory worker"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man factory worker"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman factory worker"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "office worker"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man office worker"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman office worker"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "scientist"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man scientist"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman scientist"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "technologist"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man technologist"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman technologist"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "singer"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man singer"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman singer"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "artist"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man artist"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman artist"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "pilot"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man pilot"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman pilot"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "astronaut"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man astronaut"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman astronaut"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "firefighter"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man firefighter"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman firefighter"
-  },
-  {
-    "code": "U0001F46E",
-    "name": "police officer"
-  },
-  {
-    "code": "U0001F46E",
-    "name": "man police officer"
-  },
-  {
-    "code": "U0001F46E",
-    "name": "woman police officer"
-  },
-  {
-    "code": "U0001F575",
-    "name": "detective"
-  },
-  {
-    "code": "U0001F575",
-    "name": "man detective"
-  },
-  {
-    "code": "U0001F575",
-    "name": "woman detective"
-  },
-  {
-    "code": "U0001F482",
-    "name": "guard"
-  },
-  {
-    "code": "U0001F482",
-    "name": "man guard"
-  },
-  {
-    "code": "U0001F482",
-    "name": "woman guard"
-  },
-  {
-    "code": "U0001F977",
-    "name": "ninja"
-  },
-  {
-    "code": "U0001F477",
-    "name": "construction worker"
-  },
-  {
-    "code": "U0001F477",
-    "name": "man construction worker"
-  },
-  {
-    "code": "U0001F477",
-    "name": "woman construction worker"
-  },
-  {
-    "code": "U0001FAC5",
-    "name": "person with crown"
-  },
-  {
-    "code": "U0001F934",
-    "name": "prince"
-  },
-  {
-    "code": "U0001F478",
-    "name": "princess"
-  },
-  {
-    "code": "U0001F473",
-    "name": "person wearing turban"
-  },
-  {
-    "code": "U0001F473",
-    "name": "man wearing turban"
-  },
-  {
-    "code": "U0001F473",
-    "name": "woman wearing turban"
-  },
-  {
-    "code": "U0001F472",
-    "name": "person with skullcap"
-  },
-  {
-    "code": "U0001F9D5",
-    "name": "woman with headscarf"
-  },
-  {
-    "code": "U0001F935",
-    "name": "person in tuxedo"
-  },
-  {
-    "code": "U0001F935",
-    "name": "man in tuxedo"
-  },
-  {
-    "code": "U0001F935",
-    "name": "woman in tuxedo"
-  },
-  {
-    "code": "U0001F470",
-    "name": "person with veil"
-  },
-  {
-    "code": "U0001F470",
-    "name": "man with veil"
-  },
-  {
-    "code": "U0001F470",
-    "name": "woman with veil"
-  },
-  {
-    "code": "U0001F930",
-    "name": "pregnant woman"
-  },
-  {
-    "code": "U0001FAC3",
-    "name": "pregnant man"
-  },
-  {
-    "code": "U0001FAC4",
-    "name": "pregnant person"
-  },
-  {
-    "code": "U0001F931",
-    "name": "breast-feeding"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman feeding baby"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man feeding baby"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person feeding baby"
-  },
-  {
-    "code": "U0001F47C",
-    "name": "baby angel"
-  },
-  {
-    "code": "U0001F385",
-    "name": "Santa Claus"
-  },
-  {
-    "code": "U0001F936",
-    "name": "Mrs. Claus"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "mx claus"
-  },
-  {
-    "code": "U0001F9B8",
-    "name": "superhero"
-  },
-  {
-    "code": "U0001F9B8",
-    "name": "man superhero"
-  },
-  {
-    "code": "U0001F9B8",
-    "name": "woman superhero"
-  },
-  {
-    "code": "U0001F9B9",
-    "name": "supervillain"
-  },
-  {
-    "code": "U0001F9B9",
-    "name": "man supervillain"
-  },
-  {
-    "code": "U0001F9B9",
-    "name": "woman supervillain"
-  },
-  {
-    "code": "U0001F9D9",
-    "name": "mage"
-  },
-  {
-    "code": "U0001F9D9",
-    "name": "man mage"
-  },
-  {
-    "code": "U0001F9D9",
-    "name": "woman mage"
-  },
-  {
-    "code": "U0001F9DA",
-    "name": "fairy"
-  },
-  {
-    "code": "U0001F9DA",
-    "name": "man fairy"
-  },
-  {
-    "code": "U0001F9DA",
-    "name": "woman fairy"
-  },
-  {
-    "code": "U0001F9DB",
-    "name": "vampire"
-  },
-  {
-    "code": "U0001F9DB",
-    "name": "man vampire"
-  },
-  {
-    "code": "U0001F9DB",
-    "name": "woman vampire"
-  },
-  {
-    "code": "U0001F9DC",
-    "name": "merperson"
-  },
-  {
-    "code": "U0001F9DC",
-    "name": "merman"
-  },
-  {
-    "code": "U0001F9DC",
-    "name": "mermaid"
-  },
-  {
-    "code": "U0001F9DD",
-    "name": "elf"
-  },
-  {
-    "code": "U0001F9DD",
-    "name": "man elf"
-  },
-  {
-    "code": "U0001F9DD",
-    "name": "woman elf"
-  },
-  {
-    "code": "U0001F9DE",
-    "name": "genie"
-  },
-  {
-    "code": "U0001F9DE",
-    "name": "man genie"
-  },
-  {
-    "code": "U0001F9DE",
-    "name": "woman genie"
-  },
-  {
-    "code": "U0001F9DF",
-    "name": "zombie"
-  },
-  {
-    "code": "U0001F9DF",
-    "name": "man zombie"
-  },
-  {
-    "code": "U0001F9DF",
-    "name": "woman zombie"
-  },
-  {
-    "code": "U0001F9CC",
-    "name": "troll"
-  },
-  {
-    "code": "U0001F486",
-    "name": "person getting massage"
-  },
-  {
-    "code": "U0001F486",
-    "name": "man getting massage"
-  },
-  {
-    "code": "U0001F486",
-    "name": "woman getting massage"
-  },
-  {
-    "code": "U0001F487",
-    "name": "person getting haircut"
-  },
-  {
-    "code": "U0001F487",
-    "name": "man getting haircut"
-  },
-  {
-    "code": "U0001F487",
-    "name": "woman getting haircut"
-  },
-  {
-    "code": "U0001F6B6",
-    "name": "person walking"
-  },
-  {
-    "code": "U0001F6B6",
-    "name": "man walking"
-  },
-  {
-    "code": "U0001F6B6",
-    "name": "woman walking"
-  },
-  {
-    "code": "U0001F9CD",
-    "name": "person standing"
-  },
-  {
-    "code": "U0001F9CD",
-    "name": "man standing"
-  },
-  {
-    "code": "U0001F9CD",
-    "name": "woman standing"
-  },
-  {
-    "code": "U0001F9CE",
-    "name": "person kneeling"
-  },
-  {
-    "code": "U0001F9CE",
-    "name": "man kneeling"
-  },
-  {
-    "code": "U0001F9CE",
-    "name": "woman kneeling"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person with white cane"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man with white cane"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman with white cane"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person in motorized wheelchair"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man in motorized wheelchair"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman in motorized wheelchair"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "person in manual wheelchair"
-  },
-  {
-    "code": "U0001F468",
-    "name": "man in manual wheelchair"
-  },
-  {
-    "code": "U0001F469",
-    "name": "woman in manual wheelchair"
-  },
-  {
-    "code": "U0001F3C3",
-    "name": "person running"
-  },
-  {
-    "code": "U0001F3C3",
-    "name": "man running"
-  },
-  {
-    "code": "U0001F3C3",
-    "name": "woman running"
-  },
-  {
-    "code": "U0001F483",
-    "name": "woman dancing"
-  },
-  {
-    "code": "U0001F57A",
-    "name": "man dancing"
-  },
-  {
-    "code": "U0001F574",
-    "name": "person in suit levitating"
-  },
-  {
-    "code": "U0001F46F",
-    "name": "people with bunny ears"
-  },
-  {
-    "code": "U0001F46F",
-    "name": "men with bunny ears"
-  },
-  {
-    "code": "U0001F46F",
-    "name": "women with bunny ears"
-  },
-  {
-    "code": "U0001F9D6",
-    "name": "person in steamy room"
-  },
-  {
-    "code": "U0001F9D6",
-    "name": "man in steamy room"
-  },
-  {
-    "code": "U0001F9D6",
-    "name": "woman in steamy room"
-  },
-  {
-    "code": "U0001F9D7",
-    "name": "person climbing"
-  },
-  {
-    "code": "U0001F9D7",
-    "name": "man climbing"
-  },
-  {
-    "code": "U0001F9D7",
-    "name": "woman climbing"
-  },
-  {
-    "code": "U0001F93A",
-    "name": "person fencing"
-  },
-  {
-    "code": "U0001F3C7",
-    "name": "horse racing"
-  },
-  {
-    "code": "U00026F7",
-    "name": "skier"
-  },
-  {
-    "code": "U0001F3C2",
-    "name": "snowboarder"
-  },
-  {
-    "code": "U0001F3CC",
-    "name": "person golfing"
-  },
-  {
-    "code": "U0001F3CC",
-    "name": "man golfing"
-  },
-  {
-    "code": "U0001F3CC",
-    "name": "woman golfing"
-  },
-  {
-    "code": "U0001F3C4",
-    "name": "person surfing"
-  },
-  {
-    "code": "U0001F3C4",
-    "name": "man surfing"
-  },
-  {
-    "code": "U0001F3C4",
-    "name": "woman surfing"
-  },
-  {
-    "code": "U0001F6A3",
-    "name": "person rowing boat"
-  },
-  {
-    "code": "U0001F6A3",
-    "name": "man rowing boat"
-  },
-  {
-    "code": "U0001F6A3",
-    "name": "woman rowing boat"
-  },
-  {
-    "code": "U0001F3CA",
-    "name": "person swimming"
-  },
-  {
-    "code": "U0001F3CA",
-    "name": "man swimming"
-  },
-  {
-    "code": "U0001F3CA",
-    "name": "woman swimming"
-  },
-  {
-    "code": "U00026F9",
-    "name": "person bouncing ball"
-  },
-  {
-    "code": "U00026F9",
-    "name": "man bouncing ball"
-  },
-  {
-    "code": "U00026F9",
-    "name": "woman bouncing ball"
-  },
-  {
-    "code": "U0001F3CB",
-    "name": "person lifting weights"
-  },
-  {
-    "code": "U0001F3CB",
-    "name": "man lifting weights"
-  },
-  {
-    "code": "U0001F3CB",
-    "name": "woman lifting weights"
-  },
-  {
-    "code": "U0001F6B4",
-    "name": "person biking"
-  },
-  {
-    "code": "U0001F6B4",
-    "name": "man biking"
-  },
-  {
-    "code": "U0001F6B4",
-    "name": "woman biking"
-  },
-  {
-    "code": "U0001F6B5",
-    "name": "person mountain biking"
-  },
-  {
-    "code": "U0001F6B5",
-    "name": "man mountain biking"
-  },
-  {
-    "code": "U0001F6B5",
-    "name": "woman mountain biking"
-  },
-  {
-    "code": "U0001F938",
-    "name": "person cartwheeling"
-  },
-  {
-    "code": "U0001F938",
-    "name": "man cartwheeling"
-  },
-  {
-    "code": "U0001F938",
-    "name": "woman cartwheeling"
-  },
-  {
-    "code": "U0001F93C",
-    "name": "people wrestling"
-  },
-  {
-    "code": "U0001F93C",
-    "name": "men wrestling"
-  },
-  {
-    "code": "U0001F93C",
-    "name": "women wrestling"
-  },
-  {
-    "code": "U0001F93D",
-    "name": "person playing water polo"
-  },
-  {
-    "code": "U0001F93D",
-    "name": "man playing water polo"
-  },
-  {
-    "code": "U0001F93D",
-    "name": "woman playing water polo"
-  },
-  {
-    "code": "U0001F93E",
-    "name": "person playing handball"
-  },
-  {
-    "code": "U0001F93E",
-    "name": "man playing handball"
-  },
-  {
-    "code": "U0001F93E",
-    "name": "woman playing handball"
-  },
-  {
-    "code": "U0001F939",
-    "name": "person juggling"
-  },
-  {
-    "code": "U0001F939",
-    "name": "man juggling"
-  },
-  {
-    "code": "U0001F939",
-    "name": "woman juggling"
-  },
-  {
-    "code": "U0001F9D8",
-    "name": "person in lotus position"
-  },
-  {
-    "code": "U0001F9D8",
-    "name": "man in lotus position"
-  },
-  {
-    "code": "U0001F9D8",
-    "name": "woman in lotus position"
-  },
-  {
-    "code": "U0001F6C0",
-    "name": "person taking bath"
-  },
-  {
-    "code": "U0001F6CC",
-    "name": "person in bed"
-  },
-  {
-    "code": "U0001F9D1",
-    "name": "people holding hands"
-  },
-  {
-    "code": "U0001F46D",
-    "name": "women holding hands"
-  },
-  {
-    "code": "U0001F46B",
-    "name": "woman and man holding hands"
-  },
-  {
-    "code": "U0001F46C",
-    "name": "men holding hands"
-  },
-  {
-    "code": "U0001F48F",
-    "name": "kiss"
-  },
-  {
-    "code": "U0001F469",
-    "name": "kiss: woman, man"
-  },
-  {
-    "code": "U0001F468",
-    "name": "kiss: man, man"
-  },
-  {
-    "code": "U0001F469",
-    "name": "kiss: woman, woman"
-  },
-  {
-    "code": "U0001F491",
-    "name": "couple with heart"
-  },
-  {
-    "code": "U0001F469",
-    "name": "couple with heart: woman, man"
-  },
-  {
-    "code": "U0001F468",
-    "name": "couple with heart: man, man"
-  },
-  {
-    "code": "U0001F469",
-    "name": "couple with heart: woman, woman"
-  },
-  {
-    "code": "U0001F46A",
-    "name": "family"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, woman, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, woman, girl"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, woman, girl, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, woman, boy, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, woman, girl, girl"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, man, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, man, girl"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, man, girl, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, man, boy, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, man, girl, girl"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, woman, boy"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, woman, girl"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, woman, girl, boy"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, woman, boy, boy"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, woman, girl, girl"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, boy, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, girl"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, girl, boy"
-  },
-  {
-    "code": "U0001F468",
-    "name": "family: man, girl, girl"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, boy"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, boy, boy"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, girl"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, girl, boy"
-  },
-  {
-    "code": "U0001F469",
-    "name": "family: woman, girl, girl"
-  },
-  {
-    "code": "U0001F5E3",
-    "name": "speaking head"
-  },
-  {
-    "code": "U0001F464",
-    "name": "bust in silhouette"
-  },
-  {
-    "code": "U0001F465",
-    "name": "busts in silhouette"
-  },
-  {
-    "code": "U0001FAC2",
-    "name": "people hugging"
-  },
-  {
-    "code": "U0001F463",
-    "name": "footprints"
-  },
-  {
-    "code": "U0001F9B0",
-    "name": "red hair"
-  },
-  {
-    "code": "U0001F9B1",
-    "name": "curly hair"
-  },
-  {
-    "code": "U0001F9B3",
-    "name": "white hair"
-  },
-  {
-    "code": "U0001F9B2",
-    "name": "bald"
-  },
-  {
-    "code": "U0001F435",
-    "name": "monkey face"
-  },
-  {
-    "code": "U0001F412",
-    "name": "monkey"
-  },
-  {
-    "code": "U0001F98D",
-    "name": "gorilla"
-  },
-  {
-    "code": "U0001F9A7",
-    "name": "orangutan"
-  },
-  {
-    "code": "U0001F436",
-    "name": "dog face"
-  },
-  {
-    "code": "U0001F415",
-    "name": "dog"
-  },
-  {
-    "code": "U0001F9AE",
-    "name": "guide dog"
-  },
-  {
-    "code": "U0001F415",
-    "name": "service dog"
-  },
-  {
-    "code": "U0001F429",
-    "name": "poodle"
-  },
-  {
-    "code": "U0001F43A",
-    "name": "wolf"
-  },
-  {
-    "code": "U0001F98A",
-    "name": "fox"
-  },
-  {
-    "code": "U0001F99D",
-    "name": "raccoon"
-  },
-  {
-    "code": "U0001F431",
-    "name": "cat face"
-  },
-  {
-    "code": "U0001F408",
-    "name": "cat"
-  },
-  {
-    "code": "U0001F408",
-    "name": "black cat"
-  },
-  {
-    "code": "U0001F981",
-    "name": "lion"
-  },
-  {
-    "code": "U0001F42F",
-    "name": "tiger face"
-  },
-  {
-    "code": "U0001F405",
-    "name": "tiger"
-  },
-  {
-    "code": "U0001F406",
-    "name": "leopard"
-  },
-  {
-    "code": "U0001F434",
-    "name": "horse face"
-  },
-  {
-    "code": "U0001FACE",
-    "name": "⊛ moose"
-  },
-  {
-    "code": "U0001FACF",
-    "name": "⊛ donkey"
-  },
-  {
-    "code": "U0001F40E",
-    "name": "horse"
-  },
-  {
-    "code": "U0001F984",
-    "name": "unicorn"
-  },
-  {
-    "code": "U0001F993",
-    "name": "zebra"
-  },
-  {
-    "code": "U0001F98C",
-    "name": "deer"
-  },
-  {
-    "code": "U0001F9AC",
-    "name": "bison"
-  },
-  {
-    "code": "U0001F42E",
-    "name": "cow face"
-  },
-  {
-    "code": "U0001F402",
-    "name": "ox"
-  },
-  {
-    "code": "U0001F403",
-    "name": "water buffalo"
-  },
-  {
-    "code": "U0001F404",
-    "name": "cow"
-  },
-  {
-    "code": "U0001F437",
-    "name": "pig face"
-  },
-  {
-    "code": "U0001F416",
-    "name": "pig"
-  },
-  {
-    "code": "U0001F417",
-    "name": "boar"
-  },
-  {
-    "code": "U0001F43D",
-    "name": "pig nose"
-  },
-  {
-    "code": "U0001F40F",
-    "name": "ram"
-  },
-  {
-    "code": "U0001F411",
-    "name": "ewe"
-  },
-  {
-    "code": "U0001F410",
-    "name": "goat"
-  },
-  {
-    "code": "U0001F42A",
-    "name": "camel"
-  },
-  {
-    "code": "U0001F42B",
-    "name": "two-hump camel"
-  },
-  {
-    "code": "U0001F999",
-    "name": "llama"
-  },
-  {
-    "code": "U0001F992",
-    "name": "giraffe"
-  },
-  {
-    "code": "U0001F418",
-    "name": "elephant"
-  },
-  {
-    "code": "U0001F9A3",
-    "name": "mammoth"
-  },
-  {
-    "code": "U0001F98F",
-    "name": "rhinoceros"
-  },
-  {
-    "code": "U0001F99B",
-    "name": "hippopotamus"
-  },
-  {
-    "code": "U0001F42D",
-    "name": "mouse face"
-  },
-  {
-    "code": "U0001F401",
-    "name": "mouse"
-  },
-  {
-    "code": "U0001F400",
-    "name": "rat"
-  },
-  {
-    "code": "U0001F439",
-    "name": "hamster"
-  },
-  {
-    "code": "U0001F430",
-    "name": "rabbit face"
-  },
-  {
-    "code": "U0001F407",
-    "name": "rabbit"
-  },
-  {
-    "code": "U0001F43F",
-    "name": "chipmunk"
-  },
-  {
-    "code": "U0001F9AB",
-    "name": "beaver"
-  },
-  {
-    "code": "U0001F994",
-    "name": "hedgehog"
-  },
-  {
-    "code": "U0001F987",
-    "name": "bat"
-  },
-  {
-    "code": "U0001F43B",
-    "name": "bear"
-  },
-  {
-    "code": "U0001F43B",
-    "name": "polar bear"
-  },
-  {
-    "code": "U0001F428",
-    "name": "koala"
-  },
-  {
-    "code": "U0001F43C",
-    "name": "panda"
-  },
-  {
-    "code": "U0001F9A5",
-    "name": "sloth"
-  },
-  {
-    "code": "U0001F9A6",
-    "name": "otter"
-  },
-  {
-    "code": "U0001F9A8",
-    "name": "skunk"
-  },
-  {
-    "code": "U0001F998",
-    "name": "kangaroo"
-  },
-  {
-    "code": "U0001F9A1",
-    "name": "badger"
-  },
-  {
-    "code": "U0001F43E",
-    "name": "paw prints"
-  },
-  {
-    "code": "U0001F983",
-    "name": "turkey"
-  },
-  {
-    "code": "U0001F414",
-    "name": "chicken"
-  },
-  {
-    "code": "U0001F413",
-    "name": "rooster"
-  },
-  {
-    "code": "U0001F423",
-    "name": "hatching chick"
-  },
-  {
-    "code": "U0001F424",
-    "name": "baby chick"
-  },
-  {
-    "code": "U0001F425",
-    "name": "front-facing baby chick"
-  },
-  {
-    "code": "U0001F426",
-    "name": "bird"
-  },
-  {
-    "code": "U0001F427",
-    "name": "penguin"
-  },
-  {
-    "code": "U0001F54A",
-    "name": "dove"
-  },
-  {
-    "code": "U0001F985",
-    "name": "eagle"
-  },
-  {
-    "code": "U0001F986",
-    "name": "duck"
-  },
-  {
-    "code": "U0001F9A2",
-    "name": "swan"
-  },
-  {
-    "code": "U0001F989",
-    "name": "owl"
-  },
-  {
-    "code": "U0001F9A4",
-    "name": "dodo"
-  },
-  {
-    "code": "U0001FAB6",
-    "name": "feather"
-  },
-  {
-    "code": "U0001F9A9",
-    "name": "flamingo"
-  },
-  {
-    "code": "U0001F99A",
-    "name": "peacock"
-  },
-  {
-    "code": "U0001F99C",
-    "name": "parrot"
-  },
-  {
-    "code": "U0001FABD",
-    "name": "⊛ wing"
-  },
-  {
-    "code": "U0001F426",
-    "name": "⊛ black bird"
-  },
-  {
-    "code": "U0001FABF",
-    "name": "⊛ goose"
-  },
-  {
-    "code": "U0001F438",
-    "name": "frog"
-  },
-  {
-    "code": "U0001F40A",
-    "name": "crocodile"
-  },
-  {
-    "code": "U0001F422",
-    "name": "turtle"
-  },
-  {
-    "code": "U0001F98E",
-    "name": "lizard"
-  },
-  {
-    "code": "U0001F40D",
-    "name": "snake"
-  },
-  {
-    "code": "U0001F432",
-    "name": "dragon face"
-  },
-  {
-    "code": "U0001F409",
-    "name": "dragon"
-  },
-  {
-    "code": "U0001F995",
-    "name": "sauropod"
-  },
-  {
-    "code": "U0001F996",
-    "name": "T-Rex"
-  },
-  {
-    "code": "U0001F433",
-    "name": "spouting whale"
-  },
-  {
-    "code": "U0001F40B",
-    "name": "whale"
-  },
-  {
-    "code": "U0001F42C",
-    "name": "dolphin"
-  },
-  {
-    "code": "U0001F9AD",
-    "name": "seal"
-  },
-  {
-    "code": "U0001F41F",
-    "name": "fish"
-  },
-  {
-    "code": "U0001F420",
-    "name": "tropical fish"
-  },
-  {
-    "code": "U0001F421",
-    "name": "blowfish"
-  },
-  {
-    "code": "U0001F988",
-    "name": "shark"
-  },
-  {
-    "code": "U0001F419",
-    "name": "octopus"
-  },
-  {
-    "code": "U0001F41A",
-    "name": "spiral shell"
-  },
-  {
-    "code": "U0001FAB8",
-    "name": "coral"
-  },
-  {
-    "code": "U0001FABC",
-    "name": "⊛ jellyfish"
-  },
-  {
-    "code": "U0001F40C",
-    "name": "snail"
-  },
-  {
-    "code": "U0001F98B",
-    "name": "butterfly"
-  },
-  {
-    "code": "U0001F41B",
-    "name": "bug"
-  },
-  {
-    "code": "U0001F41C",
-    "name": "ant"
-  },
-  {
-    "code": "U0001F41D",
-    "name": "honeybee"
-  },
-  {
-    "code": "U0001FAB2",
-    "name": "beetle"
-  },
-  {
-    "code": "U0001F41E",
-    "name": "lady beetle"
-  },
-  {
-    "code": "U0001F997",
-    "name": "cricket"
-  },
-  {
-    "code": "U0001FAB3",
-    "name": "cockroach"
-  },
-  {
-    "code": "U0001F577",
-    "name": "spider"
-  },
-  {
-    "code": "U0001F578",
-    "name": "spider web"
-  },
-  {
-    "code": "U0001F982",
-    "name": "scorpion"
-  },
-  {
-    "code": "U0001F99F",
-    "name": "mosquito"
-  },
-  {
-    "code": "U0001FAB0",
-    "name": "fly"
-  },
-  {
-    "code": "U0001FAB1",
-    "name": "worm"
-  },
-  {
-    "code": "U0001F9A0",
-    "name": "microbe"
-  },
-  {
-    "code": "U0001F490",
-    "name": "bouquet"
-  },
-  {
-    "code": "U0001F338",
-    "name": "cherry blossom"
-  },
-  {
-    "code": "U0001F4AE",
-    "name": "white flower"
-  },
-  {
-    "code": "U0001FAB7",
-    "name": "lotus"
-  },
-  {
-    "code": "U0001F3F5",
-    "name": "rosette"
-  },
-  {
-    "code": "U0001F339",
-    "name": "rose"
-  },
-  {
-    "code": "U0001F940",
-    "name": "wilted flower"
-  },
-  {
-    "code": "U0001F33A",
-    "name": "hibiscus"
-  },
-  {
-    "code": "U0001F33B",
-    "name": "sunflower"
-  },
-  {
-    "code": "U0001F33C",
-    "name": "blossom"
-  },
-  {
-    "code": "U0001F337",
-    "name": "tulip"
-  },
-  {
-    "code": "U0001FABB",
-    "name": "⊛ hyacinth"
-  },
-  {
-    "code": "U0001F331",
-    "name": "seedling"
-  },
-  {
-    "code": "U0001FAB4",
-    "name": "potted plant"
-  },
-  {
-    "code": "U0001F332",
-    "name": "evergreen tree"
-  },
-  {
-    "code": "U0001F333",
-    "name": "deciduous tree"
-  },
-  {
-    "code": "U0001F334",
-    "name": "palm tree"
-  },
-  {
-    "code": "U0001F335",
-    "name": "cactus"
-  },
-  {
-    "code": "U0001F33E",
-    "name": "sheaf of rice"
-  },
-  {
-    "code": "U0001F33F",
-    "name": "herb"
-  },
-  {
-    "code": "U0002618",
-    "name": "shamrock"
-  },
-  {
-    "code": "U0001F340",
-    "name": "four leaf clover"
-  },
-  {
-    "code": "U0001F341",
-    "name": "maple leaf"
-  },
-  {
-    "code": "U0001F342",
-    "name": "fallen leaf"
-  },
-  {
-    "code": "U0001F343",
-    "name": "leaf fluttering in wind"
-  },
-  {
-    "code": "U0001FAB9",
-    "name": "empty nest"
-  },
-  {
-    "code": "U0001FABA",
-    "name": "nest with eggs"
-  },
-  {
-    "code": "U0001F344",
-    "name": "mushroom"
-  },
-  {
-    "code": "U0001F347",
-    "name": "grapes"
-  },
-  {
-    "code": "U0001F348",
-    "name": "melon"
-  },
-  {
-    "code": "U0001F349",
-    "name": "watermelon"
-  },
-  {
-    "code": "U0001F34A",
-    "name": "tangerine"
-  },
-  {
-    "code": "U0001F34B",
-    "name": "lemon"
-  },
-  {
-    "code": "U0001F34C",
-    "name": "banana"
-  },
-  {
-    "code": "U0001F34D",
-    "name": "pineapple"
-  },
-  {
-    "code": "U0001F96D",
-    "name": "mango"
-  },
-  {
-    "code": "U0001F34E",
-    "name": "red apple"
-  },
-  {
-    "code": "U0001F34F",
-    "name": "green apple"
-  },
-  {
-    "code": "U0001F350",
-    "name": "pear"
-  },
-  {
-    "code": "U0001F351",
-    "name": "peach"
-  },
-  {
-    "code": "U0001F352",
-    "name": "cherries"
-  },
-  {
-    "code": "U0001F353",
-    "name": "strawberry"
-  },
-  {
-    "code": "U0001FAD0",
-    "name": "blueberries"
-  },
-  {
-    "code": "U0001F95D",
-    "name": "kiwi fruit"
-  },
-  {
-    "code": "U0001F345",
-    "name": "tomato"
-  },
-  {
-    "code": "U0001FAD2",
-    "name": "olive"
-  },
-  {
-    "code": "U0001F965",
-    "name": "coconut"
-  },
-  {
-    "code": "U0001F951",
-    "name": "avocado"
-  },
-  {
-    "code": "U0001F346",
-    "name": "eggplant"
-  },
-  {
-    "code": "U0001F954",
-    "name": "potato"
-  },
-  {
-    "code": "U0001F955",
-    "name": "carrot"
-  },
-  {
-    "code": "U0001F33D",
-    "name": "ear of corn"
-  },
-  {
-    "code": "U0001F336",
-    "name": "hot pepper"
-  },
-  {
-    "code": "U0001FAD1",
-    "name": "bell pepper"
-  },
-  {
-    "code": "U0001F952",
-    "name": "cucumber"
-  },
-  {
-    "code": "U0001F96C",
-    "name": "leafy green"
-  },
-  {
-    "code": "U0001F966",
-    "name": "broccoli"
-  },
-  {
-    "code": "U0001F9C4",
-    "name": "garlic"
-  },
-  {
-    "code": "U0001F9C5",
-    "name": "onion"
-  },
-  {
-    "code": "U0001F95C",
-    "name": "peanuts"
-  },
-  {
-    "code": "U0001FAD8",
-    "name": "beans"
-  },
-  {
-    "code": "U0001F330",
-    "name": "chestnut"
-  },
-  {
-    "code": "U0001FADA",
-    "name": "⊛ ginger root"
-  },
-  {
-    "code": "U0001FADB",
-    "name": "⊛ pea pod"
-  },
-  {
-    "code": "U0001F35E",
-    "name": "bread"
-  },
-  {
-    "code": "U0001F950",
-    "name": "croissant"
-  },
-  {
-    "code": "U0001F956",
-    "name": "baguette bread"
-  },
-  {
-    "code": "U0001FAD3",
-    "name": "flatbread"
-  },
-  {
-    "code": "U0001F968",
-    "name": "pretzel"
-  },
-  {
-    "code": "U0001F96F",
-    "name": "bagel"
-  },
-  {
-    "code": "U0001F95E",
-    "name": "pancakes"
-  },
-  {
-    "code": "U0001F9C7",
-    "name": "waffle"
-  },
-  {
-    "code": "U0001F9C0",
-    "name": "cheese wedge"
-  },
-  {
-    "code": "U0001F356",
-    "name": "meat on bone"
-  },
-  {
-    "code": "U0001F357",
-    "name": "poultry leg"
-  },
-  {
-    "code": "U0001F969",
-    "name": "cut of meat"
-  },
-  {
-    "code": "U0001F953",
-    "name": "bacon"
-  },
-  {
-    "code": "U0001F354",
-    "name": "hamburger"
-  },
-  {
-    "code": "U0001F35F",
-    "name": "french fries"
-  },
-  {
-    "code": "U0001F355",
-    "name": "pizza"
-  },
-  {
-    "code": "U0001F32D",
-    "name": "hot dog"
-  },
-  {
-    "code": "U0001F96A",
-    "name": "sandwich"
-  },
-  {
-    "code": "U0001F32E",
-    "name": "taco"
-  },
-  {
-    "code": "U0001F32F",
-    "name": "burrito"
-  },
-  {
-    "code": "U0001FAD4",
-    "name": "tamale"
-  },
-  {
-    "code": "U0001F959",
-    "name": "stuffed flatbread"
-  },
-  {
-    "code": "U0001F9C6",
-    "name": "falafel"
-  },
-  {
-    "code": "U0001F95A",
-    "name": "egg"
-  },
-  {
-    "code": "U0001F373",
-    "name": "cooking"
-  },
-  {
-    "code": "U0001F958",
-    "name": "shallow pan of food"
-  },
-  {
-    "code": "U0001F372",
-    "name": "pot of food"
-  },
-  {
-    "code": "U0001FAD5",
-    "name": "fondue"
-  },
-  {
-    "code": "U0001F963",
-    "name": "bowl with spoon"
-  },
-  {
-    "code": "U0001F957",
-    "name": "green salad"
-  },
-  {
-    "code": "U0001F37F",
-    "name": "popcorn"
-  },
-  {
-    "code": "U0001F9C8",
-    "name": "butter"
-  },
-  {
-    "code": "U0001F9C2",
-    "name": "salt"
-  },
-  {
-    "code": "U0001F96B",
-    "name": "canned food"
-  },
-  {
-    "code": "U0001F371",
-    "name": "bento box"
-  },
-  {
-    "code": "U0001F358",
-    "name": "rice cracker"
-  },
-  {
-    "code": "U0001F359",
-    "name": "rice ball"
-  },
-  {
-    "code": "U0001F35A",
-    "name": "cooked rice"
-  },
-  {
-    "code": "U0001F35B",
-    "name": "curry rice"
-  },
-  {
-    "code": "U0001F35C",
-    "name": "steaming bowl"
-  },
-  {
-    "code": "U0001F35D",
-    "name": "spaghetti"
-  },
-  {
-    "code": "U0001F360",
-    "name": "roasted sweet potato"
-  },
-  {
-    "code": "U0001F362",
-    "name": "oden"
-  },
-  {
-    "code": "U0001F363",
-    "name": "sushi"
-  },
-  {
-    "code": "U0001F364",
-    "name": "fried shrimp"
-  },
-  {
-    "code": "U0001F365",
-    "name": "fish cake with swirl"
-  },
-  {
-    "code": "U0001F96E",
-    "name": "moon cake"
-  },
-  {
-    "code": "U0001F361",
-    "name": "dango"
-  },
-  {
-    "code": "U0001F95F",
-    "name": "dumpling"
-  },
-  {
-    "code": "U0001F960",
-    "name": "fortune cookie"
-  },
-  {
-    "code": "U0001F961",
-    "name": "takeout box"
-  },
-  {
-    "code": "U0001F980",
-    "name": "crab"
-  },
-  {
-    "code": "U0001F99E",
-    "name": "lobster"
-  },
-  {
-    "code": "U0001F990",
-    "name": "shrimp"
-  },
-  {
-    "code": "U0001F991",
-    "name": "squid"
-  },
-  {
-    "code": "U0001F9AA",
-    "name": "oyster"
-  },
-  {
-    "code": "U0001F366",
-    "name": "soft ice cream"
-  },
-  {
-    "code": "U0001F367",
-    "name": "shaved ice"
-  },
-  {
-    "code": "U0001F368",
-    "name": "ice cream"
-  },
-  {
-    "code": "U0001F369",
-    "name": "doughnut"
-  },
-  {
-    "code": "U0001F36A",
-    "name": "cookie"
-  },
-  {
-    "code": "U0001F382",
-    "name": "birthday cake"
-  },
-  {
-    "code": "U0001F370",
-    "name": "shortcake"
-  },
-  {
-    "code": "U0001F9C1",
-    "name": "cupcake"
-  },
-  {
-    "code": "U0001F967",
-    "name": "pie"
-  },
-  {
-    "code": "U0001F36B",
-    "name": "chocolate bar"
-  },
-  {
-    "code": "U0001F36C",
-    "name": "candy"
-  },
-  {
-    "code": "U0001F36D",
-    "name": "lollipop"
-  },
-  {
-    "code": "U0001F36E",
-    "name": "custard"
-  },
-  {
-    "code": "U0001F36F",
-    "name": "honey pot"
-  },
-  {
-    "code": "U0001F37C",
-    "name": "baby bottle"
-  },
-  {
-    "code": "U0001F95B",
-    "name": "glass of milk"
-  },
-  {
-    "code": "U0002615",
-    "name": "hot beverage"
-  },
-  {
-    "code": "U0001FAD6",
-    "name": "teapot"
-  },
-  {
-    "code": "U0001F375",
-    "name": "teacup without handle"
-  },
-  {
-    "code": "U0001F376",
-    "name": "sake"
-  },
-  {
-    "code": "U0001F37E",
-    "name": "bottle with popping cork"
-  },
-  {
-    "code": "U0001F377",
-    "name": "wine glass"
-  },
-  {
-    "code": "U0001F378",
-    "name": "cocktail glass"
-  },
-  {
-    "code": "U0001F379",
-    "name": "tropical drink"
-  },
-  {
-    "code": "U0001F37A",
-    "name": "beer mug"
-  },
-  {
-    "code": "U0001F37B",
-    "name": "clinking beer mugs"
-  },
-  {
-    "code": "U0001F942",
-    "name": "clinking glasses"
-  },
-  {
-    "code": "U0001F943",
-    "name": "tumbler glass"
-  },
-  {
-    "code": "U0001FAD7",
-    "name": "pouring liquid"
-  },
-  {
-    "code": "U0001F964",
-    "name": "cup with straw"
-  },
-  {
-    "code": "U0001F9CB",
-    "name": "bubble tea"
-  },
-  {
-    "code": "U0001F9C3",
-    "name": "beverage box"
-  },
-  {
-    "code": "U0001F9C9",
-    "name": "mate"
-  },
-  {
-    "code": "U0001F9CA",
-    "name": "ice"
-  },
-  {
-    "code": "U0001F962",
-    "name": "chopsticks"
-  },
-  {
-    "code": "U0001F37D",
-    "name": "fork and knife with plate"
-  },
-  {
-    "code": "U0001F374",
-    "name": "fork and knife"
-  },
-  {
-    "code": "U0001F944",
-    "name": "spoon"
-  },
-  {
-    "code": "U0001F52A",
-    "name": "kitchen knife"
-  },
-  {
-    "code": "U0001FAD9",
-    "name": "jar"
-  },
-  {
-    "code": "U0001F3FA",
-    "name": "amphora"
-  },
-  {
-    "code": "U0001F30D",
-    "name": "globe showing Europe-Africa"
-  },
-  {
-    "code": "U0001F30E",
-    "name": "globe showing Americas"
-  },
-  {
-    "code": "U0001F30F",
-    "name": "globe showing Asia-Australia"
-  },
-  {
-    "code": "U0001F310",
-    "name": "globe with meridians"
-  },
-  {
-    "code": "U0001F5FA",
-    "name": "world map"
-  },
-  {
-    "code": "U0001F5FE",
-    "name": "map of Japan"
-  },
-  {
-    "code": "U0001F9ED",
-    "name": "compass"
-  },
-  {
-    "code": "U0001F3D4",
-    "name": "snow-capped mountain"
-  },
-  {
-    "code": "U00026F0",
-    "name": "mountain"
-  },
-  {
-    "code": "U0001F30B",
-    "name": "volcano"
-  },
-  {
-    "code": "U0001F5FB",
-    "name": "mount fuji"
-  },
-  {
-    "code": "U0001F3D5",
-    "name": "camping"
-  },
-  {
-    "code": "U0001F3D6",
-    "name": "beach with umbrella"
-  },
-  {
-    "code": "U0001F3DC",
-    "name": "desert"
-  },
-  {
-    "code": "U0001F3DD",
-    "name": "desert island"
-  },
-  {
-    "code": "U0001F3DE",
-    "name": "national park"
-  },
-  {
-    "code": "U0001F3DF",
-    "name": "stadium"
-  },
-  {
-    "code": "U0001F3DB",
-    "name": "classical building"
-  },
-  {
-    "code": "U0001F3D7",
-    "name": "building construction"
-  },
-  {
-    "code": "U0001F9F1",
-    "name": "brick"
-  },
-  {
-    "code": "U0001FAA8",
-    "name": "rock"
-  },
-  {
-    "code": "U0001FAB5",
-    "name": "wood"
-  },
-  {
-    "code": "U0001F6D6",
-    "name": "hut"
-  },
-  {
-    "code": "U0001F3D8",
-    "name": "houses"
-  },
-  {
-    "code": "U0001F3DA",
-    "name": "derelict house"
-  },
-  {
-    "code": "U0001F3E0",
-    "name": "house"
-  },
-  {
-    "code": "U0001F3E1",
-    "name": "house with garden"
-  },
-  {
-    "code": "U0001F3E2",
-    "name": "office building"
-  },
-  {
-    "code": "U0001F3E3",
-    "name": "Japanese post office"
-  },
-  {
-    "code": "U0001F3E4",
-    "name": "post office"
-  },
-  {
-    "code": "U0001F3E5",
-    "name": "hospital"
-  },
-  {
-    "code": "U0001F3E6",
-    "name": "bank"
-  },
-  {
-    "code": "U0001F3E8",
-    "name": "hotel"
-  },
-  {
-    "code": "U0001F3E9",
-    "name": "love hotel"
-  },
-  {
-    "code": "U0001F3EA",
-    "name": "convenience store"
-  },
-  {
-    "code": "U0001F3EB",
-    "name": "school"
-  },
-  {
-    "code": "U0001F3EC",
-    "name": "department store"
-  },
-  {
-    "code": "U0001F3ED",
-    "name": "factory"
-  },
-  {
-    "code": "U0001F3EF",
-    "name": "Japanese castle"
-  },
-  {
-    "code": "U0001F3F0",
-    "name": "castle"
-  },
-  {
-    "code": "U0001F492",
-    "name": "wedding"
-  },
-  {
-    "code": "U0001F5FC",
-    "name": "Tokyo tower"
-  },
-  {
-    "code": "U0001F5FD",
-    "name": "Statue of Liberty"
-  },
-  {
-    "code": "U00026EA",
-    "name": "church"
-  },
-  {
-    "code": "U0001F54C",
-    "name": "mosque"
-  },
-  {
-    "code": "U0001F6D5",
-    "name": "hindu temple"
-  },
-  {
-    "code": "U0001F54D",
-    "name": "synagogue"
-  },
-  {
-    "code": "U00026E9",
-    "name": "shinto shrine"
-  },
-  {
-    "code": "U0001F54B",
-    "name": "kaaba"
-  },
-  {
-    "code": "U00026F2",
-    "name": "fountain"
-  },
-  {
-    "code": "U00026FA",
-    "name": "tent"
-  },
-  {
-    "code": "U0001F301",
-    "name": "foggy"
-  },
-  {
-    "code": "U0001F303",
-    "name": "night with stars"
-  },
-  {
-    "code": "U0001F3D9",
-    "name": "cityscape"
-  },
-  {
-    "code": "U0001F304",
-    "name": "sunrise over mountains"
-  },
-  {
-    "code": "U0001F305",
-    "name": "sunrise"
-  },
-  {
-    "code": "U0001F306",
-    "name": "cityscape at dusk"
-  },
-  {
-    "code": "U0001F307",
-    "name": "sunset"
-  },
-  {
-    "code": "U0001F309",
-    "name": "bridge at night"
-  },
-  {
-    "code": "U0002668",
-    "name": "hot springs"
-  },
-  {
-    "code": "U0001F3A0",
-    "name": "carousel horse"
-  },
-  {
-    "code": "U0001F6DD",
-    "name": "playground slide"
-  },
-  {
-    "code": "U0001F3A1",
-    "name": "ferris wheel"
-  },
-  {
-    "code": "U0001F3A2",
-    "name": "roller coaster"
-  },
-  {
-    "code": "U0001F488",
-    "name": "barber pole"
-  },
-  {
-    "code": "U0001F3AA",
-    "name": "circus tent"
-  },
-  {
-    "code": "U0001F682",
-    "name": "locomotive"
-  },
-  {
-    "code": "U0001F683",
-    "name": "railway car"
-  },
-  {
-    "code": "U0001F684",
-    "name": "high-speed train"
-  },
-  {
-    "code": "U0001F685",
-    "name": "bullet train"
-  },
-  {
-    "code": "U0001F686",
-    "name": "train"
-  },
-  {
-    "code": "U0001F687",
-    "name": "metro"
-  },
-  {
-    "code": "U0001F688",
-    "name": "light rail"
-  },
-  {
-    "code": "U0001F689",
-    "name": "station"
-  },
-  {
-    "code": "U0001F68A",
-    "name": "tram"
-  },
-  {
-    "code": "U0001F69D",
-    "name": "monorail"
-  },
-  {
-    "code": "U0001F69E",
-    "name": "mountain railway"
-  },
-  {
-    "code": "U0001F68B",
-    "name": "tram car"
-  },
-  {
-    "code": "U0001F68C",
-    "name": "bus"
-  },
-  {
-    "code": "U0001F68D",
-    "name": "oncoming bus"
-  },
-  {
-    "code": "U0001F68E",
-    "name": "trolleybus"
-  },
-  {
-    "code": "U0001F690",
-    "name": "minibus"
-  },
-  {
-    "code": "U0001F691",
-    "name": "ambulance"
-  },
-  {
-    "code": "U0001F692",
-    "name": "fire engine"
-  },
-  {
-    "code": "U0001F693",
-    "name": "police car"
-  },
-  {
-    "code": "U0001F694",
-    "name": "oncoming police car"
-  },
-  {
-    "code": "U0001F695",
-    "name": "taxi"
-  },
-  {
-    "code": "U0001F696",
-    "name": "oncoming taxi"
-  },
-  {
-    "code": "U0001F697",
-    "name": "automobile"
-  },
-  {
-    "code": "U0001F698",
-    "name": "oncoming automobile"
-  },
-  {
-    "code": "U0001F699",
-    "name": "sport utility vehicle"
-  },
-  {
-    "code": "U0001F6FB",
-    "name": "pickup truck"
-  },
-  {
-    "code": "U0001F69A",
-    "name": "delivery truck"
-  },
-  {
-    "code": "U0001F69B",
-    "name": "articulated lorry"
-  },
-  {
-    "code": "U0001F69C",
-    "name": "tractor"
-  },
-  {
-    "code": "U0001F3CE",
-    "name": "racing car"
-  },
-  {
-    "code": "U0001F3CD",
-    "name": "motorcycle"
-  },
-  {
-    "code": "U0001F6F5",
-    "name": "motor scooter"
-  },
-  {
-    "code": "U0001F9BD",
-    "name": "manual wheelchair"
-  },
-  {
-    "code": "U0001F9BC",
-    "name": "motorized wheelchair"
-  },
-  {
-    "code": "U0001F6FA",
-    "name": "auto rickshaw"
-  },
-  {
-    "code": "U0001F6B2",
-    "name": "bicycle"
-  },
-  {
-    "code": "U0001F6F4",
-    "name": "kick scooter"
-  },
-  {
-    "code": "U0001F6F9",
-    "name": "skateboard"
-  },
-  {
-    "code": "U0001F6FC",
-    "name": "roller skate"
-  },
-  {
-    "code": "U0001F68F",
-    "name": "bus stop"
-  },
-  {
-    "code": "U0001F6E3",
-    "name": "motorway"
-  },
-  {
-    "code": "U0001F6E4",
-    "name": "railway track"
-  },
-  {
-    "code": "U0001F6E2",
-    "name": "oil drum"
-  },
-  {
-    "code": "U00026FD",
-    "name": "fuel pump"
-  },
-  {
-    "code": "U0001F6DE",
-    "name": "wheel"
-  },
-  {
-    "code": "U0001F6A8",
-    "name": "police car light"
-  },
-  {
-    "code": "U0001F6A5",
-    "name": "horizontal traffic light"
-  },
-  {
-    "code": "U0001F6A6",
-    "name": "vertical traffic light"
-  },
-  {
-    "code": "U0001F6D1",
-    "name": "stop sign"
-  },
-  {
-    "code": "U0001F6A7",
-    "name": "construction"
-  },
-  {
-    "code": "U0002693",
-    "name": "anchor"
-  },
-  {
-    "code": "U0001F6DF",
-    "name": "ring buoy"
-  },
-  {
-    "code": "U00026F5",
-    "name": "sailboat"
-  },
-  {
-    "code": "U0001F6F6",
-    "name": "canoe"
-  },
-  {
-    "code": "U0001F6A4",
-    "name": "speedboat"
-  },
-  {
-    "code": "U0001F6F3",
-    "name": "passenger ship"
-  },
-  {
-    "code": "U00026F4",
-    "name": "ferry"
-  },
-  {
-    "code": "U0001F6E5",
-    "name": "motor boat"
-  },
-  {
-    "code": "U0001F6A2",
-    "name": "ship"
-  },
-  {
-    "code": "U0002708",
-    "name": "airplane"
-  },
-  {
-    "code": "U0001F6E9",
-    "name": "small airplane"
-  },
-  {
-    "code": "U0001F6EB",
-    "name": "airplane departure"
-  },
-  {
-    "code": "U0001F6EC",
-    "name": "airplane arrival"
-  },
-  {
-    "code": "U0001FA82",
-    "name": "parachute"
-  },
-  {
-    "code": "U0001F4BA",
-    "name": "seat"
-  },
-  {
-    "code": "U0001F681",
-    "name": "helicopter"
-  },
-  {
-    "code": "U0001F69F",
-    "name": "suspension railway"
-  },
-  {
-    "code": "U0001F6A0",
-    "name": "mountain cableway"
-  },
-  {
-    "code": "U0001F6A1",
-    "name": "aerial tramway"
-  },
-  {
-    "code": "U0001F6F0",
-    "name": "satellite"
-  },
-  {
-    "code": "U0001F680",
-    "name": "rocket"
-  },
-  {
-    "code": "U0001F6F8",
-    "name": "flying saucer"
-  },
-  {
-    "code": "U0001F6CE",
-    "name": "bellhop bell"
-  },
-  {
-    "code": "U0001F9F3",
-    "name": "luggage"
-  },
-  {
-    "code": "U000231B",
-    "name": "hourglass done"
-  },
-  {
-    "code": "U00023F3",
-    "name": "hourglass not done"
-  },
-  {
-    "code": "U000231A",
-    "name": "watch"
-  },
-  {
-    "code": "U00023F0",
-    "name": "alarm clock"
-  },
-  {
-    "code": "U00023F1",
-    "name": "stopwatch"
-  },
-  {
-    "code": "U00023F2",
-    "name": "timer clock"
-  },
-  {
-    "code": "U0001F570",
-    "name": "mantelpiece clock"
-  },
-  {
-    "code": "U0001F55B",
-    "name": "twelve o’clock"
-  },
-  {
-    "code": "U0001F567",
-    "name": "twelve-thirty"
-  },
-  {
-    "code": "U0001F550",
-    "name": "one o’clock"
-  },
-  {
-    "code": "U0001F55C",
-    "name": "one-thirty"
-  },
-  {
-    "code": "U0001F551",
-    "name": "two o’clock"
-  },
-  {
-    "code": "U0001F55D",
-    "name": "two-thirty"
-  },
-  {
-    "code": "U0001F552",
-    "name": "three o’clock"
-  },
-  {
-    "code": "U0001F55E",
-    "name": "three-thirty"
-  },
-  {
-    "code": "U0001F553",
-    "name": "four o’clock"
-  },
-  {
-    "code": "U0001F55F",
-    "name": "four-thirty"
-  },
-  {
-    "code": "U0001F554",
-    "name": "five o’clock"
-  },
-  {
-    "code": "U0001F560",
-    "name": "five-thirty"
-  },
-  {
-    "code": "U0001F555",
-    "name": "six o’clock"
-  },
-  {
-    "code": "U0001F561",
-    "name": "six-thirty"
-  },
-  {
-    "code": "U0001F556",
-    "name": "seven o’clock"
-  },
-  {
-    "code": "U0001F562",
-    "name": "seven-thirty"
-  },
-  {
-    "code": "U0001F557",
-    "name": "eight o’clock"
-  },
-  {
-    "code": "U0001F563",
-    "name": "eight-thirty"
-  },
-  {
-    "code": "U0001F558",
-    "name": "nine o’clock"
-  },
-  {
-    "code": "U0001F564",
-    "name": "nine-thirty"
-  },
-  {
-    "code": "U0001F559",
-    "name": "ten o’clock"
-  },
-  {
-    "code": "U0001F565",
-    "name": "ten-thirty"
-  },
-  {
-    "code": "U0001F55A",
-    "name": "eleven o’clock"
-  },
-  {
-    "code": "U0001F566",
-    "name": "eleven-thirty"
-  },
-  {
-    "code": "U0001F311",
-    "name": "new moon"
-  },
-  {
-    "code": "U0001F312",
-    "name": "waxing crescent moon"
-  },
-  {
-    "code": "U0001F313",
-    "name": "first quarter moon"
-  },
-  {
-    "code": "U0001F314",
-    "name": "waxing gibbous moon"
-  },
-  {
-    "code": "U0001F315",
-    "name": "full moon"
-  },
-  {
-    "code": "U0001F316",
-    "name": "waning gibbous moon"
-  },
-  {
-    "code": "U0001F317",
-    "name": "last quarter moon"
-  },
-  {
-    "code": "U0001F318",
-    "name": "waning crescent moon"
-  },
-  {
-    "code": "U0001F319",
-    "name": "crescent moon"
-  },
-  {
-    "code": "U0001F31A",
-    "name": "new moon face"
-  },
-  {
-    "code": "U0001F31B",
-    "name": "first quarter moon face"
-  },
-  {
-    "code": "U0001F31C",
-    "name": "last quarter moon face"
-  },
-  {
-    "code": "U0001F321",
-    "name": "thermometer"
-  },
-  {
-    "code": "U0002600",
-    "name": "sun"
-  },
-  {
-    "code": "U0001F31D",
-    "name": "full moon face"
-  },
-  {
-    "code": "U0001F31E",
-    "name": "sun with face"
-  },
-  {
-    "code": "U0001FA90",
-    "name": "ringed planet"
-  },
-  {
-    "code": "U0002B50",
-    "name": "star"
-  },
-  {
-    "code": "U0001F31F",
-    "name": "glowing star"
-  },
-  {
-    "code": "U0001F320",
-    "name": "shooting star"
-  },
-  {
-    "code": "U0001F30C",
-    "name": "milky way"
-  },
-  {
-    "code": "U0002601",
-    "name": "cloud"
-  },
-  {
-    "code": "U00026C5",
-    "name": "sun behind cloud"
-  },
-  {
-    "code": "U00026C8",
-    "name": "cloud with lightning and rain"
-  },
-  {
-    "code": "U0001F324",
-    "name": "sun behind small cloud"
-  },
-  {
-    "code": "U0001F325",
-    "name": "sun behind large cloud"
-  },
-  {
-    "code": "U0001F326",
-    "name": "sun behind rain cloud"
-  },
-  {
-    "code": "U0001F327",
-    "name": "cloud with rain"
-  },
-  {
-    "code": "U0001F328",
-    "name": "cloud with snow"
-  },
-  {
-    "code": "U0001F329",
-    "name": "cloud with lightning"
-  },
-  {
-    "code": "U0001F32A",
-    "name": "tornado"
-  },
-  {
-    "code": "U0001F32B",
-    "name": "fog"
-  },
-  {
-    "code": "U0001F32C",
-    "name": "wind face"
-  },
-  {
-    "code": "U0001F300",
-    "name": "cyclone"
-  },
-  {
-    "code": "U0001F308",
-    "name": "rainbow"
-  },
-  {
-    "code": "U0001F302",
-    "name": "closed umbrella"
-  },
-  {
-    "code": "U0002602",
-    "name": "umbrella"
-  },
-  {
-    "code": "U0002614",
-    "name": "umbrella with rain drops"
-  },
-  {
-    "code": "U00026F1",
-    "name": "umbrella on ground"
-  },
-  {
-    "code": "U00026A1",
-    "name": "high voltage"
-  },
-  {
-    "code": "U0002744",
-    "name": "snowflake"
-  },
-  {
-    "code": "U0002603",
-    "name": "snowman"
-  },
-  {
-    "code": "U00026C4",
-    "name": "snowman without snow"
-  },
-  {
-    "code": "U0002604",
-    "name": "comet"
-  },
-  {
-    "code": "U0001F525",
-    "name": "fire"
-  },
-  {
-    "code": "U0001F4A7",
-    "name": "droplet"
-  },
-  {
-    "code": "U0001F30A",
-    "name": "water wave"
-  },
-  {
-    "code": "U0001F383",
-    "name": "jack-o-lantern"
-  },
-  {
-    "code": "U0001F384",
-    "name": "Christmas tree"
-  },
-  {
-    "code": "U0001F386",
-    "name": "fireworks"
-  },
-  {
-    "code": "U0001F387",
-    "name": "sparkler"
-  },
-  {
-    "code": "U0001F9E8",
-    "name": "firecracker"
-  },
-  {
-    "code": "U0002728",
-    "name": "sparkles"
-  },
-  {
-    "code": "U0001F388",
-    "name": "balloon"
-  },
-  {
-    "code": "U0001F389",
-    "name": "party popper"
-  },
-  {
-    "code": "U0001F38A",
-    "name": "confetti ball"
-  },
-  {
-    "code": "U0001F38B",
-    "name": "tanabata tree"
-  },
-  {
-    "code": "U0001F38D",
-    "name": "pine decoration"
-  },
-  {
-    "code": "U0001F38E",
-    "name": "Japanese dolls"
-  },
-  {
-    "code": "U0001F38F",
-    "name": "carp streamer"
-  },
-  {
-    "code": "U0001F390",
-    "name": "wind chime"
-  },
-  {
-    "code": "U0001F391",
-    "name": "moon viewing ceremony"
-  },
-  {
-    "code": "U0001F9E7",
-    "name": "red envelope"
-  },
-  {
-    "code": "U0001F380",
-    "name": "ribbon"
-  },
-  {
-    "code": "U0001F381",
-    "name": "wrapped gift"
-  },
-  {
-    "code": "U0001F397",
-    "name": "reminder ribbon"
-  },
-  {
-    "code": "U0001F39F",
-    "name": "admission tickets"
-  },
-  {
-    "code": "U0001F3AB",
-    "name": "ticket"
-  },
-  {
-    "code": "U0001F396",
-    "name": "military medal"
-  },
-  {
-    "code": "U0001F3C6",
-    "name": "trophy"
-  },
-  {
-    "code": "U0001F3C5",
-    "name": "sports medal"
-  },
-  {
-    "code": "U0001F947",
-    "name": "1st place medal"
-  },
-  {
-    "code": "U0001F948",
-    "name": "2nd place medal"
-  },
-  {
-    "code": "U0001F949",
-    "name": "3rd place medal"
-  },
-  {
-    "code": "U00026BD",
-    "name": "soccer ball"
-  },
-  {
-    "code": "U00026BE",
-    "name": "baseball"
-  },
-  {
-    "code": "U0001F94E",
-    "name": "softball"
-  },
-  {
-    "code": "U0001F3C0",
-    "name": "basketball"
-  },
-  {
-    "code": "U0001F3D0",
-    "name": "volleyball"
-  },
-  {
-    "code": "U0001F3C8",
-    "name": "american football"
-  },
-  {
-    "code": "U0001F3C9",
-    "name": "rugby football"
-  },
-  {
-    "code": "U0001F3BE",
-    "name": "tennis"
-  },
-  {
-    "code": "U0001F94F",
-    "name": "flying disc"
-  },
-  {
-    "code": "U0001F3B3",
-    "name": "bowling"
-  },
-  {
-    "code": "U0001F3CF",
-    "name": "cricket game"
-  },
-  {
-    "code": "U0001F3D1",
-    "name": "field hockey"
-  },
-  {
-    "code": "U0001F3D2",
-    "name": "ice hockey"
-  },
-  {
-    "code": "U0001F94D",
-    "name": "lacrosse"
-  },
-  {
-    "code": "U0001F3D3",
-    "name": "ping pong"
-  },
-  {
-    "code": "U0001F3F8",
-    "name": "badminton"
-  },
-  {
-    "code": "U0001F94A",
-    "name": "boxing glove"
-  },
-  {
-    "code": "U0001F94B",
-    "name": "martial arts uniform"
-  },
-  {
-    "code": "U0001F945",
-    "name": "goal net"
-  },
-  {
-    "code": "U00026F3",
-    "name": "flag in hole"
-  },
-  {
-    "code": "U00026F8",
-    "name": "ice skate"
-  },
-  {
-    "code": "U0001F3A3",
-    "name": "fishing pole"
-  },
-  {
-    "code": "U0001F93F",
-    "name": "diving mask"
-  },
-  {
-    "code": "U0001F3BD",
-    "name": "running shirt"
-  },
-  {
-    "code": "U0001F3BF",
-    "name": "skis"
-  },
-  {
-    "code": "U0001F6F7",
-    "name": "sled"
-  },
-  {
-    "code": "U0001F94C",
-    "name": "curling stone"
-  },
-  {
-    "code": "U0001F3AF",
-    "name": "bullseye"
-  },
-  {
-    "code": "U0001FA80",
-    "name": "yo-yo"
-  },
-  {
-    "code": "U0001FA81",
-    "name": "kite"
-  },
-  {
-    "code": "U0001F52B",
-    "name": "water pistol"
-  },
-  {
-    "code": "U0001F3B1",
-    "name": "pool 8 ball"
-  },
-  {
-    "code": "U0001F52E",
-    "name": "crystal ball"
-  },
-  {
-    "code": "U0001FA84",
-    "name": "magic wand"
-  },
-  {
-    "code": "U0001F3AE",
-    "name": "video game"
-  },
-  {
-    "code": "U0001F579",
-    "name": "joystick"
-  },
-  {
-    "code": "U0001F3B0",
-    "name": "slot machine"
-  },
-  {
-    "code": "U0001F3B2",
-    "name": "game die"
-  },
-  {
-    "code": "U0001F9E9",
-    "name": "puzzle piece"
-  },
-  {
-    "code": "U0001F9F8",
-    "name": "teddy bear"
-  },
-  {
-    "code": "U0001FA85",
-    "name": "piñata"
-  },
-  {
-    "code": "U0001FAA9",
-    "name": "mirror ball"
-  },
-  {
-    "code": "U0001FA86",
-    "name": "nesting dolls"
-  },
-  {
-    "code": "U0002660",
-    "name": "spade suit"
-  },
-  {
-    "code": "U0002665",
-    "name": "heart suit"
-  },
-  {
-    "code": "U0002666",
-    "name": "diamond suit"
-  },
-  {
-    "code": "U0002663",
-    "name": "club suit"
-  },
-  {
-    "code": "U000265F",
-    "name": "chess pawn"
-  },
-  {
-    "code": "U0001F0CF",
-    "name": "joker"
-  },
-  {
-    "code": "U0001F004",
-    "name": "mahjong red dragon"
-  },
-  {
-    "code": "U0001F3B4",
-    "name": "flower playing cards"
-  },
-  {
-    "code": "U0001F3AD",
-    "name": "performing arts"
-  },
-  {
-    "code": "U0001F5BC",
-    "name": "framed picture"
-  },
-  {
-    "code": "U0001F3A8",
-    "name": "artist palette"
-  },
-  {
-    "code": "U0001F9F5",
-    "name": "thread"
-  },
-  {
-    "code": "U0001FAA1",
-    "name": "sewing needle"
-  },
-  {
-    "code": "U0001F9F6",
-    "name": "yarn"
-  },
-  {
-    "code": "U0001FAA2",
-    "name": "knot"
-  },
-  {
-    "code": "U0001F453",
-    "name": "glasses"
-  },
-  {
-    "code": "U0001F576",
-    "name": "sunglasses"
-  },
-  {
-    "code": "U0001F97D",
-    "name": "goggles"
-  },
-  {
-    "code": "U0001F97C",
-    "name": "lab coat"
-  },
-  {
-    "code": "U0001F9BA",
-    "name": "safety vest"
-  },
-  {
-    "code": "U0001F454",
-    "name": "necktie"
-  },
-  {
-    "code": "U0001F455",
-    "name": "t-shirt"
-  },
-  {
-    "code": "U0001F456",
-    "name": "jeans"
-  },
-  {
-    "code": "U0001F9E3",
-    "name": "scarf"
-  },
-  {
-    "code": "U0001F9E4",
-    "name": "gloves"
-  },
-  {
-    "code": "U0001F9E5",
-    "name": "coat"
-  },
-  {
-    "code": "U0001F9E6",
-    "name": "socks"
-  },
-  {
-    "code": "U0001F457",
-    "name": "dress"
-  },
-  {
-    "code": "U0001F458",
-    "name": "kimono"
-  },
-  {
-    "code": "U0001F97B",
-    "name": "sari"
-  },
-  {
-    "code": "U0001FA71",
-    "name": "one-piece swimsuit"
-  },
-  {
-    "code": "U0001FA72",
-    "name": "briefs"
-  },
-  {
-    "code": "U0001FA73",
-    "name": "shorts"
-  },
-  {
-    "code": "U0001F459",
-    "name": "bikini"
-  },
-  {
-    "code": "U0001F45A",
-    "name": "woman’s clothes"
-  },
-  {
-    "code": "U0001FAAD",
-    "name": "⊛ folding hand fan"
-  },
-  {
-    "code": "U0001F45B",
-    "name": "purse"
-  },
-  {
-    "code": "U0001F45C",
-    "name": "handbag"
-  },
-  {
-    "code": "U0001F45D",
-    "name": "clutch bag"
-  },
-  {
-    "code": "U0001F6CD",
-    "name": "shopping bags"
-  },
-  {
-    "code": "U0001F392",
-    "name": "backpack"
-  },
-  {
-    "code": "U0001FA74",
-    "name": "thong sandal"
-  },
-  {
-    "code": "U0001F45E",
-    "name": "man’s shoe"
-  },
-  {
-    "code": "U0001F45F",
-    "name": "running shoe"
-  },
-  {
-    "code": "U0001F97E",
-    "name": "hiking boot"
-  },
-  {
-    "code": "U0001F97F",
-    "name": "flat shoe"
-  },
-  {
-    "code": "U0001F460",
-    "name": "high-heeled shoe"
-  },
-  {
-    "code": "U0001F461",
-    "name": "woman’s sandal"
-  },
-  {
-    "code": "U0001FA70",
-    "name": "ballet shoes"
-  },
-  {
-    "code": "U0001F462",
-    "name": "woman’s boot"
-  },
-  {
-    "code": "U0001FAAE",
-    "name": "⊛ hair pick"
-  },
-  {
-    "code": "U0001F451",
-    "name": "crown"
-  },
-  {
-    "code": "U0001F452",
-    "name": "woman’s hat"
-  },
-  {
-    "code": "U0001F3A9",
-    "name": "top hat"
-  },
-  {
-    "code": "U0001F393",
-    "name": "graduation cap"
-  },
-  {
-    "code": "U0001F9E2",
-    "name": "billed cap"
-  },
-  {
-    "code": "U0001FA96",
-    "name": "military helmet"
-  },
-  {
-    "code": "U00026D1",
-    "name": "rescue worker’s helmet"
-  },
-  {
-    "code": "U0001F4FF",
-    "name": "prayer beads"
-  },
-  {
-    "code": "U0001F484",
-    "name": "lipstick"
-  },
-  {
-    "code": "U0001F48D",
-    "name": "ring"
-  },
-  {
-    "code": "U0001F48E",
-    "name": "gem stone"
-  },
-  {
-    "code": "U0001F507",
-    "name": "muted speaker"
-  },
-  {
-    "code": "U0001F508",
-    "name": "speaker low volume"
-  },
-  {
-    "code": "U0001F509",
-    "name": "speaker medium volume"
-  },
-  {
-    "code": "U0001F50A",
-    "name": "speaker high volume"
-  },
-  {
-    "code": "U0001F4E2",
-    "name": "loudspeaker"
-  },
-  {
-    "code": "U0001F4E3",
-    "name": "megaphone"
-  },
-  {
-    "code": "U0001F4EF",
-    "name": "postal horn"
-  },
-  {
-    "code": "U0001F514",
-    "name": "bell"
-  },
-  {
-    "code": "U0001F515",
-    "name": "bell with slash"
-  },
-  {
-    "code": "U0001F3BC",
-    "name": "musical score"
-  },
-  {
-    "code": "U0001F3B5",
-    "name": "musical note"
-  },
-  {
-    "code": "U0001F3B6",
-    "name": "musical notes"
-  },
-  {
-    "code": "U0001F399",
-    "name": "studio microphone"
-  },
-  {
-    "code": "U0001F39A",
-    "name": "level slider"
-  },
-  {
-    "code": "U0001F39B",
-    "name": "control knobs"
-  },
-  {
-    "code": "U0001F3A4",
-    "name": "microphone"
-  },
-  {
-    "code": "U0001F3A7",
-    "name": "headphone"
-  },
-  {
-    "code": "U0001F4FB",
-    "name": "radio"
-  },
-  {
-    "code": "U0001F3B7",
-    "name": "saxophone"
-  },
-  {
-    "code": "U0001FA97",
-    "name": "accordion"
-  },
-  {
-    "code": "U0001F3B8",
-    "name": "guitar"
-  },
-  {
-    "code": "U0001F3B9",
-    "name": "musical keyboard"
-  },
-  {
-    "code": "U0001F3BA",
-    "name": "trumpet"
-  },
-  {
-    "code": "U0001F3BB",
-    "name": "violin"
-  },
-  {
-    "code": "U0001FA95",
-    "name": "banjo"
-  },
-  {
-    "code": "U0001F941",
-    "name": "drum"
-  },
-  {
-    "code": "U0001FA98",
-    "name": "long drum"
-  },
-  {
-    "code": "U0001FA87",
-    "name": "⊛ maracas"
-  },
-  {
-    "code": "U0001FA88",
-    "name": "⊛ flute"
-  },
-  {
-    "code": "U0001F4F1",
-    "name": "mobile phone"
-  },
-  {
-    "code": "U0001F4F2",
-    "name": "mobile phone with arrow"
-  },
-  {
-    "code": "U000260E",
-    "name": "telephone"
-  },
-  {
-    "code": "U0001F4DE",
-    "name": "telephone receiver"
-  },
-  {
-    "code": "U0001F4DF",
-    "name": "pager"
-  },
-  {
-    "code": "U0001F4E0",
-    "name": "fax machine"
-  },
-  {
-    "code": "U0001F50B",
-    "name": "battery"
-  },
-  {
-    "code": "U0001FAAB",
-    "name": "low battery"
-  },
-  {
-    "code": "U0001F50C",
-    "name": "electric plug"
-  },
-  {
-    "code": "U0001F4BB",
-    "name": "laptop"
-  },
-  {
-    "code": "U0001F5A5",
-    "name": "desktop computer"
-  },
-  {
-    "code": "U0001F5A8",
-    "name": "printer"
-  },
-  {
-    "code": "U0002328",
-    "name": "keyboard"
-  },
-  {
-    "code": "U0001F5B1",
-    "name": "computer mouse"
-  },
-  {
-    "code": "U0001F5B2",
-    "name": "trackball"
-  },
-  {
-    "code": "U0001F4BD",
-    "name": "computer disk"
-  },
-  {
-    "code": "U0001F4BE",
-    "name": "floppy disk"
-  },
-  {
-    "code": "U0001F4BF",
-    "name": "optical disk"
-  },
-  {
-    "code": "U0001F4C0",
-    "name": "dvd"
-  },
-  {
-    "code": "U0001F9EE",
-    "name": "abacus"
-  },
-  {
-    "code": "U0001F3A5",
-    "name": "movie camera"
-  },
-  {
-    "code": "U0001F39E",
-    "name": "film frames"
-  },
-  {
-    "code": "U0001F4FD",
-    "name": "film projector"
-  },
-  {
-    "code": "U0001F3AC",
-    "name": "clapper board"
-  },
-  {
-    "code": "U0001F4FA",
-    "name": "television"
-  },
-  {
-    "code": "U0001F4F7",
-    "name": "camera"
-  },
-  {
-    "code": "U0001F4F8",
-    "name": "camera with flash"
-  },
-  {
-    "code": "U0001F4F9",
-    "name": "video camera"
-  },
-  {
-    "code": "U0001F4FC",
-    "name": "videocassette"
-  },
-  {
-    "code": "U0001F50D",
-    "name": "magnifying glass tilted left"
-  },
-  {
-    "code": "U0001F50E",
-    "name": "magnifying glass tilted right"
-  },
-  {
-    "code": "U0001F56F",
-    "name": "candle"
-  },
-  {
-    "code": "U0001F4A1",
-    "name": "light bulb"
-  },
-  {
-    "code": "U0001F526",
-    "name": "flashlight"
-  },
-  {
-    "code": "U0001F3EE",
-    "name": "red paper lantern"
-  },
-  {
-    "code": "U0001FA94",
-    "name": "diya lamp"
-  },
-  {
-    "code": "U0001F4D4",
-    "name": "notebook with decorative cover"
-  },
-  {
-    "code": "U0001F4D5",
-    "name": "closed book"
-  },
-  {
-    "code": "U0001F4D6",
-    "name": "open book"
-  },
-  {
-    "code": "U0001F4D7",
-    "name": "green book"
-  },
-  {
-    "code": "U0001F4D8",
-    "name": "blue book"
-  },
-  {
-    "code": "U0001F4D9",
-    "name": "orange book"
-  },
-  {
-    "code": "U0001F4DA",
-    "name": "books"
-  },
-  {
-    "code": "U0001F4D3",
-    "name": "notebook"
-  },
-  {
-    "code": "U0001F4D2",
-    "name": "ledger"
-  },
-  {
-    "code": "U0001F4C3",
-    "name": "page with curl"
-  },
-  {
-    "code": "U0001F4DC",
-    "name": "scroll"
-  },
-  {
-    "code": "U0001F4C4",
-    "name": "page facing up"
-  },
-  {
-    "code": "U0001F4F0",
-    "name": "newspaper"
-  },
-  {
-    "code": "U0001F5DE",
-    "name": "rolled-up newspaper"
-  },
-  {
-    "code": "U0001F4D1",
-    "name": "bookmark tabs"
-  },
-  {
-    "code": "U0001F516",
-    "name": "bookmark"
-  },
-  {
-    "code": "U0001F3F7",
-    "name": "label"
-  },
-  {
-    "code": "U0001F4B0",
-    "name": "money bag"
-  },
-  {
-    "code": "U0001FA99",
-    "name": "coin"
-  },
-  {
-    "code": "U0001F4B4",
-    "name": "yen banknote"
-  },
-  {
-    "code": "U0001F4B5",
-    "name": "dollar banknote"
-  },
-  {
-    "code": "U0001F4B6",
-    "name": "euro banknote"
-  },
-  {
-    "code": "U0001F4B7",
-    "name": "pound banknote"
-  },
-  {
-    "code": "U0001F4B8",
-    "name": "money with wings"
-  },
-  {
-    "code": "U0001F4B3",
-    "name": "credit card"
-  },
-  {
-    "code": "U0001F9FE",
-    "name": "receipt"
-  },
-  {
-    "code": "U0001F4B9",
-    "name": "chart increasing with yen"
-  },
-  {
-    "code": "U0002709",
-    "name": "envelope"
-  },
-  {
-    "code": "U0001F4E7",
-    "name": "e-mail"
-  },
-  {
-    "code": "U0001F4E8",
-    "name": "incoming envelope"
-  },
-  {
-    "code": "U0001F4E9",
-    "name": "envelope with arrow"
-  },
-  {
-    "code": "U0001F4E4",
-    "name": "outbox tray"
-  },
-  {
-    "code": "U0001F4E5",
-    "name": "inbox tray"
-  },
-  {
-    "code": "U0001F4E6",
-    "name": "package"
-  },
-  {
-    "code": "U0001F4EB",
-    "name": "closed mailbox with raised flag"
-  },
-  {
-    "code": "U0001F4EA",
-    "name": "closed mailbox with lowered flag"
-  },
-  {
-    "code": "U0001F4EC",
-    "name": "open mailbox with raised flag"
-  },
-  {
-    "code": "U0001F4ED",
-    "name": "open mailbox with lowered flag"
-  },
-  {
-    "code": "U0001F4EE",
-    "name": "postbox"
-  },
-  {
-    "code": "U0001F5F3",
-    "name": "ballot box with ballot"
-  },
-  {
-    "code": "U000270F",
-    "name": "pencil"
-  },
-  {
-    "code": "U0002712",
-    "name": "black nib"
-  },
-  {
-    "code": "U0001F58B",
-    "name": "fountain pen"
-  },
-  {
-    "code": "U0001F58A",
-    "name": "pen"
-  },
-  {
-    "code": "U0001F58C",
-    "name": "paintbrush"
-  },
-  {
-    "code": "U0001F58D",
-    "name": "crayon"
-  },
-  {
-    "code": "U0001F4DD",
-    "name": "memo"
-  },
-  {
-    "code": "U0001F4BC",
-    "name": "briefcase"
-  },
-  {
-    "code": "U0001F4C1",
-    "name": "file folder"
-  },
-  {
-    "code": "U0001F4C2",
-    "name": "open file folder"
-  },
-  {
-    "code": "U0001F5C2",
-    "name": "card index dividers"
-  },
-  {
-    "code": "U0001F4C5",
-    "name": "calendar"
-  },
-  {
-    "code": "U0001F4C6",
-    "name": "tear-off calendar"
-  },
-  {
-    "code": "U0001F5D2",
-    "name": "spiral notepad"
-  },
-  {
-    "code": "U0001F5D3",
-    "name": "spiral calendar"
-  },
-  {
-    "code": "U0001F4C7",
-    "name": "card index"
-  },
-  {
-    "code": "U0001F4C8",
-    "name": "chart increasing"
-  },
-  {
-    "code": "U0001F4C9",
-    "name": "chart decreasing"
-  },
-  {
-    "code": "U0001F4CA",
-    "name": "bar chart"
-  },
-  {
-    "code": "U0001F4CB",
-    "name": "clipboard"
-  },
-  {
-    "code": "U0001F4CC",
-    "name": "pushpin"
-  },
-  {
-    "code": "U0001F4CD",
-    "name": "round pushpin"
-  },
-  {
-    "code": "U0001F4CE",
-    "name": "paperclip"
-  },
-  {
-    "code": "U0001F587",
-    "name": "linked paperclips"
-  },
-  {
-    "code": "U0001F4CF",
-    "name": "straight ruler"
-  },
-  {
-    "code": "U0001F4D0",
-    "name": "triangular ruler"
-  },
-  {
-    "code": "U0002702",
-    "name": "scissors"
-  },
-  {
-    "code": "U0001F5C3",
-    "name": "card file box"
-  },
-  {
-    "code": "U0001F5C4",
-    "name": "file cabinet"
-  },
-  {
-    "code": "U0001F5D1",
-    "name": "wastebasket"
-  },
-  {
-    "code": "U0001F512",
-    "name": "locked"
-  },
-  {
-    "code": "U0001F513",
-    "name": "unlocked"
-  },
-  {
-    "code": "U0001F50F",
-    "name": "locked with pen"
-  },
-  {
-    "code": "U0001F510",
-    "name": "locked with key"
-  },
-  {
-    "code": "U0001F511",
-    "name": "key"
-  },
-  {
-    "code": "U0001F5DD",
-    "name": "old key"
-  },
-  {
-    "code": "U0001F528",
-    "name": "hammer"
-  },
-  {
-    "code": "U0001FA93",
-    "name": "axe"
-  },
-  {
-    "code": "U00026CF",
-    "name": "pick"
-  },
-  {
-    "code": "U0002692",
-    "name": "hammer and pick"
-  },
-  {
-    "code": "U0001F6E0",
-    "name": "hammer and wrench"
-  },
-  {
-    "code": "U0001F5E1",
-    "name": "dagger"
-  },
-  {
-    "code": "U0002694",
-    "name": "crossed swords"
-  },
-  {
-    "code": "U0001F4A3",
-    "name": "bomb"
-  },
-  {
-    "code": "U0001FA83",
-    "name": "boomerang"
-  },
-  {
-    "code": "U0001F3F9",
-    "name": "bow and arrow"
-  },
-  {
-    "code": "U0001F6E1",
-    "name": "shield"
-  },
-  {
-    "code": "U0001FA9A",
-    "name": "carpentry saw"
-  },
-  {
-    "code": "U0001F527",
-    "name": "wrench"
-  },
-  {
-    "code": "U0001FA9B",
-    "name": "screwdriver"
-  },
-  {
-    "code": "U0001F529",
-    "name": "nut and bolt"
-  },
-  {
-    "code": "U0002699",
-    "name": "gear"
-  },
-  {
-    "code": "U0001F5DC",
-    "name": "clamp"
-  },
-  {
-    "code": "U0002696",
-    "name": "balance scale"
-  },
-  {
-    "code": "U0001F9AF",
-    "name": "white cane"
-  },
-  {
-    "code": "U0001F517",
-    "name": "link"
-  },
-  {
-    "code": "U00026D3",
-    "name": "chains"
-  },
-  {
-    "code": "U0001FA9D",
-    "name": "hook"
-  },
-  {
-    "code": "U0001F9F0",
-    "name": "toolbox"
-  },
-  {
-    "code": "U0001F9F2",
-    "name": "magnet"
-  },
-  {
-    "code": "U0001FA9C",
-    "name": "ladder"
-  },
-  {
-    "code": "U0002697",
-    "name": "alembic"
-  },
-  {
-    "code": "U0001F9EA",
-    "name": "test tube"
-  },
-  {
-    "code": "U0001F9EB",
-    "name": "petri dish"
-  },
-  {
-    "code": "U0001F9EC",
-    "name": "dna"
-  },
-  {
-    "code": "U0001F52C",
-    "name": "microscope"
-  },
-  {
-    "code": "U0001F52D",
-    "name": "telescope"
-  },
-  {
-    "code": "U0001F4E1",
-    "name": "satellite antenna"
-  },
-  {
-    "code": "U0001F489",
-    "name": "syringe"
-  },
-  {
-    "code": "U0001FA78",
-    "name": "drop of blood"
-  },
-  {
-    "code": "U0001F48A",
-    "name": "pill"
-  },
-  {
-    "code": "U0001FA79",
-    "name": "adhesive bandage"
-  },
-  {
-    "code": "U0001FA7C",
-    "name": "crutch"
-  },
-  {
-    "code": "U0001FA7A",
-    "name": "stethoscope"
-  },
-  {
-    "code": "U0001FA7B",
-    "name": "x-ray"
-  },
-  {
-    "code": "U0001F6AA",
-    "name": "door"
-  },
-  {
-    "code": "U0001F6D7",
-    "name": "elevator"
-  },
-  {
-    "code": "U0001FA9E",
-    "name": "mirror"
-  },
-  {
-    "code": "U0001FA9F",
-    "name": "window"
-  },
-  {
-    "code": "U0001F6CF",
-    "name": "bed"
-  },
-  {
-    "code": "U0001F6CB",
-    "name": "couch and lamp"
-  },
-  {
-    "code": "U0001FA91",
-    "name": "chair"
-  },
-  {
-    "code": "U0001F6BD",
-    "name": "toilet"
-  },
-  {
-    "code": "U0001FAA0",
-    "name": "plunger"
-  },
-  {
-    "code": "U0001F6BF",
-    "name": "shower"
-  },
-  {
-    "code": "U0001F6C1",
-    "name": "bathtub"
-  },
-  {
-    "code": "U0001FAA4",
-    "name": "mouse trap"
-  },
-  {
-    "code": "U0001FA92",
-    "name": "razor"
-  },
-  {
-    "code": "U0001F9F4",
-    "name": "lotion bottle"
-  },
-  {
-    "code": "U0001F9F7",
-    "name": "safety pin"
-  },
-  {
-    "code": "U0001F9F9",
-    "name": "broom"
-  },
-  {
-    "code": "U0001F9FA",
-    "name": "basket"
-  },
-  {
-    "code": "U0001F9FB",
-    "name": "roll of paper"
-  },
-  {
-    "code": "U0001FAA3",
-    "name": "bucket"
-  },
-  {
-    "code": "U0001F9FC",
-    "name": "soap"
-  },
-  {
-    "code": "U0001FAE7",
-    "name": "bubbles"
-  },
-  {
-    "code": "U0001FAA5",
-    "name": "toothbrush"
-  },
-  {
-    "code": "U0001F9FD",
-    "name": "sponge"
-  },
-  {
-    "code": "U0001F9EF",
-    "name": "fire extinguisher"
-  },
-  {
-    "code": "U0001F6D2",
-    "name": "shopping cart"
-  },
-  {
-    "code": "U0001F6AC",
-    "name": "cigarette"
-  },
-  {
-    "code": "U00026B0",
-    "name": "coffin"
-  },
-  {
-    "code": "U0001FAA6",
-    "name": "headstone"
-  },
-  {
-    "code": "U00026B1",
-    "name": "funeral urn"
-  },
-  {
-    "code": "U0001F9FF",
-    "name": "nazar amulet"
-  },
-  {
-    "code": "U0001FAAC",
-    "name": "hamsa"
-  },
-  {
-    "code": "U0001F5FF",
-    "name": "moai"
-  },
-  {
-    "code": "U0001FAA7",
-    "name": "placard"
-  },
-  {
-    "code": "U0001FAAA",
-    "name": "identification card"
-  },
-  {
-    "code": "U0001F3E7",
-    "name": "ATM sign"
-  },
-  {
-    "code": "U0001F6AE",
-    "name": "litter in bin sign"
-  },
-  {
-    "code": "U0001F6B0",
-    "name": "potable water"
-  },
-  {
-    "code": "U000267F",
-    "name": "wheelchair symbol"
-  },
-  {
-    "code": "U0001F6B9",
-    "name": "men’s room"
-  },
-  {
-    "code": "U0001F6BA",
-    "name": "women’s room"
-  },
-  {
-    "code": "U0001F6BB",
-    "name": "restroom"
-  },
-  {
-    "code": "U0001F6BC",
-    "name": "baby symbol"
-  },
-  {
-    "code": "U0001F6BE",
-    "name": "water closet"
-  },
-  {
-    "code": "U0001F6C2",
-    "name": "passport control"
-  },
-  {
-    "code": "U0001F6C3",
-    "name": "customs"
-  },
-  {
-    "code": "U0001F6C4",
-    "name": "baggage claim"
-  },
-  {
-    "code": "U0001F6C5",
-    "name": "left luggage"
-  },
-  {
-    "code": "U00026A0",
-    "name": "warning"
-  },
-  {
-    "code": "U0001F6B8",
-    "name": "children crossing"
-  },
-  {
-    "code": "U00026D4",
-    "name": "no entry"
-  },
-  {
-    "code": "U0001F6AB",
-    "name": "prohibited"
-  },
-  {
-    "code": "U0001F6B3",
-    "name": "no bicycles"
-  },
-  {
-    "code": "U0001F6AD",
-    "name": "no smoking"
-  },
-  {
-    "code": "U0001F6AF",
-    "name": "no littering"
-  },
-  {
-    "code": "U0001F6B1",
-    "name": "non-potable water"
-  },
-  {
-    "code": "U0001F6B7",
-    "name": "no pedestrians"
-  },
-  {
-    "code": "U0001F4F5",
-    "name": "no mobile phones"
-  },
-  {
-    "code": "U0001F51E",
-    "name": "no one under eighteen"
-  },
-  {
-    "code": "U0002622",
-    "name": "radioactive"
-  },
-  {
-    "code": "U0002623",
-    "name": "biohazard"
-  },
-  {
-    "code": "U0002B06",
-    "name": "up arrow"
-  },
-  {
-    "code": "U0002197",
-    "name": "up-right arrow"
-  },
-  {
-    "code": "U00027A1",
-    "name": "right arrow"
-  },
-  {
-    "code": "U0002198",
-    "name": "down-right arrow"
-  },
-  {
-    "code": "U0002B07",
-    "name": "down arrow"
-  },
-  {
-    "code": "U0002199",
-    "name": "down-left arrow"
-  },
-  {
-    "code": "U0002B05",
-    "name": "left arrow"
-  },
-  {
-    "code": "U0002196",
-    "name": "up-left arrow"
-  },
-  {
-    "code": "U0002195",
-    "name": "up-down arrow"
-  },
-  {
-    "code": "U0002194",
-    "name": "left-right arrow"
-  },
-  {
-    "code": "U00021A9",
-    "name": "right arrow curving left"
-  },
-  {
-    "code": "U00021AA",
-    "name": "left arrow curving right"
-  },
-  {
-    "code": "U0002934",
-    "name": "right arrow curving up"
-  },
-  {
-    "code": "U0002935",
-    "name": "right arrow curving down"
-  },
-  {
-    "code": "U0001F503",
-    "name": "clockwise vertical arrows"
-  },
-  {
-    "code": "U0001F504",
-    "name": "counterclockwise arrows button"
-  },
-  {
-    "code": "U0001F519",
-    "name": "BACK arrow"
-  },
-  {
-    "code": "U0001F51A",
-    "name": "END arrow"
-  },
-  {
-    "code": "U0001F51B",
-    "name": "ON! arrow"
-  },
-  {
-    "code": "U0001F51C",
-    "name": "SOON arrow"
-  },
-  {
-    "code": "U0001F51D",
-    "name": "TOP arrow"
-  },
-  {
-    "code": "U0001F6D0",
-    "name": "place of worship"
-  },
-  {
-    "code": "U000269B",
-    "name": "atom symbol"
-  },
-  {
-    "code": "U0001F549",
-    "name": "om"
-  },
-  {
-    "code": "U0002721",
-    "name": "star of David"
-  },
-  {
-    "code": "U0002638",
-    "name": "wheel of dharma"
-  },
-  {
-    "code": "U000262F",
-    "name": "yin yang"
-  },
-  {
-    "code": "U000271D",
-    "name": "latin cross"
-  },
-  {
-    "code": "U0002626",
-    "name": "orthodox cross"
-  },
-  {
-    "code": "U000262A",
-    "name": "star and crescent"
-  },
-  {
-    "code": "U000262E",
-    "name": "peace symbol"
-  },
-  {
-    "code": "U0001F54E",
-    "name": "menorah"
-  },
-  {
-    "code": "U0001F52F",
-    "name": "dotted six-pointed star"
-  },
-  {
-    "code": "U0001FAAF",
-    "name": "⊛ khanda"
-  },
-  {
-    "code": "U0002648",
-    "name": "Aries"
-  },
-  {
-    "code": "U0002649",
-    "name": "Taurus"
-  },
-  {
-    "code": "U000264A",
-    "name": "Gemini"
-  },
-  {
-    "code": "U000264B",
-    "name": "Cancer"
-  },
-  {
-    "code": "U000264C",
-    "name": "Leo"
-  },
-  {
-    "code": "U000264D",
-    "name": "Virgo"
-  },
-  {
-    "code": "U000264E",
-    "name": "Libra"
-  },
-  {
-    "code": "U000264F",
-    "name": "Scorpio"
-  },
-  {
-    "code": "U0002650",
-    "name": "Sagittarius"
-  },
-  {
-    "code": "U0002651",
-    "name": "Capricorn"
-  },
-  {
-    "code": "U0002652",
-    "name": "Aquarius"
-  },
-  {
-    "code": "U0002653",
-    "name": "Pisces"
-  },
-  {
-    "code": "U00026CE",
-    "name": "Ophiuchus"
-  },
-  {
-    "code": "U0001F500",
-    "name": "shuffle tracks button"
-  },
-  {
-    "code": "U0001F501",
-    "name": "repeat button"
-  },
-  {
-    "code": "U0001F502",
-    "name": "repeat single button"
-  },
-  {
-    "code": "U00025B6",
-    "name": "play button"
-  },
-  {
-    "code": "U00023E9",
-    "name": "fast-forward button"
-  },
-  {
-    "code": "U00023ED",
-    "name": "next track button"
-  },
-  {
-    "code": "U00023EF",
-    "name": "play or pause button"
-  },
-  {
-    "code": "U00025C0",
-    "name": "reverse button"
-  },
-  {
-    "code": "U00023EA",
-    "name": "fast reverse button"
-  },
-  {
-    "code": "U00023EE",
-    "name": "last track button"
-  },
-  {
-    "code": "U0001F53C",
-    "name": "upwards button"
-  },
-  {
-    "code": "U00023EB",
-    "name": "fast up button"
-  },
-  {
-    "code": "U0001F53D",
-    "name": "downwards button"
-  },
-  {
-    "code": "U00023EC",
-    "name": "fast down button"
-  },
-  {
-    "code": "U00023F8",
-    "name": "pause button"
-  },
-  {
-    "code": "U00023F9",
-    "name": "stop button"
-  },
-  {
-    "code": "U00023FA",
-    "name": "record button"
-  },
-  {
-    "code": "U00023CF",
-    "name": "eject button"
-  },
-  {
-    "code": "U0001F3A6",
-    "name": "cinema"
-  },
-  {
-    "code": "U0001F505",
-    "name": "dim button"
-  },
-  {
-    "code": "U0001F506",
-    "name": "bright button"
-  },
-  {
-    "code": "U0001F4F6",
-    "name": "antenna bars"
-  },
-  {
-    "code": "U0001F6DC",
-    "name": "⊛ wireless"
-  },
-  {
-    "code": "U0001F4F3",
-    "name": "vibration mode"
-  },
-  {
-    "code": "U0001F4F4",
-    "name": "mobile phone off"
-  },
-  {
-    "code": "U0002640",
-    "name": "female sign"
-  },
-  {
-    "code": "U0002642",
-    "name": "male sign"
-  },
-  {
-    "code": "U00026A7",
-    "name": "transgender symbol"
-  },
-  {
-    "code": "U0002716",
-    "name": "multiply"
-  },
-  {
-    "code": "U0002795",
-    "name": "plus"
-  },
-  {
-    "code": "U0002796",
-    "name": "minus"
-  },
-  {
-    "code": "U0002797",
-    "name": "divide"
-  },
-  {
-    "code": "U0001F7F0",
-    "name": "heavy equals sign"
-  },
-  {
-    "code": "U000267E",
-    "name": "infinity"
-  },
-  {
-    "code": "U000203C",
-    "name": "double exclamation mark"
-  },
-  {
-    "code": "U0002049",
-    "name": "exclamation question mark"
-  },
-  {
-    "code": "U0002753",
-    "name": "red question mark"
-  },
-  {
-    "code": "U0002754",
-    "name": "white question mark"
-  },
-  {
-    "code": "U0002755",
-    "name": "white exclamation mark"
-  },
-  {
-    "code": "U0002757",
-    "name": "red exclamation mark"
-  },
-  {
-    "code": "U0003030",
-    "name": "wavy dash"
-  },
-  {
-    "code": "U0001F4B1",
-    "name": "currency exchange"
-  },
-  {
-    "code": "U0001F4B2",
-    "name": "heavy dollar sign"
-  },
-  {
-    "code": "U0002695",
-    "name": "medical symbol"
-  },
-  {
-    "code": "U000267B",
-    "name": "recycling symbol"
-  },
-  {
-    "code": "U000269C",
-    "name": "fleur-de-lis"
-  },
-  {
-    "code": "U0001F531",
-    "name": "trident emblem"
-  },
-  {
-    "code": "U0001F4DB",
-    "name": "name badge"
-  },
-  {
-    "code": "U0001F530",
-    "name": "Japanese symbol for beginner"
-  },
-  {
-    "code": "U0002B55",
-    "name": "hollow red circle"
-  },
-  {
-    "code": "U0002705",
-    "name": "check mark button"
-  },
-  {
-    "code": "U0002611",
-    "name": "check box with check"
-  },
-  {
-    "code": "U0002714",
-    "name": "check mark"
-  },
-  {
-    "code": "U000274C",
-    "name": "cross mark"
-  },
-  {
-    "code": "U000274E",
-    "name": "cross mark button"
-  },
-  {
-    "code": "U00027B0",
-    "name": "curly loop"
-  },
-  {
-    "code": "U00027BF",
-    "name": "double curly loop"
-  },
-  {
-    "code": "U000303D",
-    "name": "part alternation mark"
-  },
-  {
-    "code": "U0002733",
-    "name": "eight-spoked asterisk"
-  },
-  {
-    "code": "U0002734",
-    "name": "eight-pointed star"
-  },
-  {
-    "code": "U0002747",
-    "name": "sparkle"
-  },
-  {
-    "code": "U00000A9",
-    "name": "copyright"
-  },
-  {
-    "code": "U00000AE",
-    "name": "registered"
-  },
-  {
-    "code": "U0002122",
-    "name": "trade mark"
-  },
-  {
-    "code": "U0000023",
-    "name": "keycap: #"
-  },
-  {
-    "code": "U000002A",
-    "name": "keycap: *"
-  },
-  {
-    "code": "U0000030",
-    "name": "keycap: 0"
-  },
-  {
-    "code": "U0000031",
-    "name": "keycap: 1"
-  },
-  {
-    "code": "U0000032",
-    "name": "keycap: 2"
-  },
-  {
-    "code": "U0000033",
-    "name": "keycap: 3"
-  },
-  {
-    "code": "U0000034",
-    "name": "keycap: 4"
-  },
-  {
-    "code": "U0000035",
-    "name": "keycap: 5"
-  },
-  {
-    "code": "U0000036",
-    "name": "keycap: 6"
-  },
-  {
-    "code": "U0000037",
-    "name": "keycap: 7"
-  },
-  {
-    "code": "U0000038",
-    "name": "keycap: 8"
-  },
-  {
-    "code": "U0000039",
-    "name": "keycap: 9"
-  },
-  {
-    "code": "U0001F51F",
-    "name": "keycap: 10"
-  },
-  {
-    "code": "U0001F520",
-    "name": "input latin uppercase"
-  },
-  {
-    "code": "U0001F521",
-    "name": "input latin lowercase"
-  },
-  {
-    "code": "U0001F522",
-    "name": "input numbers"
-  },
-  {
-    "code": "U0001F523",
-    "name": "input symbols"
-  },
-  {
-    "code": "U0001F524",
-    "name": "input latin letters"
-  },
-  {
-    "code": "U0001F170",
-    "name": "A button (blood type)"
-  },
-  {
-    "code": "U0001F18E",
-    "name": "AB button (blood type)"
-  },
-  {
-    "code": "U0001F171",
-    "name": "B button (blood type)"
-  },
-  {
-    "code": "U0001F191",
-    "name": "CL button"
-  },
-  {
-    "code": "U0001F192",
-    "name": "COOL button"
-  },
-  {
-    "code": "U0001F193",
-    "name": "FREE button"
-  },
-  {
-    "code": "U0002139",
-    "name": "information"
-  },
-  {
-    "code": "U0001F194",
-    "name": "ID button"
-  },
-  {
-    "code": "U00024C2",
-    "name": "circled M"
-  },
-  {
-    "code": "U0001F195",
-    "name": "NEW button"
-  },
-  {
-    "code": "U0001F196",
-    "name": "NG button"
-  },
-  {
-    "code": "U0001F17E",
-    "name": "O button (blood type)"
-  },
-  {
-    "code": "U0001F197",
-    "name": "OK button"
-  },
-  {
-    "code": "U0001F17F",
-    "name": "P button"
-  },
-  {
-    "code": "U0001F198",
-    "name": "SOS button"
-  },
-  {
-    "code": "U0001F199",
-    "name": "UP! button"
-  },
-  {
-    "code": "U0001F19A",
-    "name": "VS button"
-  },
-  {
-    "code": "U0001F201",
-    "name": "Japanese “here” button"
-  },
-  {
-    "code": "U0001F202",
-    "name": "Japanese “service charge” button"
-  },
-  {
-    "code": "U0001F237",
-    "name": "Japanese “monthly amount” button"
-  },
-  {
-    "code": "U0001F236",
-    "name": "Japanese “not free of charge” button"
-  },
-  {
-    "code": "U0001F22F",
-    "name": "Japanese “reserved” button"
-  },
-  {
-    "code": "U0001F250",
-    "name": "Japanese “bargain” button"
-  },
-  {
-    "code": "U0001F239",
-    "name": "Japanese “discount” button"
-  },
-  {
-    "code": "U0001F21A",
-    "name": "Japanese “free of charge” button"
-  },
-  {
-    "code": "U0001F232",
-    "name": "Japanese “prohibited” button"
-  },
-  {
-    "code": "U0001F251",
-    "name": "Japanese “acceptable” button"
-  },
-  {
-    "code": "U0001F238",
-    "name": "Japanese “application” button"
-  },
-  {
-    "code": "U0001F234",
-    "name": "Japanese “passing grade” button"
-  },
-  {
-    "code": "U0001F233",
-    "name": "Japanese “vacancy” button"
-  },
-  {
-    "code": "U0003297",
-    "name": "Japanese “congratulations” button"
-  },
-  {
-    "code": "U0003299",
-    "name": "Japanese “secret” button"
-  },
-  {
-    "code": "U0001F23A",
-    "name": "Japanese “open for business” button"
-  },
-  {
-    "code": "U0001F235",
-    "name": "Japanese “no vacancy” button"
-  },
-  {
-    "code": "U0001F534",
-    "name": "red circle"
-  },
-  {
-    "code": "U0001F7E0",
-    "name": "orange circle"
-  },
-  {
-    "code": "U0001F7E1",
-    "name": "yellow circle"
-  },
-  {
-    "code": "U0001F7E2",
-    "name": "green circle"
-  },
-  {
-    "code": "U0001F535",
-    "name": "blue circle"
-  },
-  {
-    "code": "U0001F7E3",
-    "name": "purple circle"
-  },
-  {
-    "code": "U0001F7E4",
-    "name": "brown circle"
-  },
-  {
-    "code": "U00026AB",
-    "name": "black circle"
-  },
-  {
-    "code": "U00026AA",
-    "name": "white circle"
-  },
-  {
-    "code": "U0001F7E5",
-    "name": "red square"
-  },
-  {
-    "code": "U0001F7E7",
-    "name": "orange square"
-  },
-  {
-    "code": "U0001F7E8",
-    "name": "yellow square"
-  },
-  {
-    "code": "U0001F7E9",
-    "name": "green square"
-  },
-  {
-    "code": "U0001F7E6",
-    "name": "blue square"
-  },
-  {
-    "code": "U0001F7EA",
-    "name": "purple square"
-  },
-  {
-    "code": "U0001F7EB",
-    "name": "brown square"
-  },
-  {
-    "code": "U0002B1B",
-    "name": "black large square"
-  },
-  {
-    "code": "U0002B1C",
-    "name": "white large square"
-  },
-  {
-    "code": "U00025FC",
-    "name": "black medium square"
-  },
-  {
-    "code": "U00025FB",
-    "name": "white medium square"
-  },
-  {
-    "code": "U00025FE",
-    "name": "black medium-small square"
-  },
-  {
-    "code": "U00025FD",
-    "name": "white medium-small square"
-  },
-  {
-    "code": "U00025AA",
-    "name": "black small square"
-  },
-  {
-    "code": "U00025AB",
-    "name": "white small square"
-  },
-  {
-    "code": "U0001F536",
-    "name": "large orange diamond"
-  },
-  {
-    "code": "U0001F537",
-    "name": "large blue diamond"
-  },
-  {
-    "code": "U0001F538",
-    "name": "small orange diamond"
-  },
-  {
-    "code": "U0001F539",
-    "name": "small blue diamond"
-  },
-  {
-    "code": "U0001F53A",
-    "name": "red triangle pointed up"
-  },
-  {
-    "code": "U0001F53B",
-    "name": "red triangle pointed down"
-  },
-  {
-    "code": "U0001F4A0",
-    "name": "diamond with a dot"
-  },
-  {
-    "code": "U0001F518",
-    "name": "radio button"
-  },
-  {
-    "code": "U0001F533",
-    "name": "white square button"
-  },
-  {
-    "code": "U0001F532",
-    "name": "black square button"
-  },
-  {
-    "code": "U0001F3C1",
-    "name": "chequered flag"
-  },
-  {
-    "code": "U0001F6A9",
-    "name": "triangular flag"
-  },
-  {
-    "code": "U0001F38C",
-    "name": "crossed flags"
-  },
-  {
-    "code": "U0001F3F4",
-    "name": "black flag"
-  },
-  {
-    "code": "U0001F3F3",
-    "name": "white flag"
-  },
-  {
-    "code": "U0001F3F3",
-    "name": "rainbow flag"
-  },
-  {
-    "code": "U0001F3F3",
-    "name": "transgender flag"
-  },
-  {
-    "code": "U0001F3F4",
-    "name": "pirate flag"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Ascension Island"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Andorra"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: United Arab Emirates"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Afghanistan"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Antigua & Barbuda"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Anguilla"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Albania"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Armenia"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Angola"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Antarctica"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Argentina"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: American Samoa"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Austria"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Australia"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Aruba"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Åland Islands"
-  },
-  {
-    "code": "U0001F1E6",
-    "name": "flag: Azerbaijan"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bosnia & Herzegovina"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Barbados"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bangladesh"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Belgium"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Burkina Faso"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bulgaria"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bahrain"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Burundi"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Benin"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: St. Barthélemy"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bermuda"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Brunei"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bolivia"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Caribbean Netherlands"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Brazil"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bahamas"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bhutan"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Bouvet Island"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Botswana"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Belarus"
-  },
-  {
-    "code": "U0001F1E7",
-    "name": "flag: Belize"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Canada"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Cocos (Keeling) Islands"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Congo - Kinshasa"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Central African Republic"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Congo - Brazzaville"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Switzerland"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Côte d’Ivoire"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Cook Islands"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Chile"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Cameroon"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: China"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Colombia"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Clipperton Island"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Costa Rica"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Cuba"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Cape Verde"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Curaçao"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Christmas Island"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Cyprus"
-  },
-  {
-    "code": "U0001F1E8",
-    "name": "flag: Czechia"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Germany"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Diego Garcia"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Djibouti"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Denmark"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Dominica"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Dominican Republic"
-  },
-  {
-    "code": "U0001F1E9",
-    "name": "flag: Algeria"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Ceuta & Melilla"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Ecuador"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Estonia"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Egypt"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Western Sahara"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Eritrea"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Spain"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: Ethiopia"
-  },
-  {
-    "code": "U0001F1EA",
-    "name": "flag: European Union"
-  },
-  {
-    "code": "U0001F1EB",
-    "name": "flag: Finland"
-  },
-  {
-    "code": "U0001F1EB",
-    "name": "flag: Fiji"
-  },
-  {
-    "code": "U0001F1EB",
-    "name": "flag: Falkland Islands"
-  },
-  {
-    "code": "U0001F1EB",
-    "name": "flag: Micronesia"
-  },
-  {
-    "code": "U0001F1EB",
-    "name": "flag: Faroe Islands"
-  },
-  {
-    "code": "U0001F1EB",
-    "name": "flag: France"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Gabon"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: United Kingdom"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Grenada"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Georgia"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: French Guiana"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guernsey"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Ghana"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Gibraltar"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Greenland"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Gambia"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guinea"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guadeloupe"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Equatorial Guinea"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Greece"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: South Georgia & South Sandwich Islands"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guatemala"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guam"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guinea-Bissau"
-  },
-  {
-    "code": "U0001F1EC",
-    "name": "flag: Guyana"
-  },
-  {
-    "code": "U0001F1ED",
-    "name": "flag: Hong Kong SAR China"
-  },
-  {
-    "code": "U0001F1ED",
-    "name": "flag: Heard & McDonald Islands"
-  },
-  {
-    "code": "U0001F1ED",
-    "name": "flag: Honduras"
-  },
-  {
-    "code": "U0001F1ED",
-    "name": "flag: Croatia"
-  },
-  {
-    "code": "U0001F1ED",
-    "name": "flag: Haiti"
-  },
-  {
-    "code": "U0001F1ED",
-    "name": "flag: Hungary"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Canary Islands"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Indonesia"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Ireland"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Israel"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Isle of Man"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: India"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: British Indian Ocean Territory"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Iraq"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Iran"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Iceland"
-  },
-  {
-    "code": "U0001F1EE",
-    "name": "flag: Italy"
-  },
-  {
-    "code": "U0001F1EF",
-    "name": "flag: Jersey"
-  },
-  {
-    "code": "U0001F1EF",
-    "name": "flag: Jamaica"
-  },
-  {
-    "code": "U0001F1EF",
-    "name": "flag: Jordan"
-  },
-  {
-    "code": "U0001F1EF",
-    "name": "flag: Japan"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Kenya"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Kyrgyzstan"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Cambodia"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Kiribati"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Comoros"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: St. Kitts & Nevis"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: North Korea"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: South Korea"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Kuwait"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Cayman Islands"
-  },
-  {
-    "code": "U0001F1F0",
-    "name": "flag: Kazakhstan"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Laos"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Lebanon"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: St. Lucia"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Liechtenstein"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Sri Lanka"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Liberia"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Lesotho"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Lithuania"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Luxembourg"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Latvia"
-  },
-  {
-    "code": "U0001F1F1",
-    "name": "flag: Libya"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Morocco"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Monaco"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Moldova"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Montenegro"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: St. Martin"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Madagascar"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Marshall Islands"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: North Macedonia"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Mali"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Myanmar (Burma)"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Mongolia"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Macao SAR China"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Northern Mariana Islands"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Martinique"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Mauritania"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Montserrat"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Malta"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Mauritius"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Maldives"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Malawi"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Mexico"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Malaysia"
-  },
-  {
-    "code": "U0001F1F2",
-    "name": "flag: Mozambique"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Namibia"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: New Caledonia"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Niger"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Norfolk Island"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Nigeria"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Nicaragua"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Netherlands"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Norway"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Nepal"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Nauru"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: Niue"
-  },
-  {
-    "code": "U0001F1F3",
-    "name": "flag: New Zealand"
-  },
-  {
-    "code": "U0001F1F4",
-    "name": "flag: Oman"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Panama"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Peru"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: French Polynesia"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Papua New Guinea"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Philippines"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Pakistan"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Poland"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: St. Pierre & Miquelon"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Pitcairn Islands"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Puerto Rico"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Palestinian Territories"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Portugal"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Palau"
-  },
-  {
-    "code": "U0001F1F5",
-    "name": "flag: Paraguay"
-  },
-  {
-    "code": "U0001F1F6",
-    "name": "flag: Qatar"
-  },
-  {
-    "code": "U0001F1F7",
-    "name": "flag: Réunion"
-  },
-  {
-    "code": "U0001F1F7",
-    "name": "flag: Romania"
-  },
-  {
-    "code": "U0001F1F7",
-    "name": "flag: Serbia"
-  },
-  {
-    "code": "U0001F1F7",
-    "name": "flag: Russia"
-  },
-  {
-    "code": "U0001F1F7",
-    "name": "flag: Rwanda"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Saudi Arabia"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Solomon Islands"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Seychelles"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Sudan"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Sweden"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Singapore"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: St. Helena"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Slovenia"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Svalbard & Jan Mayen"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Slovakia"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Sierra Leone"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: San Marino"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Senegal"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Somalia"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Suriname"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: South Sudan"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: São Tomé & Príncipe"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: El Salvador"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Sint Maarten"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Syria"
-  },
-  {
-    "code": "U0001F1F8",
-    "name": "flag: Eswatini"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tristan da Cunha"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Turks & Caicos Islands"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Chad"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: French Southern Territories"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Togo"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Thailand"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tajikistan"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tokelau"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Timor-Leste"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Turkmenistan"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tunisia"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tonga"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Turkey"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Trinidad & Tobago"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tuvalu"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Taiwan"
-  },
-  {
-    "code": "U0001F1F9",
-    "name": "flag: Tanzania"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: Ukraine"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: Uganda"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: U.S. Outlying Islands"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: United Nations"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: United States"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: Uruguay"
-  },
-  {
-    "code": "U0001F1FA",
-    "name": "flag: Uzbekistan"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: Vatican City"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: St. Vincent & Grenadines"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: Venezuela"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: British Virgin Islands"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: U.S. Virgin Islands"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: Vietnam"
-  },
-  {
-    "code": "U0001F1FB",
-    "name": "flag: Vanuatu"
-  },
-  {
-    "code": "U0001F1FC",
-    "name": "flag: Wallis & Futuna"
-  },
-  {
-    "code": "U0001F1FC",
-    "name": "flag: Samoa"
-  },
-  {
-    "code": "U0001F1FD",
-    "name": "flag: Kosovo"
-  },
-  {
-    "code": "U0001F1FE",
-    "name": "flag: Yemen"
-  },
-  {
-    "code": "U0001F1FE",
-    "name": "flag: Mayotte"
-  },
-  {
-    "code": "U0001F1FF",
-    "name": "flag: South Africa"
-  },
-  {
-    "code": "U0001F1FF",
-    "name": "flag: Zambia"
-  },
-  {
-    "code": "U0001F1FF",
-    "name": "flag: Zimbabwe"
-  },
-  {
-    "code": "U0001F3F4",
-    "name": "flag: England"
-  },
-  {
-    "code": "U0001F3F4",
-    "name": "flag: Scotland"
-  },
-  {
-    "code": "U0001F3F4",
-    "name": "flag: Wales"
-  }
-]
-
-def getEmojiByCode(code):
-    return [element for element in EMOJI_LIST if element['code'] == code] or None
-
-def getEmojiByName(name):
-    return [element for element in EMOJI_LIST if element['name'] == name] or None
+GRINNING_FACE="\U0001F600"
+GRINNING_FACE_WITH_BIG_EYES="\U0001F603"
+GRINNING_FACE_WITH_SMILING_EYES="\U0001F604"
+BEAMING_FACE_WITH_SMILING_EYES="\U0001F601"
+GRINNING_SQUINTING_FACE="\U0001F606"
+GRINNING_FACE_WITH_SWEAT="\U0001F605"
+ROLLING_ON_THE_FLOOR_LAUGHING="\U0001F923"
+FACE_WITH_TEARS_OF_JOY="\U0001F602"
+SLIGHTLY_SMILING_FACE="\U0001F642"
+UPSIDEDOWN_FACE="\U0001F643"
+MELTING_FACE="\U0001FAE0"
+WINKING_FACE="\U0001F609"
+SMILING_FACE_WITH_SMILING_EYES="\U0001F60A"
+SMILING_FACE_WITH_HALO="\U0001F607"
+SMILING_FACE_WITH_HEARTS="\U0001F970"
+SMILING_FACE_WITH_HEARTEYES="\U0001F60D"
+STARSTRUCK="\U0001F929"
+FACE_BLOWING_A_KISS="\U0001F618"
+KISSING_FACE="\U0001F617"
+SMILING_FACE="\U000263A"
+KISSING_FACE_WITH_CLOSED_EYES="\U0001F61A"
+KISSING_FACE_WITH_SMILING_EYES="\U0001F619"
+SMILING_FACE_WITH_TEAR="\U0001F972"
+FACE_SAVORING_FOOD="\U0001F60B"
+FACE_WITH_TONGUE="\U0001F61B"
+WINKING_FACE_WITH_TONGUE="\U0001F61C"
+ZANY_FACE="\U0001F92A"
+SQUINTING_FACE_WITH_TONGUE="\U0001F61D"
+MONEYMOUTH_FACE="\U0001F911"
+SMILING_FACE_WITH_OPEN_HANDS="\U0001F917"
+FACE_WITH_HAND_OVER_MOUTH="\U0001F92D"
+FACE_WITH_OPEN_EYES_AND_HAND_OVER_MOUTH="\U0001FAE2"
+FACE_WITH_PEEKING_EYE="\U0001FAE3"
+SHUSHING_FACE="\U0001F92B"
+THINKING_FACE="\U0001F914"
+SALUTING_FACE="\U0001FAE1"
+ZIPPERMOUTH_FACE="\U0001F910"
+FACE_WITH_RAISED_EYEBROW="\U0001F928"
+NEUTRAL_FACE="\U0001F610"
+EXPRESSIONLESS_FACE="\U0001F611"
+FACE_WITHOUT_MOUTH="\U0001F636"
+DOTTED_LINE_FACE="\U0001FAE5"
+FACE_IN_CLOUDS="\U0001F636"
+SMIRKING_FACE="\U0001F60F"
+UNAMUSED_FACE="\U0001F612"
+FACE_WITH_ROLLING_EYES="\U0001F644"
+GRIMACING_FACE="\U0001F62C"
+FACE_EXHALING="\U0001F62E"
+LYING_FACE="\U0001F925"
+RELIEVED_FACE="\U0001F60C"
+PENSIVE_FACE="\U0001F614"
+SLEEPY_FACE="\U0001F62A"
+DROOLING_FACE="\U0001F924"
+SLEEPING_FACE="\U0001F634"
+FACE_WITH_MEDICAL_MASK="\U0001F637"
+FACE_WITH_THERMOMETER="\U0001F912"
+FACE_WITH_HEADBANDAGE="\U0001F915"
+NAUSEATED_FACE="\U0001F922"
+FACE_VOMITING="\U0001F92E"
+SNEEZING_FACE="\U0001F927"
+HOT_FACE="\U0001F975"
+COLD_FACE="\U0001F976"
+WOOZY_FACE="\U0001F974"
+FACE_WITH_CROSSEDOUT_EYES="\U0001F635"
+FACE_WITH_SPIRAL_EYES="\U0001F635"
+EXPLODING_HEAD="\U0001F92F"
+COWBOY_HAT_FACE="\U0001F920"
+PARTYING_FACE="\U0001F973"
+DISGUISED_FACE="\U0001F978"
+SMILING_FACE_WITH_SUNGLASSES="\U0001F60E"
+NERD_FACE="\U0001F913"
+FACE_WITH_MONOCLE="\U0001F9D0"
+CONFUSED_FACE="\U0001F615"
+FACE_WITH_DIAGONAL_MOUTH="\U0001FAE4"
+WORRIED_FACE="\U0001F61F"
+SLIGHTLY_FROWNING_FACE="\U0001F641"
+FROWNING_FACE="\U0002639"
+FACE_WITH_OPEN_MOUTH="\U0001F62E"
+HUSHED_FACE="\U0001F62F"
+ASTONISHED_FACE="\U0001F632"
+FLUSHED_FACE="\U0001F633"
+PLEADING_FACE="\U0001F97A"
+FACE_HOLDING_BACK_TEARS="\U0001F979"
+FROWNING_FACE_WITH_OPEN_MOUTH="\U0001F626"
+ANGUISHED_FACE="\U0001F627"
+FEARFUL_FACE="\U0001F628"
+ANXIOUS_FACE_WITH_SWEAT="\U0001F630"
+SAD_BUT_RELIEVED_FACE="\U0001F625"
+CRYING_FACE="\U0001F622"
+LOUDLY_CRYING_FACE="\U0001F62D"
+FACE_SCREAMING_IN_FEAR="\U0001F631"
+CONFOUNDED_FACE="\U0001F616"
+PERSEVERING_FACE="\U0001F623"
+DISAPPOINTED_FACE="\U0001F61E"
+DOWNCAST_FACE_WITH_SWEAT="\U0001F613"
+WEARY_FACE="\U0001F629"
+TIRED_FACE="\U0001F62B"
+YAWNING_FACE="\U0001F971"
+FACE_WITH_STEAM_FROM_NOSE="\U0001F624"
+ENRAGED_FACE="\U0001F621"
+ANGRY_FACE="\U0001F620"
+FACE_WITH_SYMBOLS_ON_MOUTH="\U0001F92C"
+SMILING_FACE_WITH_HORNS="\U0001F608"
+ANGRY_FACE_WITH_HORNS="\U0001F47F"
+SKULL="\U0001F480"
+SKULL_AND_CROSSBONES="\U0002620"
+PILE_OF_POO="\U0001F4A9"
+CLOWN_FACE="\U0001F921"
+OGRE="\U0001F479"
+GOBLIN="\U0001F47A"
+GHOST="\U0001F47B"
+ALIEN="\U0001F47D"
+ALIEN_MONSTER="\U0001F47E"
+ROBOT="\U0001F916"
+GRINNING_CAT="\U0001F63A"
+GRINNING_CAT_WITH_SMILING_EYES="\U0001F638"
+CAT_WITH_TEARS_OF_JOY="\U0001F639"
+SMILING_CAT_WITH_HEARTEYES="\U0001F63B"
+CAT_WITH_WRY_SMILE="\U0001F63C"
+KISSING_CAT="\U0001F63D"
+WEARY_CAT="\U0001F640"
+CRYING_CAT="\U0001F63F"
+POUTING_CAT="\U0001F63E"
+SEENOEVIL_MONKEY="\U0001F648"
+HEARNOEVIL_MONKEY="\U0001F649"
+SPEAKNOEVIL_MONKEY="\U0001F64A"
+LOVE_LETTER="\U0001F48C"
+HEART_WITH_ARROW="\U0001F498"
+HEART_WITH_RIBBON="\U0001F49D"
+SPARKLING_HEART="\U0001F496"
+GROWING_HEART="\U0001F497"
+BEATING_HEART="\U0001F493"
+REVOLVING_HEARTS="\U0001F49E"
+TWO_HEARTS="\U0001F495"
+HEART_DECORATION="\U0001F49F"
+HEART_EXCLAMATION="\U0002763"
+BROKEN_HEART="\U0001F494"
+HEART_ON_FIRE="\U0002764"
+MENDING_HEART="\U0002764"
+RED_HEART="\U0002764"
+ORANGE_HEART="\U0001F9E1"
+YELLOW_HEART="\U0001F49B"
+GREEN_HEART="\U0001F49A"
+BLUE_HEART="\U0001F499"
+PURPLE_HEART="\U0001F49C"
+BROWN_HEART="\U0001F90E"
+BLACK_HEART="\U0001F5A4"
+WHITE_HEART="\U0001F90D"
+KISS_MARK="\U0001F48B"
+HUNDRED_POINTS="\U0001F4AF"
+ANGER_SYMBOL="\U0001F4A2"
+COLLISION="\U0001F4A5"
+DIZZY="\U0001F4AB"
+SWEAT_DROPLETS="\U0001F4A6"
+DASHING_AWAY="\U0001F4A8"
+HOLE="\U0001F573"
+SPEECH_BALLOON="\U0001F4AC"
+EYE_IN_SPEECH_BUBBLE="\U0001F441"
+LEFT_SPEECH_BUBBLE="\U0001F5E8"
+RIGHT_ANGER_BUBBLE="\U0001F5EF"
+THOUGHT_BALLOON="\U0001F4AD"
+ZZZ="\U0001F4A4"
+WAVING_HAND="\U0001F44B"
+RAISED_BACK_OF_HAND="\U0001F91A"
+HAND_WITH_FINGERS_SPLAYED="\U0001F590"
+RAISED_HAND="\U000270B"
+VULCAN_SALUTE="\U0001F596"
+RIGHTWARDS_HAND="\U0001FAF1"
+LEFTWARDS_HAND="\U0001FAF2"
+PALM_DOWN_HAND="\U0001FAF3"
+PALM_UP_HAND="\U0001FAF4"
+OK_HAND="\U0001F44C"
+PINCHED_FINGERS="\U0001F90C"
+PINCHING_HAND="\U0001F90F"
+VICTORY_HAND="\U000270C"
+CROSSED_FINGERS="\U0001F91E"
+HAND_WITH_INDEX_FINGER_AND_THUMB_CROSSED="\U0001FAF0"
+LOVEYOU_GESTURE="\U0001F91F"
+SIGN_OF_THE_HORNS="\U0001F918"
+CALL_ME_HAND="\U0001F919"
+BACKHAND_INDEX_POINTING_LEFT="\U0001F448"
+BACKHAND_INDEX_POINTING_RIGHT="\U0001F449"
+BACKHAND_INDEX_POINTING_UP="\U0001F446"
+MIDDLE_FINGER="\U0001F595"
+BACKHAND_INDEX_POINTING_DOWN="\U0001F447"
+INDEX_POINTING_UP="\U000261D"
+INDEX_POINTING_AT_THE_VIEWER="\U0001FAF5"
+THUMBS_UP="\U0001F44D"
+THUMBS_DOWN="\U0001F44E"
+RAISED_FIST="\U000270A"
+ONCOMING_FIST="\U0001F44A"
+LEFTFACING_FIST="\U0001F91B"
+RIGHTFACING_FIST="\U0001F91C"
+CLAPPING_HANDS="\U0001F44F"
+RAISING_HANDS="\U0001F64C"
+HEART_HANDS="\U0001FAF6"
+OPEN_HANDS="\U0001F450"
+PALMS_UP_TOGETHER="\U0001F932"
+HANDSHAKE="\U0001F91D"
+FOLDED_HANDS="\U0001F64F"
+WRITING_HAND="\U000270D"
+NAIL_POLISH="\U0001F485"
+SELFIE="\U0001F933"
+FLEXED_BICEPS="\U0001F4AA"
+MECHANICAL_ARM="\U0001F9BE"
+MECHANICAL_LEG="\U0001F9BF"
+LEG="\U0001F9B5"
+FOOT="\U0001F9B6"
+EAR="\U0001F442"
+EAR_WITH_HEARING_AID="\U0001F9BB"
+NOSE="\U0001F443"
+BRAIN="\U0001F9E0"
+ANATOMICAL_HEART="\U0001FAC0"
+LUNGS="\U0001FAC1"
+TOOTH="\U0001F9B7"
+BONE="\U0001F9B4"
+EYES="\U0001F440"
+EYE="\U0001F441"
+TONGUE="\U0001F445"
+MOUTH="\U0001F444"
+BITING_LIP="\U0001FAE6"
+BABY="\U0001F476"
+CHILD="\U0001F9D2"
+BOY="\U0001F466"
+GIRL="\U0001F467"
+PERSON="\U0001F9D1"
+PERSON_BLOND_HAIR="\U0001F471"
+MAN="\U0001F468"
+PERSON_BEARD="\U0001F9D4"
+MAN_BEARD="\U0001F9D4"
+WOMAN_BEARD="\U0001F9D4"
+MAN_RED_HAIR="\U0001F468"
+MAN_CURLY_HAIR="\U0001F468"
+MAN_WHITE_HAIR="\U0001F468"
+MAN_BALD="\U0001F468"
+WOMAN="\U0001F469"
+WOMAN_RED_HAIR="\U0001F469"
+PERSON_RED_HAIR="\U0001F9D1"
+WOMAN_CURLY_HAIR="\U0001F469"
+PERSON_CURLY_HAIR="\U0001F9D1"
+WOMAN_WHITE_HAIR="\U0001F469"
+PERSON_WHITE_HAIR="\U0001F9D1"
+WOMAN_BALD="\U0001F469"
+PERSON_BALD="\U0001F9D1"
+WOMAN_BLOND_HAIR="\U0001F471"
+MAN_BLOND_HAIR="\U0001F471"
+OLDER_PERSON="\U0001F9D3"
+OLD_MAN="\U0001F474"
+OLD_WOMAN="\U0001F475"
+PERSON_FROWNING="\U0001F64D"
+MAN_FROWNING="\U0001F64D"
+WOMAN_FROWNING="\U0001F64D"
+PERSON_POUTING="\U0001F64E"
+MAN_POUTING="\U0001F64E"
+WOMAN_POUTING="\U0001F64E"
+PERSON_GESTURING_NO="\U0001F645"
+MAN_GESTURING_NO="\U0001F645"
+WOMAN_GESTURING_NO="\U0001F645"
+PERSON_GESTURING_OK="\U0001F646"
+MAN_GESTURING_OK="\U0001F646"
+WOMAN_GESTURING_OK="\U0001F646"
+PERSON_TIPPING_HAND="\U0001F481"
+MAN_TIPPING_HAND="\U0001F481"
+WOMAN_TIPPING_HAND="\U0001F481"
+PERSON_RAISING_HAND="\U0001F64B"
+MAN_RAISING_HAND="\U0001F64B"
+WOMAN_RAISING_HAND="\U0001F64B"
+DEAF_PERSON="\U0001F9CF"
+DEAF_MAN="\U0001F9CF"
+DEAF_WOMAN="\U0001F9CF"
+PERSON_BOWING="\U0001F647"
+MAN_BOWING="\U0001F647"
+WOMAN_BOWING="\U0001F647"
+PERSON_FACEPALMING="\U0001F926"
+MAN_FACEPALMING="\U0001F926"
+WOMAN_FACEPALMING="\U0001F926"
+PERSON_SHRUGGING="\U0001F937"
+MAN_SHRUGGING="\U0001F937"
+WOMAN_SHRUGGING="\U0001F937"
+HEALTH_WORKER="\U0001F9D1"
+MAN_HEALTH_WORKER="\U0001F468"
+WOMAN_HEALTH_WORKER="\U0001F469"
+STUDENT="\U0001F9D1"
+MAN_STUDENT="\U0001F468"
+WOMAN_STUDENT="\U0001F469"
+TEACHER="\U0001F9D1"
+MAN_TEACHER="\U0001F468"
+WOMAN_TEACHER="\U0001F469"
+JUDGE="\U0001F9D1"
+MAN_JUDGE="\U0001F468"
+WOMAN_JUDGE="\U0001F469"
+FARMER="\U0001F9D1"
+MAN_FARMER="\U0001F468"
+WOMAN_FARMER="\U0001F469"
+COOK="\U0001F9D1"
+MAN_COOK="\U0001F468"
+WOMAN_COOK="\U0001F469"
+MECHANIC="\U0001F9D1"
+MAN_MECHANIC="\U0001F468"
+WOMAN_MECHANIC="\U0001F469"
+FACTORY_WORKER="\U0001F9D1"
+MAN_FACTORY_WORKER="\U0001F468"
+WOMAN_FACTORY_WORKER="\U0001F469"
+OFFICE_WORKER="\U0001F9D1"
+MAN_OFFICE_WORKER="\U0001F468"
+WOMAN_OFFICE_WORKER="\U0001F469"
+SCIENTIST="\U0001F9D1"
+MAN_SCIENTIST="\U0001F468"
+WOMAN_SCIENTIST="\U0001F469"
+TECHNOLOGIST="\U0001F9D1"
+MAN_TECHNOLOGIST="\U0001F468"
+WOMAN_TECHNOLOGIST="\U0001F469"
+SINGER="\U0001F9D1"
+MAN_SINGER="\U0001F468"
+WOMAN_SINGER="\U0001F469"
+ARTIST="\U0001F9D1"
+MAN_ARTIST="\U0001F468"
+WOMAN_ARTIST="\U0001F469"
+PILOT="\U0001F9D1"
+MAN_PILOT="\U0001F468"
+WOMAN_PILOT="\U0001F469"
+ASTRONAUT="\U0001F9D1"
+MAN_ASTRONAUT="\U0001F468"
+WOMAN_ASTRONAUT="\U0001F469"
+FIREFIGHTER="\U0001F9D1"
+MAN_FIREFIGHTER="\U0001F468"
+WOMAN_FIREFIGHTER="\U0001F469"
+POLICE_OFFICER="\U0001F46E"
+MAN_POLICE_OFFICER="\U0001F46E"
+WOMAN_POLICE_OFFICER="\U0001F46E"
+DETECTIVE="\U0001F575"
+MAN_DETECTIVE="\U0001F575"
+WOMAN_DETECTIVE="\U0001F575"
+GUARD="\U0001F482"
+MAN_GUARD="\U0001F482"
+WOMAN_GUARD="\U0001F482"
+NINJA="\U0001F977"
+CONSTRUCTION_WORKER="\U0001F477"
+MAN_CONSTRUCTION_WORKER="\U0001F477"
+WOMAN_CONSTRUCTION_WORKER="\U0001F477"
+PERSON_WITH_CROWN="\U0001FAC5"
+PRINCE="\U0001F934"
+PRINCESS="\U0001F478"
+PERSON_WEARING_TURBAN="\U0001F473"
+MAN_WEARING_TURBAN="\U0001F473"
+WOMAN_WEARING_TURBAN="\U0001F473"
+PERSON_WITH_SKULLCAP="\U0001F472"
+WOMAN_WITH_HEADSCARF="\U0001F9D5"
+PERSON_IN_TUXEDO="\U0001F935"
+MAN_IN_TUXEDO="\U0001F935"
+WOMAN_IN_TUXEDO="\U0001F935"
+PERSON_WITH_VEIL="\U0001F470"
+MAN_WITH_VEIL="\U0001F470"
+WOMAN_WITH_VEIL="\U0001F470"
+PREGNANT_WOMAN="\U0001F930"
+PREGNANT_MAN="\U0001FAC3"
+PREGNANT_PERSON="\U0001FAC4"
+BREASTFEEDING="\U0001F931"
+WOMAN_FEEDING_BABY="\U0001F469"
+MAN_FEEDING_BABY="\U0001F468"
+PERSON_FEEDING_BABY="\U0001F9D1"
+BABY_ANGEL="\U0001F47C"
+SANTA_CLAUS="\U0001F385"
+MRS_CLAUS="\U0001F936"
+MX_CLAUS="\U0001F9D1"
+SUPERHERO="\U0001F9B8"
+MAN_SUPERHERO="\U0001F9B8"
+WOMAN_SUPERHERO="\U0001F9B8"
+SUPERVILLAIN="\U0001F9B9"
+MAN_SUPERVILLAIN="\U0001F9B9"
+WOMAN_SUPERVILLAIN="\U0001F9B9"
+MAGE="\U0001F9D9"
+MAN_MAGE="\U0001F9D9"
+WOMAN_MAGE="\U0001F9D9"
+FAIRY="\U0001F9DA"
+MAN_FAIRY="\U0001F9DA"
+WOMAN_FAIRY="\U0001F9DA"
+VAMPIRE="\U0001F9DB"
+MAN_VAMPIRE="\U0001F9DB"
+WOMAN_VAMPIRE="\U0001F9DB"
+MERPERSON="\U0001F9DC"
+MERMAN="\U0001F9DC"
+MERMAID="\U0001F9DC"
+ELF="\U0001F9DD"
+MAN_ELF="\U0001F9DD"
+WOMAN_ELF="\U0001F9DD"
+GENIE="\U0001F9DE"
+MAN_GENIE="\U0001F9DE"
+WOMAN_GENIE="\U0001F9DE"
+ZOMBIE="\U0001F9DF"
+MAN_ZOMBIE="\U0001F9DF"
+WOMAN_ZOMBIE="\U0001F9DF"
+TROLL="\U0001F9CC"
+PERSON_GETTING_MASSAGE="\U0001F486"
+MAN_GETTING_MASSAGE="\U0001F486"
+WOMAN_GETTING_MASSAGE="\U0001F486"
+PERSON_GETTING_HAIRCUT="\U0001F487"
+MAN_GETTING_HAIRCUT="\U0001F487"
+WOMAN_GETTING_HAIRCUT="\U0001F487"
+PERSON_WALKING="\U0001F6B6"
+MAN_WALKING="\U0001F6B6"
+WOMAN_WALKING="\U0001F6B6"
+PERSON_STANDING="\U0001F9CD"
+MAN_STANDING="\U0001F9CD"
+WOMAN_STANDING="\U0001F9CD"
+PERSON_KNEELING="\U0001F9CE"
+MAN_KNEELING="\U0001F9CE"
+WOMAN_KNEELING="\U0001F9CE"
+PERSON_WITH_WHITE_CANE="\U0001F9D1"
+MAN_WITH_WHITE_CANE="\U0001F468"
+WOMAN_WITH_WHITE_CANE="\U0001F469"
+PERSON_IN_MOTORIZED_WHEELCHAIR="\U0001F9D1"
+MAN_IN_MOTORIZED_WHEELCHAIR="\U0001F468"
+WOMAN_IN_MOTORIZED_WHEELCHAIR="\U0001F469"
+PERSON_IN_MANUAL_WHEELCHAIR="\U0001F9D1"
+MAN_IN_MANUAL_WHEELCHAIR="\U0001F468"
+WOMAN_IN_MANUAL_WHEELCHAIR="\U0001F469"
+PERSON_RUNNING="\U0001F3C3"
+MAN_RUNNING="\U0001F3C3"
+WOMAN_RUNNING="\U0001F3C3"
+WOMAN_DANCING="\U0001F483"
+MAN_DANCING="\U0001F57A"
+PERSON_IN_SUIT_LEVITATING="\U0001F574"
+PEOPLE_WITH_BUNNY_EARS="\U0001F46F"
+MEN_WITH_BUNNY_EARS="\U0001F46F"
+WOMEN_WITH_BUNNY_EARS="\U0001F46F"
+PERSON_IN_STEAMY_ROOM="\U0001F9D6"
+MAN_IN_STEAMY_ROOM="\U0001F9D6"
+WOMAN_IN_STEAMY_ROOM="\U0001F9D6"
+PERSON_CLIMBING="\U0001F9D7"
+MAN_CLIMBING="\U0001F9D7"
+WOMAN_CLIMBING="\U0001F9D7"
+PERSON_FENCING="\U0001F93A"
+HORSE_RACING="\U0001F3C7"
+SKIER="\U00026F7"
+SNOWBOARDER="\U0001F3C2"
+PERSON_GOLFING="\U0001F3CC"
+MAN_GOLFING="\U0001F3CC"
+WOMAN_GOLFING="\U0001F3CC"
+PERSON_SURFING="\U0001F3C4"
+MAN_SURFING="\U0001F3C4"
+WOMAN_SURFING="\U0001F3C4"
+PERSON_ROWING_BOAT="\U0001F6A3"
+MAN_ROWING_BOAT="\U0001F6A3"
+WOMAN_ROWING_BOAT="\U0001F6A3"
+PERSON_SWIMMING="\U0001F3CA"
+MAN_SWIMMING="\U0001F3CA"
+WOMAN_SWIMMING="\U0001F3CA"
+PERSON_BOUNCING_BALL="\U00026F9"
+MAN_BOUNCING_BALL="\U00026F9"
+WOMAN_BOUNCING_BALL="\U00026F9"
+PERSON_LIFTING_WEIGHTS="\U0001F3CB"
+MAN_LIFTING_WEIGHTS="\U0001F3CB"
+WOMAN_LIFTING_WEIGHTS="\U0001F3CB"
+PERSON_BIKING="\U0001F6B4"
+MAN_BIKING="\U0001F6B4"
+WOMAN_BIKING="\U0001F6B4"
+PERSON_MOUNTAIN_BIKING="\U0001F6B5"
+MAN_MOUNTAIN_BIKING="\U0001F6B5"
+WOMAN_MOUNTAIN_BIKING="\U0001F6B5"
+PERSON_CARTWHEELING="\U0001F938"
+MAN_CARTWHEELING="\U0001F938"
+WOMAN_CARTWHEELING="\U0001F938"
+PEOPLE_WRESTLING="\U0001F93C"
+MEN_WRESTLING="\U0001F93C"
+WOMEN_WRESTLING="\U0001F93C"
+PERSON_PLAYING_WATER_POLO="\U0001F93D"
+MAN_PLAYING_WATER_POLO="\U0001F93D"
+WOMAN_PLAYING_WATER_POLO="\U0001F93D"
+PERSON_PLAYING_HANDBALL="\U0001F93E"
+MAN_PLAYING_HANDBALL="\U0001F93E"
+WOMAN_PLAYING_HANDBALL="\U0001F93E"
+PERSON_JUGGLING="\U0001F939"
+MAN_JUGGLING="\U0001F939"
+WOMAN_JUGGLING="\U0001F939"
+PERSON_IN_LOTUS_POSITION="\U0001F9D8"
+MAN_IN_LOTUS_POSITION="\U0001F9D8"
+WOMAN_IN_LOTUS_POSITION="\U0001F9D8"
+PERSON_TAKING_BATH="\U0001F6C0"
+PERSON_IN_BED="\U0001F6CC"
+PEOPLE_HOLDING_HANDS="\U0001F9D1"
+WOMEN_HOLDING_HANDS="\U0001F46D"
+WOMAN_AND_MAN_HOLDING_HANDS="\U0001F46B"
+MEN_HOLDING_HANDS="\U0001F46C"
+KISS="\U0001F48F"
+KISS_WOMAN_MAN="\U0001F469"
+KISS_MAN_MAN="\U0001F468"
+KISS_WOMAN_WOMAN="\U0001F469"
+COUPLE_WITH_HEART="\U0001F491"
+COUPLE_WITH_HEART_WOMAN_MAN="\U0001F469"
+COUPLE_WITH_HEART_MAN_MAN="\U0001F468"
+COUPLE_WITH_HEART_WOMAN_WOMAN="\U0001F469"
+FAMILY="\U0001F46A"
+FAMILY_MAN_WOMAN_BOY="\U0001F468"
+FAMILY_MAN_WOMAN_GIRL="\U0001F468"
+FAMILY_MAN_WOMAN_GIRL_BOY="\U0001F468"
+FAMILY_MAN_WOMAN_BOY_BOY="\U0001F468"
+FAMILY_MAN_WOMAN_GIRL_GIRL="\U0001F468"
+FAMILY_MAN_MAN_BOY="\U0001F468"
+FAMILY_MAN_MAN_GIRL="\U0001F468"
+FAMILY_MAN_MAN_GIRL_BOY="\U0001F468"
+FAMILY_MAN_MAN_BOY_BOY="\U0001F468"
+FAMILY_MAN_MAN_GIRL_GIRL="\U0001F468"
+FAMILY_WOMAN_WOMAN_BOY="\U0001F469"
+FAMILY_WOMAN_WOMAN_GIRL="\U0001F469"
+FAMILY_WOMAN_WOMAN_GIRL_BOY="\U0001F469"
+FAMILY_WOMAN_WOMAN_BOY_BOY="\U0001F469"
+FAMILY_WOMAN_WOMAN_GIRL_GIRL="\U0001F469"
+FAMILY_MAN_BOY="\U0001F468"
+FAMILY_MAN_BOY_BOY="\U0001F468"
+FAMILY_MAN_GIRL="\U0001F468"
+FAMILY_MAN_GIRL_BOY="\U0001F468"
+FAMILY_MAN_GIRL_GIRL="\U0001F468"
+FAMILY_WOMAN_BOY="\U0001F469"
+FAMILY_WOMAN_BOY_BOY="\U0001F469"
+FAMILY_WOMAN_GIRL="\U0001F469"
+FAMILY_WOMAN_GIRL_BOY="\U0001F469"
+FAMILY_WOMAN_GIRL_GIRL="\U0001F469"
+SPEAKING_HEAD="\U0001F5E3"
+BUST_IN_SILHOUETTE="\U0001F464"
+BUSTS_IN_SILHOUETTE="\U0001F465"
+PEOPLE_HUGGING="\U0001FAC2"
+FOOTPRINTS="\U0001F463"
+RED_HAIR="\U0001F9B0"
+CURLY_HAIR="\U0001F9B1"
+WHITE_HAIR="\U0001F9B3"
+BALD="\U0001F9B2"
+MONKEY_FACE="\U0001F435"
+MONKEY="\U0001F412"
+GORILLA="\U0001F98D"
+ORANGUTAN="\U0001F9A7"
+DOG_FACE="\U0001F436"
+DOG="\U0001F415"
+GUIDE_DOG="\U0001F9AE"
+SERVICE_DOG="\U0001F415"
+POODLE="\U0001F429"
+WOLF="\U0001F43A"
+FOX="\U0001F98A"
+RACCOON="\U0001F99D"
+CAT_FACE="\U0001F431"
+CAT="\U0001F408"
+BLACK_CAT="\U0001F408"
+LION="\U0001F981"
+TIGER_FACE="\U0001F42F"
+TIGER="\U0001F405"
+LEOPARD="\U0001F406"
+HORSE_FACE="\U0001F434"
+HORSE="\U0001F40E"
+UNICORN="\U0001F984"
+ZEBRA="\U0001F993"
+DEER="\U0001F98C"
+BISON="\U0001F9AC"
+COW_FACE="\U0001F42E"
+OX="\U0001F402"
+WATER_BUFFALO="\U0001F403"
+COW="\U0001F404"
+PIG_FACE="\U0001F437"
+PIG="\U0001F416"
+BOAR="\U0001F417"
+PIG_NOSE="\U0001F43D"
+RAM="\U0001F40F"
+EWE="\U0001F411"
+GOAT="\U0001F410"
+CAMEL="\U0001F42A"
+TWOHUMP_CAMEL="\U0001F42B"
+LLAMA="\U0001F999"
+GIRAFFE="\U0001F992"
+ELEPHANT="\U0001F418"
+MAMMOTH="\U0001F9A3"
+RHINOCEROS="\U0001F98F"
+HIPPOPOTAMUS="\U0001F99B"
+MOUSE_FACE="\U0001F42D"
+MOUSE="\U0001F401"
+RAT="\U0001F400"
+HAMSTER="\U0001F439"
+RABBIT_FACE="\U0001F430"
+RABBIT="\U0001F407"
+CHIPMUNK="\U0001F43F"
+BEAVER="\U0001F9AB"
+HEDGEHOG="\U0001F994"
+BAT="\U0001F987"
+BEAR="\U0001F43B"
+POLAR_BEAR="\U0001F43B"
+KOALA="\U0001F428"
+PANDA="\U0001F43C"
+SLOTH="\U0001F9A5"
+OTTER="\U0001F9A6"
+SKUNK="\U0001F9A8"
+KANGAROO="\U0001F998"
+BADGER="\U0001F9A1"
+PAW_PRINTS="\U0001F43E"
+TURKEY="\U0001F983"
+CHICKEN="\U0001F414"
+ROOSTER="\U0001F413"
+HATCHING_CHICK="\U0001F423"
+BABY_CHICK="\U0001F424"
+FRONTFACING_BABY_CHICK="\U0001F425"
+BIRD="\U0001F426"
+PENGUIN="\U0001F427"
+DOVE="\U0001F54A"
+EAGLE="\U0001F985"
+DUCK="\U0001F986"
+SWAN="\U0001F9A2"
+OWL="\U0001F989"
+DODO="\U0001F9A4"
+FEATHER="\U0001FAB6"
+FLAMINGO="\U0001F9A9"
+PEACOCK="\U0001F99A"
+PARROT="\U0001F99C"
+FROG="\U0001F438"
+CROCODILE="\U0001F40A"
+TURTLE="\U0001F422"
+LIZARD="\U0001F98E"
+SNAKE="\U0001F40D"
+DRAGON_FACE="\U0001F432"
+DRAGON="\U0001F409"
+SAUROPOD="\U0001F995"
+TREX="\U0001F996"
+SPOUTING_WHALE="\U0001F433"
+WHALE="\U0001F40B"
+DOLPHIN="\U0001F42C"
+SEAL="\U0001F9AD"
+FISH="\U0001F41F"
+TROPICAL_FISH="\U0001F420"
+BLOWFISH="\U0001F421"
+SHARK="\U0001F988"
+OCTOPUS="\U0001F419"
+SPIRAL_SHELL="\U0001F41A"
+CORAL="\U0001FAB8"
+SNAIL="\U0001F40C"
+BUTTERFLY="\U0001F98B"
+BUG="\U0001F41B"
+ANT="\U0001F41C"
+HONEYBEE="\U0001F41D"
+BEETLE="\U0001FAB2"
+LADY_BEETLE="\U0001F41E"
+CRICKET="\U0001F997"
+COCKROACH="\U0001FAB3"
+SPIDER="\U0001F577"
+SPIDER_WEB="\U0001F578"
+SCORPION="\U0001F982"
+MOSQUITO="\U0001F99F"
+FLY="\U0001FAB0"
+WORM="\U0001FAB1"
+MICROBE="\U0001F9A0"
+BOUQUET="\U0001F490"
+CHERRY_BLOSSOM="\U0001F338"
+WHITE_FLOWER="\U0001F4AE"
+LOTUS="\U0001FAB7"
+ROSETTE="\U0001F3F5"
+ROSE="\U0001F339"
+WILTED_FLOWER="\U0001F940"
+HIBISCUS="\U0001F33A"
+SUNFLOWER="\U0001F33B"
+BLOSSOM="\U0001F33C"
+TULIP="\U0001F337"
+SEEDLING="\U0001F331"
+POTTED_PLANT="\U0001FAB4"
+EVERGREEN_TREE="\U0001F332"
+DECIDUOUS_TREE="\U0001F333"
+PALM_TREE="\U0001F334"
+CACTUS="\U0001F335"
+SHEAF_OF_RICE="\U0001F33E"
+HERB="\U0001F33F"
+SHAMROCK="\U0002618"
+FOUR_LEAF_CLOVER="\U0001F340"
+MAPLE_LEAF="\U0001F341"
+FALLEN_LEAF="\U0001F342"
+LEAF_FLUTTERING_IN_WIND="\U0001F343"
+EMPTY_NEST="\U0001FAB9"
+NEST_WITH_EGGS="\U0001FABA"
+MUSHROOM="\U0001F344"
+GRAPES="\U0001F347"
+MELON="\U0001F348"
+WATERMELON="\U0001F349"
+TANGERINE="\U0001F34A"
+LEMON="\U0001F34B"
+BANANA="\U0001F34C"
+PINEAPPLE="\U0001F34D"
+MANGO="\U0001F96D"
+RED_APPLE="\U0001F34E"
+GREEN_APPLE="\U0001F34F"
+PEAR="\U0001F350"
+PEACH="\U0001F351"
+CHERRIES="\U0001F352"
+STRAWBERRY="\U0001F353"
+BLUEBERRIES="\U0001FAD0"
+KIWI_FRUIT="\U0001F95D"
+TOMATO="\U0001F345"
+OLIVE="\U0001FAD2"
+COCONUT="\U0001F965"
+AVOCADO="\U0001F951"
+EGGPLANT="\U0001F346"
+POTATO="\U0001F954"
+CARROT="\U0001F955"
+EAR_OF_CORN="\U0001F33D"
+HOT_PEPPER="\U0001F336"
+BELL_PEPPER="\U0001FAD1"
+CUCUMBER="\U0001F952"
+LEAFY_GREEN="\U0001F96C"
+BROCCOLI="\U0001F966"
+GARLIC="\U0001F9C4"
+ONION="\U0001F9C5"
+PEANUTS="\U0001F95C"
+BEANS="\U0001FAD8"
+CHESTNUT="\U0001F330"
+BREAD="\U0001F35E"
+CROISSANT="\U0001F950"
+BAGUETTE_BREAD="\U0001F956"
+FLATBREAD="\U0001FAD3"
+PRETZEL="\U0001F968"
+BAGEL="\U0001F96F"
+PANCAKES="\U0001F95E"
+WAFFLE="\U0001F9C7"
+CHEESE_WEDGE="\U0001F9C0"
+MEAT_ON_BONE="\U0001F356"
+POULTRY_LEG="\U0001F357"
+CUT_OF_MEAT="\U0001F969"
+BACON="\U0001F953"
+HAMBURGER="\U0001F354"
+FRENCH_FRIES="\U0001F35F"
+PIZZA="\U0001F355"
+HOT_DOG="\U0001F32D"
+SANDWICH="\U0001F96A"
+TACO="\U0001F32E"
+BURRITO="\U0001F32F"
+TAMALE="\U0001FAD4"
+STUFFED_FLATBREAD="\U0001F959"
+FALAFEL="\U0001F9C6"
+EGG="\U0001F95A"
+COOKING="\U0001F373"
+SHALLOW_PAN_OF_FOOD="\U0001F958"
+POT_OF_FOOD="\U0001F372"
+FONDUE="\U0001FAD5"
+BOWL_WITH_SPOON="\U0001F963"
+GREEN_SALAD="\U0001F957"
+POPCORN="\U0001F37F"
+BUTTER="\U0001F9C8"
+SALT="\U0001F9C2"
+CANNED_FOOD="\U0001F96B"
+BENTO_BOX="\U0001F371"
+RICE_CRACKER="\U0001F358"
+RICE_BALL="\U0001F359"
+COOKED_RICE="\U0001F35A"
+CURRY_RICE="\U0001F35B"
+STEAMING_BOWL="\U0001F35C"
+SPAGHETTI="\U0001F35D"
+ROASTED_SWEET_POTATO="\U0001F360"
+ODEN="\U0001F362"
+SUSHI="\U0001F363"
+FRIED_SHRIMP="\U0001F364"
+FISH_CAKE_WITH_SWIRL="\U0001F365"
+MOON_CAKE="\U0001F96E"
+DANGO="\U0001F361"
+DUMPLING="\U0001F95F"
+FORTUNE_COOKIE="\U0001F960"
+TAKEOUT_BOX="\U0001F961"
+CRAB="\U0001F980"
+LOBSTER="\U0001F99E"
+SHRIMP="\U0001F990"
+SQUID="\U0001F991"
+OYSTER="\U0001F9AA"
+SOFT_ICE_CREAM="\U0001F366"
+SHAVED_ICE="\U0001F367"
+ICE_CREAM="\U0001F368"
+DOUGHNUT="\U0001F369"
+COOKIE="\U0001F36A"
+BIRTHDAY_CAKE="\U0001F382"
+SHORTCAKE="\U0001F370"
+CUPCAKE="\U0001F9C1"
+PIE="\U0001F967"
+CHOCOLATE_BAR="\U0001F36B"
+CANDY="\U0001F36C"
+LOLLIPOP="\U0001F36D"
+CUSTARD="\U0001F36E"
+HONEY_POT="\U0001F36F"
+BABY_BOTTLE="\U0001F37C"
+GLASS_OF_MILK="\U0001F95B"
+HOT_BEVERAGE="\U0002615"
+TEAPOT="\U0001FAD6"
+TEACUP_WITHOUT_HANDLE="\U0001F375"
+SAKE="\U0001F376"
+BOTTLE_WITH_POPPING_CORK="\U0001F37E"
+WINE_GLASS="\U0001F377"
+COCKTAIL_GLASS="\U0001F378"
+TROPICAL_DRINK="\U0001F379"
+BEER_MUG="\U0001F37A"
+CLINKING_BEER_MUGS="\U0001F37B"
+CLINKING_GLASSES="\U0001F942"
+TUMBLER_GLASS="\U0001F943"
+POURING_LIQUID="\U0001FAD7"
+CUP_WITH_STRAW="\U0001F964"
+BUBBLE_TEA="\U0001F9CB"
+BEVERAGE_BOX="\U0001F9C3"
+MATE="\U0001F9C9"
+ICE="\U0001F9CA"
+CHOPSTICKS="\U0001F962"
+FORK_AND_KNIFE_WITH_PLATE="\U0001F37D"
+FORK_AND_KNIFE="\U0001F374"
+SPOON="\U0001F944"
+KITCHEN_KNIFE="\U0001F52A"
+JAR="\U0001FAD9"
+AMPHORA="\U0001F3FA"
+GLOBE_SHOWING_EUROPEAFRICA="\U0001F30D"
+GLOBE_SHOWING_AMERICAS="\U0001F30E"
+GLOBE_SHOWING_ASIAAUSTRALIA="\U0001F30F"
+GLOBE_WITH_MERIDIANS="\U0001F310"
+WORLD_MAP="\U0001F5FA"
+MAP_OF_JAPAN="\U0001F5FE"
+COMPASS="\U0001F9ED"
+SNOWCAPPED_MOUNTAIN="\U0001F3D4"
+MOUNTAIN="\U00026F0"
+VOLCANO="\U0001F30B"
+MOUNT_FUJI="\U0001F5FB"
+CAMPING="\U0001F3D5"
+BEACH_WITH_UMBRELLA="\U0001F3D6"
+DESERT="\U0001F3DC"
+DESERT_ISLAND="\U0001F3DD"
+NATIONAL_PARK="\U0001F3DE"
+STADIUM="\U0001F3DF"
+CLASSICAL_BUILDING="\U0001F3DB"
+BUILDING_CONSTRUCTION="\U0001F3D7"
+BRICK="\U0001F9F1"
+ROCK="\U0001FAA8"
+WOOD="\U0001FAB5"
+HUT="\U0001F6D6"
+HOUSES="\U0001F3D8"
+DERELICT_HOUSE="\U0001F3DA"
+HOUSE="\U0001F3E0"
+HOUSE_WITH_GARDEN="\U0001F3E1"
+OFFICE_BUILDING="\U0001F3E2"
+JAPANESE_POST_OFFICE="\U0001F3E3"
+POST_OFFICE="\U0001F3E4"
+HOSPITAL="\U0001F3E5"
+BANK="\U0001F3E6"
+HOTEL="\U0001F3E8"
+LOVE_HOTEL="\U0001F3E9"
+CONVENIENCE_STORE="\U0001F3EA"
+SCHOOL="\U0001F3EB"
+DEPARTMENT_STORE="\U0001F3EC"
+FACTORY="\U0001F3ED"
+JAPANESE_CASTLE="\U0001F3EF"
+CASTLE="\U0001F3F0"
+WEDDING="\U0001F492"
+TOKYO_TOWER="\U0001F5FC"
+STATUE_OF_LIBERTY="\U0001F5FD"
+CHURCH="\U00026EA"
+MOSQUE="\U0001F54C"
+HINDU_TEMPLE="\U0001F6D5"
+SYNAGOGUE="\U0001F54D"
+SHINTO_SHRINE="\U00026E9"
+KAABA="\U0001F54B"
+FOUNTAIN="\U00026F2"
+TENT="\U00026FA"
+FOGGY="\U0001F301"
+NIGHT_WITH_STARS="\U0001F303"
+CITYSCAPE="\U0001F3D9"
+SUNRISE_OVER_MOUNTAINS="\U0001F304"
+SUNRISE="\U0001F305"
+CITYSCAPE_AT_DUSK="\U0001F306"
+SUNSET="\U0001F307"
+BRIDGE_AT_NIGHT="\U0001F309"
+HOT_SPRINGS="\U0002668"
+CAROUSEL_HORSE="\U0001F3A0"
+PLAYGROUND_SLIDE="\U0001F6DD"
+FERRIS_WHEEL="\U0001F3A1"
+ROLLER_COASTER="\U0001F3A2"
+BARBER_POLE="\U0001F488"
+CIRCUS_TENT="\U0001F3AA"
+LOCOMOTIVE="\U0001F682"
+RAILWAY_CAR="\U0001F683"
+HIGHSPEED_TRAIN="\U0001F684"
+BULLET_TRAIN="\U0001F685"
+TRAIN="\U0001F686"
+METRO="\U0001F687"
+LIGHT_RAIL="\U0001F688"
+STATION="\U0001F689"
+TRAM="\U0001F68A"
+MONORAIL="\U0001F69D"
+MOUNTAIN_RAILWAY="\U0001F69E"
+TRAM_CAR="\U0001F68B"
+BUS="\U0001F68C"
+ONCOMING_BUS="\U0001F68D"
+TROLLEYBUS="\U0001F68E"
+MINIBUS="\U0001F690"
+AMBULANCE="\U0001F691"
+FIRE_ENGINE="\U0001F692"
+POLICE_CAR="\U0001F693"
+ONCOMING_POLICE_CAR="\U0001F694"
+TAXI="\U0001F695"
+ONCOMING_TAXI="\U0001F696"
+AUTOMOBILE="\U0001F697"
+ONCOMING_AUTOMOBILE="\U0001F698"
+SPORT_UTILITY_VEHICLE="\U0001F699"
+PICKUP_TRUCK="\U0001F6FB"
+DELIVERY_TRUCK="\U0001F69A"
+ARTICULATED_LORRY="\U0001F69B"
+TRACTOR="\U0001F69C"
+RACING_CAR="\U0001F3CE"
+MOTORCYCLE="\U0001F3CD"
+MOTOR_SCOOTER="\U0001F6F5"
+MANUAL_WHEELCHAIR="\U0001F9BD"
+MOTORIZED_WHEELCHAIR="\U0001F9BC"
+AUTO_RICKSHAW="\U0001F6FA"
+BICYCLE="\U0001F6B2"
+KICK_SCOOTER="\U0001F6F4"
+SKATEBOARD="\U0001F6F9"
+ROLLER_SKATE="\U0001F6FC"
+BUS_STOP="\U0001F68F"
+MOTORWAY="\U0001F6E3"
+RAILWAY_TRACK="\U0001F6E4"
+OIL_DRUM="\U0001F6E2"
+FUEL_PUMP="\U00026FD"
+WHEEL="\U0001F6DE"
+POLICE_CAR_LIGHT="\U0001F6A8"
+HORIZONTAL_TRAFFIC_LIGHT="\U0001F6A5"
+VERTICAL_TRAFFIC_LIGHT="\U0001F6A6"
+STOP_SIGN="\U0001F6D1"
+CONSTRUCTION="\U0001F6A7"
+ANCHOR="\U0002693"
+RING_BUOY="\U0001F6DF"
+SAILBOAT="\U00026F5"
+CANOE="\U0001F6F6"
+SPEEDBOAT="\U0001F6A4"
+PASSENGER_SHIP="\U0001F6F3"
+FERRY="\U00026F4"
+MOTOR_BOAT="\U0001F6E5"
+SHIP="\U0001F6A2"
+AIRPLANE="\U0002708"
+SMALL_AIRPLANE="\U0001F6E9"
+AIRPLANE_DEPARTURE="\U0001F6EB"
+AIRPLANE_ARRIVAL="\U0001F6EC"
+PARACHUTE="\U0001FA82"
+SEAT="\U0001F4BA"
+HELICOPTER="\U0001F681"
+SUSPENSION_RAILWAY="\U0001F69F"
+MOUNTAIN_CABLEWAY="\U0001F6A0"
+AERIAL_TRAMWAY="\U0001F6A1"
+SATELLITE="\U0001F6F0"
+ROCKET="\U0001F680"
+FLYING_SAUCER="\U0001F6F8"
+BELLHOP_BELL="\U0001F6CE"
+LUGGAGE="\U0001F9F3"
+HOURGLASS_DONE="\U000231B"
+HOURGLASS_NOT_DONE="\U00023F3"
+WATCH="\U000231A"
+ALARM_CLOCK="\U00023F0"
+STOPWATCH="\U00023F1"
+TIMER_CLOCK="\U00023F2"
+MANTELPIECE_CLOCK="\U0001F570"
+TWELVE_O_CLOCK="\U0001F55B"
+TWELVETHIRTY="\U0001F567"
+ONE_O_CLOCK="\U0001F550"
+ONETHIRTY="\U0001F55C"
+TWO_O_CLOCK="\U0001F551"
+TWOTHIRTY="\U0001F55D"
+THREE_O_CLOCK="\U0001F552"
+THREETHIRTY="\U0001F55E"
+FOUR_O_CLOCK="\U0001F553"
+FOURTHIRTY="\U0001F55F"
+FIVE_O_CLOCK="\U0001F554"
+FIVETHIRTY="\U0001F560"
+SIX_O_CLOCK="\U0001F555"
+SIXTHIRTY="\U0001F561"
+SEVEN_O_CLOCK="\U0001F556"
+SEVENTHIRTY="\U0001F562"
+EIGHT_O_CLOCK="\U0001F557"
+EIGHTTHIRTY="\U0001F563"
+NINE_O_CLOCK="\U0001F558"
+NINETHIRTY="\U0001F564"
+TEN_O_CLOCK="\U0001F559"
+TENTHIRTY="\U0001F565"
+ELEVEN_O_CLOCK="\U0001F55A"
+ELEVENTHIRTY="\U0001F566"
+NEW_MOON="\U0001F311"
+WAXING_CRESCENT_MOON="\U0001F312"
+FIRST_QUARTER_MOON="\U0001F313"
+WAXING_GIBBOUS_MOON="\U0001F314"
+FULL_MOON="\U0001F315"
+WANING_GIBBOUS_MOON="\U0001F316"
+LAST_QUARTER_MOON="\U0001F317"
+WANING_CRESCENT_MOON="\U0001F318"
+CRESCENT_MOON="\U0001F319"
+NEW_MOON_FACE="\U0001F31A"
+FIRST_QUARTER_MOON_FACE="\U0001F31B"
+LAST_QUARTER_MOON_FACE="\U0001F31C"
+THERMOMETER="\U0001F321"
+SUN="\U0002600"
+FULL_MOON_FACE="\U0001F31D"
+SUN_WITH_FACE="\U0001F31E"
+RINGED_PLANET="\U0001FA90"
+STAR="\U0002B50"
+GLOWING_STAR="\U0001F31F"
+SHOOTING_STAR="\U0001F320"
+MILKY_WAY="\U0001F30C"
+CLOUD="\U0002601"
+SUN_BEHIND_CLOUD="\U00026C5"
+CLOUD_WITH_LIGHTNING_AND_RAIN="\U00026C8"
+SUN_BEHIND_SMALL_CLOUD="\U0001F324"
+SUN_BEHIND_LARGE_CLOUD="\U0001F325"
+SUN_BEHIND_RAIN_CLOUD="\U0001F326"
+CLOUD_WITH_RAIN="\U0001F327"
+CLOUD_WITH_SNOW="\U0001F328"
+CLOUD_WITH_LIGHTNING="\U0001F329"
+TORNADO="\U0001F32A"
+FOG="\U0001F32B"
+WIND_FACE="\U0001F32C"
+CYCLONE="\U0001F300"
+RAINBOW="\U0001F308"
+CLOSED_UMBRELLA="\U0001F302"
+UMBRELLA="\U0002602"
+UMBRELLA_WITH_RAIN_DROPS="\U0002614"
+UMBRELLA_ON_GROUND="\U00026F1"
+HIGH_VOLTAGE="\U00026A1"
+SNOWFLAKE="\U0002744"
+SNOWMAN="\U0002603"
+SNOWMAN_WITHOUT_SNOW="\U00026C4"
+COMET="\U0002604"
+FIRE="\U0001F525"
+DROPLET="\U0001F4A7"
+WATER_WAVE="\U0001F30A"
+JACKOLANTERN="\U0001F383"
+CHRISTMAS_TREE="\U0001F384"
+FIREWORKS="\U0001F386"
+SPARKLER="\U0001F387"
+FIRECRACKER="\U0001F9E8"
+SPARKLES="\U0002728"
+BALLOON="\U0001F388"
+PARTY_POPPER="\U0001F389"
+CONFETTI_BALL="\U0001F38A"
+TANABATA_TREE="\U0001F38B"
+PINE_DECORATION="\U0001F38D"
+JAPANESE_DOLLS="\U0001F38E"
+CARP_STREAMER="\U0001F38F"
+WIND_CHIME="\U0001F390"
+MOON_VIEWING_CEREMONY="\U0001F391"
+RED_ENVELOPE="\U0001F9E7"
+RIBBON="\U0001F380"
+WRAPPED_GIFT="\U0001F381"
+REMINDER_RIBBON="\U0001F397"
+ADMISSION_TICKETS="\U0001F39F"
+TICKET="\U0001F3AB"
+MILITARY_MEDAL="\U0001F396"
+TROPHY="\U0001F3C6"
+SPORTS_MEDAL="\U0001F3C5"
+FIRST_PLACE_MEDAL="\U0001F947"
+SECOND_PLACE_MEDAL="\U0001F948"
+THIRD_PLACE_MEDAL="\U0001F949"
+SOCCER_BALL="\U00026BD"
+BASEBALL="\U00026BE"
+SOFTBALL="\U0001F94E"
+BASKETBALL="\U0001F3C0"
+VOLLEYBALL="\U0001F3D0"
+AMERICAN_FOOTBALL="\U0001F3C8"
+RUGBY_FOOTBALL="\U0001F3C9"
+TENNIS="\U0001F3BE"
+FLYING_DISC="\U0001F94F"
+BOWLING="\U0001F3B3"
+CRICKET_GAME="\U0001F3CF"
+FIELD_HOCKEY="\U0001F3D1"
+ICE_HOCKEY="\U0001F3D2"
+LACROSSE="\U0001F94D"
+PING_PONG="\U0001F3D3"
+BADMINTON="\U0001F3F8"
+BOXING_GLOVE="\U0001F94A"
+MARTIAL_ARTS_UNIFORM="\U0001F94B"
+GOAL_NET="\U0001F945"
+FLAG_IN_HOLE="\U00026F3"
+ICE_SKATE="\U00026F8"
+FISHING_POLE="\U0001F3A3"
+DIVING_MASK="\U0001F93F"
+RUNNING_SHIRT="\U0001F3BD"
+SKIS="\U0001F3BF"
+SLED="\U0001F6F7"
+CURLING_STONE="\U0001F94C"
+BULLSEYE="\U0001F3AF"
+YOYO="\U0001FA80"
+KITE="\U0001FA81"
+WATER_PISTOL="\U0001F52B"
+POOL_8_BALL="\U0001F3B1"
+CRYSTAL_BALL="\U0001F52E"
+MAGIC_WAND="\U0001FA84"
+VIDEO_GAME="\U0001F3AE"
+JOYSTICK="\U0001F579"
+SLOT_MACHINE="\U0001F3B0"
+GAME_DIE="\U0001F3B2"
+PUZZLE_PIECE="\U0001F9E9"
+TEDDY_BEAR="\U0001F9F8"
+PINATA="\U0001FA85"
+MIRROR_BALL="\U0001FAA9"
+NESTING_DOLLS="\U0001FA86"
+SPADE_SUIT="\U0002660"
+HEART_SUIT="\U0002665"
+DIAMOND_SUIT="\U0002666"
+CLUB_SUIT="\U0002663"
+CHESS_PAWN="\U000265F"
+JOKER="\U0001F0CF"
+MAHJONG_RED_DRAGON="\U0001F004"
+FLOWER_PLAYING_CARDS="\U0001F3B4"
+PERFORMING_ARTS="\U0001F3AD"
+FRAMED_PICTURE="\U0001F5BC"
+ARTIST_PALETTE="\U0001F3A8"
+THREAD="\U0001F9F5"
+SEWING_NEEDLE="\U0001FAA1"
+YARN="\U0001F9F6"
+KNOT="\U0001FAA2"
+GLASSES="\U0001F453"
+SUNGLASSES="\U0001F576"
+GOGGLES="\U0001F97D"
+LAB_COAT="\U0001F97C"
+SAFETY_VEST="\U0001F9BA"
+NECKTIE="\U0001F454"
+TSHIRT="\U0001F455"
+JEANS="\U0001F456"
+SCARF="\U0001F9E3"
+GLOVES="\U0001F9E4"
+COAT="\U0001F9E5"
+SOCKS="\U0001F9E6"
+DRESS="\U0001F457"
+KIMONO="\U0001F458"
+SARI="\U0001F97B"
+ONEPIECE_SWIMSUIT="\U0001FA71"
+BRIEFS="\U0001FA72"
+SHORTS="\U0001FA73"
+BIKINI="\U0001F459"
+WOMAN_S_CLOTHES="\U0001F45A"
+PURSE="\U0001F45B"
+HANDBAG="\U0001F45C"
+CLUTCH_BAG="\U0001F45D"
+SHOPPING_BAGS="\U0001F6CD"
+BACKPACK="\U0001F392"
+THONG_SANDAL="\U0001FA74"
+MAN_S_SHOE="\U0001F45E"
+RUNNING_SHOE="\U0001F45F"
+HIKING_BOOT="\U0001F97E"
+FLAT_SHOE="\U0001F97F"
+HIGHHEELED_SHOE="\U0001F460"
+WOMAN_S_SANDAL="\U0001F461"
+BALLET_SHOES="\U0001FA70"
+WOMAN_S_BOOT="\U0001F462"
+CROWN="\U0001F451"
+WOMAN_S_HAT="\U0001F452"
+TOP_HAT="\U0001F3A9"
+GRADUATION_CAP="\U0001F393"
+BILLED_CAP="\U0001F9E2"
+MILITARY_HELMET="\U0001FA96"
+RESCUE_WORKER_S_HELMET="\U00026D1"
+PRAYER_BEADS="\U0001F4FF"
+LIPSTICK="\U0001F484"
+RING="\U0001F48D"
+GEM_STONE="\U0001F48E"
+MUTED_SPEAKER="\U0001F507"
+SPEAKER_LOW_VOLUME="\U0001F508"
+SPEAKER_MEDIUM_VOLUME="\U0001F509"
+SPEAKER_HIGH_VOLUME="\U0001F50A"
+LOUDSPEAKER="\U0001F4E2"
+MEGAPHONE="\U0001F4E3"
+POSTAL_HORN="\U0001F4EF"
+BELL="\U0001F514"
+BELL_WITH_SLASH="\U0001F515"
+MUSICAL_SCORE="\U0001F3BC"
+MUSICAL_NOTE="\U0001F3B5"
+MUSICAL_NOTES="\U0001F3B6"
+STUDIO_MICROPHONE="\U0001F399"
+LEVEL_SLIDER="\U0001F39A"
+CONTROL_KNOBS="\U0001F39B"
+MICROPHONE="\U0001F3A4"
+HEADPHONE="\U0001F3A7"
+RADIO="\U0001F4FB"
+SAXOPHONE="\U0001F3B7"
+ACCORDION="\U0001FA97"
+GUITAR="\U0001F3B8"
+MUSICAL_KEYBOARD="\U0001F3B9"
+TRUMPET="\U0001F3BA"
+VIOLIN="\U0001F3BB"
+BANJO="\U0001FA95"
+DRUM="\U0001F941"
+LONG_DRUM="\U0001FA98"
+MOBILE_PHONE="\U0001F4F1"
+MOBILE_PHONE_WITH_ARROW="\U0001F4F2"
+TELEPHONE="\U000260E"
+TELEPHONE_RECEIVER="\U0001F4DE"
+PAGER="\U0001F4DF"
+FAX_MACHINE="\U0001F4E0"
+BATTERY="\U0001F50B"
+LOW_BATTERY="\U0001FAAB"
+ELECTRIC_PLUG="\U0001F50C"
+LAPTOP="\U0001F4BB"
+DESKTOP_COMPUTER="\U0001F5A5"
+PRINTER="\U0001F5A8"
+KEYBOARD="\U0002328"
+COMPUTER_MOUSE="\U0001F5B1"
+TRACKBALL="\U0001F5B2"
+COMPUTER_DISK="\U0001F4BD"
+FLOPPY_DISK="\U0001F4BE"
+OPTICAL_DISK="\U0001F4BF"
+DVD="\U0001F4C0"
+ABACUS="\U0001F9EE"
+MOVIE_CAMERA="\U0001F3A5"
+FILM_FRAMES="\U0001F39E"
+FILM_PROJECTOR="\U0001F4FD"
+CLAPPER_BOARD="\U0001F3AC"
+TELEVISION="\U0001F4FA"
+CAMERA="\U0001F4F7"
+CAMERA_WITH_FLASH="\U0001F4F8"
+VIDEO_CAMERA="\U0001F4F9"
+VIDEOCASSETTE="\U0001F4FC"
+MAGNIFYING_GLASS_TILTED_LEFT="\U0001F50D"
+MAGNIFYING_GLASS_TILTED_RIGHT="\U0001F50E"
+CANDLE="\U0001F56F"
+LIGHT_BULB="\U0001F4A1"
+FLASHLIGHT="\U0001F526"
+RED_PAPER_LANTERN="\U0001F3EE"
+DIYA_LAMP="\U0001FA94"
+NOTEBOOK_WITH_DECORATIVE_COVER="\U0001F4D4"
+CLOSED_BOOK="\U0001F4D5"
+OPEN_BOOK="\U0001F4D6"
+GREEN_BOOK="\U0001F4D7"
+BLUE_BOOK="\U0001F4D8"
+ORANGE_BOOK="\U0001F4D9"
+BOOKS="\U0001F4DA"
+NOTEBOOK="\U0001F4D3"
+LEDGER="\U0001F4D2"
+PAGE_WITH_CURL="\U0001F4C3"
+SCROLL="\U0001F4DC"
+PAGE_FACING_UP="\U0001F4C4"
+NEWSPAPER="\U0001F4F0"
+ROLLEDUP_NEWSPAPER="\U0001F5DE"
+BOOKMARK_TABS="\U0001F4D1"
+BOOKMARK="\U0001F516"
+LABEL="\U0001F3F7"
+MONEY_BAG="\U0001F4B0"
+COIN="\U0001FA99"
+YEN_BANKNOTE="\U0001F4B4"
+DOLLAR_BANKNOTE="\U0001F4B5"
+EURO_BANKNOTE="\U0001F4B6"
+POUND_BANKNOTE="\U0001F4B7"
+MONEY_WITH_WINGS="\U0001F4B8"
+CREDIT_CARD="\U0001F4B3"
+RECEIPT="\U0001F9FE"
+CHART_INCREASING_WITH_YEN="\U0001F4B9"
+ENVELOPE="\U0002709"
+EMAIL="\U0001F4E7"
+INCOMING_ENVELOPE="\U0001F4E8"
+ENVELOPE_WITH_ARROW="\U0001F4E9"
+OUTBOX_TRAY="\U0001F4E4"
+INBOX_TRAY="\U0001F4E5"
+PACKAGE="\U0001F4E6"
+CLOSED_MAILBOX_WITH_RAISED_FLAG="\U0001F4EB"
+CLOSED_MAILBOX_WITH_LOWERED_FLAG="\U0001F4EA"
+OPEN_MAILBOX_WITH_RAISED_FLAG="\U0001F4EC"
+OPEN_MAILBOX_WITH_LOWERED_FLAG="\U0001F4ED"
+POSTBOX="\U0001F4EE"
+BALLOT_BOX_WITH_BALLOT="\U0001F5F3"
+PENCIL="\U000270F"
+BLACK_NIB="\U0002712"
+FOUNTAIN_PEN="\U0001F58B"
+PEN="\U0001F58A"
+PAINTBRUSH="\U0001F58C"
+CRAYON="\U0001F58D"
+MEMO="\U0001F4DD"
+BRIEFCASE="\U0001F4BC"
+FILE_FOLDER="\U0001F4C1"
+OPEN_FILE_FOLDER="\U0001F4C2"
+CARD_INDEX_DIVIDERS="\U0001F5C2"
+CALENDAR="\U0001F4C5"
+TEAROFF_CALENDAR="\U0001F4C6"
+SPIRAL_NOTEPAD="\U0001F5D2"
+SPIRAL_CALENDAR="\U0001F5D3"
+CARD_INDEX="\U0001F4C7"
+CHART_INCREASING="\U0001F4C8"
+CHART_DECREASING="\U0001F4C9"
+BAR_CHART="\U0001F4CA"
+CLIPBOARD="\U0001F4CB"
+PUSHPIN="\U0001F4CC"
+ROUND_PUSHPIN="\U0001F4CD"
+PAPERCLIP="\U0001F4CE"
+LINKED_PAPERCLIPS="\U0001F587"
+STRAIGHT_RULER="\U0001F4CF"
+TRIANGULAR_RULER="\U0001F4D0"
+SCISSORS="\U0002702"
+CARD_FILE_BOX="\U0001F5C3"
+FILE_CABINET="\U0001F5C4"
+WASTEBASKET="\U0001F5D1"
+LOCKED="\U0001F512"
+UNLOCKED="\U0001F513"
+LOCKED_WITH_PEN="\U0001F50F"
+LOCKED_WITH_KEY="\U0001F510"
+KEY="\U0001F511"
+OLD_KEY="\U0001F5DD"
+HAMMER="\U0001F528"
+AXE="\U0001FA93"
+PICK="\U00026CF"
+HAMMER_AND_PICK="\U0002692"
+HAMMER_AND_WRENCH="\U0001F6E0"
+DAGGER="\U0001F5E1"
+CROSSED_SWORDS="\U0002694"
+BOMB="\U0001F4A3"
+BOOMERANG="\U0001FA83"
+BOW_AND_ARROW="\U0001F3F9"
+SHIELD="\U0001F6E1"
+CARPENTRY_SAW="\U0001FA9A"
+WRENCH="\U0001F527"
+SCREWDRIVER="\U0001FA9B"
+NUT_AND_BOLT="\U0001F529"
+GEAR="\U0002699"
+CLAMP="\U0001F5DC"
+BALANCE_SCALE="\U0002696"
+WHITE_CANE="\U0001F9AF"
+LINK="\U0001F517"
+CHAINS="\U00026D3"
+HOOK="\U0001FA9D"
+TOOLBOX="\U0001F9F0"
+MAGNET="\U0001F9F2"
+LADDER="\U0001FA9C"
+ALEMBIC="\U0002697"
+TEST_TUBE="\U0001F9EA"
+PETRI_DISH="\U0001F9EB"
+DNA="\U0001F9EC"
+MICROSCOPE="\U0001F52C"
+TELESCOPE="\U0001F52D"
+SATELLITE_ANTENNA="\U0001F4E1"
+SYRINGE="\U0001F489"
+DROP_OF_BLOOD="\U0001FA78"
+PILL="\U0001F48A"
+ADHESIVE_BANDAGE="\U0001FA79"
+CRUTCH="\U0001FA7C"
+STETHOSCOPE="\U0001FA7A"
+XRAY="\U0001FA7B"
+DOOR="\U0001F6AA"
+ELEVATOR="\U0001F6D7"
+MIRROR="\U0001FA9E"
+WINDOW="\U0001FA9F"
+BED="\U0001F6CF"
+COUCH_AND_LAMP="\U0001F6CB"
+CHAIR="\U0001FA91"
+TOILET="\U0001F6BD"
+PLUNGER="\U0001FAA0"
+SHOWER="\U0001F6BF"
+BATHTUB="\U0001F6C1"
+MOUSE_TRAP="\U0001FAA4"
+RAZOR="\U0001FA92"
+LOTION_BOTTLE="\U0001F9F4"
+SAFETY_PIN="\U0001F9F7"
+BROOM="\U0001F9F9"
+BASKET="\U0001F9FA"
+ROLL_OF_PAPER="\U0001F9FB"
+BUCKET="\U0001FAA3"
+SOAP="\U0001F9FC"
+BUBBLES="\U0001FAE7"
+TOOTHBRUSH="\U0001FAA5"
+SPONGE="\U0001F9FD"
+FIRE_EXTINGUISHER="\U0001F9EF"
+SHOPPING_CART="\U0001F6D2"
+CIGARETTE="\U0001F6AC"
+COFFIN="\U00026B0"
+HEADSTONE="\U0001FAA6"
+FUNERAL_URN="\U00026B1"
+NAZAR_AMULET="\U0001F9FF"
+HAMSA="\U0001FAAC"
+MOAI="\U0001F5FF"
+PLACARD="\U0001FAA7"
+IDENTIFICATION_CARD="\U0001FAAA"
+ATM_SIGN="\U0001F3E7"
+LITTER_IN_BIN_SIGN="\U0001F6AE"
+POTABLE_WATER="\U0001F6B0"
+WHEELCHAIR_SYMBOL="\U000267F"
+MEN_S_ROOM="\U0001F6B9"
+WOMEN_S_ROOM="\U0001F6BA"
+RESTROOM="\U0001F6BB"
+BABY_SYMBOL="\U0001F6BC"
+WATER_CLOSET="\U0001F6BE"
+PASSPORT_CONTROL="\U0001F6C2"
+CUSTOMS="\U0001F6C3"
+BAGGAGE_CLAIM="\U0001F6C4"
+LEFT_LUGGAGE="\U0001F6C5"
+WARNING="\U00026A0"
+CHILDREN_CROSSING="\U0001F6B8"
+NO_ENTRY="\U00026D4"
+PROHIBITED="\U0001F6AB"
+NO_BICYCLES="\U0001F6B3"
+NO_SMOKING="\U0001F6AD"
+NO_LITTERING="\U0001F6AF"
+NONPOTABLE_WATER="\U0001F6B1"
+NO_PEDESTRIANS="\U0001F6B7"
+NO_MOBILE_PHONES="\U0001F4F5"
+NO_ONE_UNDER_EIGHTEEN="\U0001F51E"
+RADIOACTIVE="\U0002622"
+BIOHAZARD="\U0002623"
+UP_ARROW="\U0002B06"
+UPRIGHT_ARROW="\U0002197"
+RIGHT_ARROW="\U00027A1"
+DOWNRIGHT_ARROW="\U0002198"
+DOWN_ARROW="\U0002B07"
+DOWNLEFT_ARROW="\U0002199"
+LEFT_ARROW="\U0002B05"
+UPLEFT_ARROW="\U0002196"
+UPDOWN_ARROW="\U0002195"
+LEFTRIGHT_ARROW="\U0002194"
+RIGHT_ARROW_CURVING_LEFT="\U00021A9"
+LEFT_ARROW_CURVING_RIGHT="\U00021AA"
+RIGHT_ARROW_CURVING_UP="\U0002934"
+RIGHT_ARROW_CURVING_DOWN="\U0002935"
+CLOCKWISE_VERTICAL_ARROWS="\U0001F503"
+COUNTERCLOCKWISE_ARROWS_BUTTON="\U0001F504"
+BACK_ARROW="\U0001F519"
+END_ARROW="\U0001F51A"
+ON_ARROW="\U0001F51B"
+SOON_ARROW="\U0001F51C"
+TOP_ARROW="\U0001F51D"
+PLACE_OF_WORSHIP="\U0001F6D0"
+ATOM_SYMBOL="\U000269B"
+OM="\U0001F549"
+STAR_OF_DAVID="\U0002721"
+WHEEL_OF_DHARMA="\U0002638"
+YIN_YANG="\U000262F"
+LATIN_CROSS="\U000271D"
+ORTHODOX_CROSS="\U0002626"
+STAR_AND_CRESCENT="\U000262A"
+PEACE_SYMBOL="\U000262E"
+MENORAH="\U0001F54E"
+DOTTED_SIXPOINTED_STAR="\U0001F52F"
+ARIES="\U0002648"
+TAURUS="\U0002649"
+GEMINI="\U000264A"
+CANCER="\U000264B"
+LEO="\U000264C"
+VIRGO="\U000264D"
+LIBRA="\U000264E"
+SCORPIO="\U000264F"
+SAGITTARIUS="\U0002650"
+CAPRICORN="\U0002651"
+AQUARIUS="\U0002652"
+PISCES="\U0002653"
+OPHIUCHUS="\U00026CE"
+SHUFFLE_TRACKS_BUTTON="\U0001F500"
+REPEAT_BUTTON="\U0001F501"
+REPEAT_SINGLE_BUTTON="\U0001F502"
+PLAY_BUTTON="\U00025B6"
+FASTFORWARD_BUTTON="\U00023E9"
+NEXT_TRACK_BUTTON="\U00023ED"
+PLAY_OR_PAUSE_BUTTON="\U00023EF"
+REVERSE_BUTTON="\U00025C0"
+FAST_REVERSE_BUTTON="\U00023EA"
+LAST_TRACK_BUTTON="\U00023EE"
+UPWARDS_BUTTON="\U0001F53C"
+FAST_UP_BUTTON="\U00023EB"
+DOWNWARDS_BUTTON="\U0001F53D"
+FAST_DOWN_BUTTON="\U00023EC"
+PAUSE_BUTTON="\U00023F8"
+STOP_BUTTON="\U00023F9"
+RECORD_BUTTON="\U00023FA"
+EJECT_BUTTON="\U00023CF"
+CINEMA="\U0001F3A6"
+DIM_BUTTON="\U0001F505"
+BRIGHT_BUTTON="\U0001F506"
+ANTENNA_BARS="\U0001F4F6"
+VIBRATION_MODE="\U0001F4F3"
+MOBILE_PHONE_OFF="\U0001F4F4"
+FEMALE_SIGN="\U0002640"
+MALE_SIGN="\U0002642"
+TRANSGENDER_SYMBOL="\U00026A7"
+MULTIPLY="\U0002716"
+PLUS="\U0002795"
+MINUS="\U0002796"
+DIVIDE="\U0002797"
+HEAVY_EQUALS_SIGN="\U0001F7F0"
+INFINITY="\U000267E"
+DOUBLE_EXCLAMATION_MARK="\U000203C"
+EXCLAMATION_QUESTION_MARK="\U0002049"
+RED_QUESTION_MARK="\U0002753"
+WHITE_QUESTION_MARK="\U0002754"
+WHITE_EXCLAMATION_MARK="\U0002755"
+RED_EXCLAMATION_MARK="\U0002757"
+WAVY_DASH="\U0003030"
+CURRENCY_EXCHANGE="\U0001F4B1"
+HEAVY_DOLLAR_SIGN="\U0001F4B2"
+MEDICAL_SYMBOL="\U0002695"
+RECYCLING_SYMBOL="\U000267B"
+FLEURDELIS="\U000269C"
+TRIDENT_EMBLEM="\U0001F531"
+NAME_BADGE="\U0001F4DB"
+JAPANESE_SYMBOL_FOR_BEGINNER="\U0001F530"
+HOLLOW_RED_CIRCLE="\U0002B55"
+CHECK_MARK_BUTTON="\U0002705"
+CHECK_BOX_WITH_CHECK="\U0002611"
+CHECK_MARK="\U0002714"
+CROSS_MARK="\U000274C"
+CROSS_MARK_BUTTON="\U000274E"
+CURLY_LOOP="\U00027B0"
+DOUBLE_CURLY_LOOP="\U00027BF"
+PART_ALTERNATION_MARK="\U000303D"
+EIGHTSPOKED_ASTERISK="\U0002733"
+EIGHTPOINTED_STAR="\U0002734"
+SPARKLE="\U0002747"
+COPYRIGHT="\U00000A9"
+REGISTERED="\U00000AE"
+TRADE_MARK="\U0002122"
+KEYCAP_SHARP="\U0000023"
+KEYCAP_STAR="\U000002A"
+KEYCAP_0="\U0000030"
+KEYCAP_1="\U0000031"
+KEYCAP_2="\U0000032"
+KEYCAP_3="\U0000033"
+KEYCAP_4="\U0000034"
+KEYCAP_5="\U0000035"
+KEYCAP_6="\U0000036"
+KEYCAP_7="\U0000037"
+KEYCAP_8="\U0000038"
+KEYCAP_9="\U0000039"
+KEYCAP_10="\U0001F51F"
+INPUT_LATIN_UPPERCASE="\U0001F520"
+INPUT_LATIN_LOWERCASE="\U0001F521"
+INPUT_NUMBERS="\U0001F522"
+INPUT_SYMBOLS="\U0001F523"
+INPUT_LATIN_LETTERS="\U0001F524"
+A_BUTTON_BLOOD_TYPE="\U0001F170"
+AB_BUTTON_BLOOD_TYPE="\U0001F18E"
+B_BUTTON_BLOOD_TYPE="\U0001F171"
+CL_BUTTON="\U0001F191"
+COOL_BUTTON="\U0001F192"
+FREE_BUTTON="\U0001F193"
+INFORMATION="\U0002139"
+ID_BUTTON="\U0001F194"
+CIRCLED_M="\U00024C2"
+NEW_BUTTON="\U0001F195"
+NG_BUTTON="\U0001F196"
+O_BUTTON_BLOOD_TYPE="\U0001F17E"
+OK_BUTTON="\U0001F197"
+P_BUTTON="\U0001F17F"
+SOS_BUTTON="\U0001F198"
+UP_BUTTON="\U0001F199"
+VS_BUTTON="\U0001F19A"
+JAPANESE_HERE_BUTTON="\U0001F201"
+JAPANESE_SERVICE_CHARGE_BUTTON="\U0001F202"
+JAPANESE_MONTHLY_AMOUNT_BUTTON="\U0001F237"
+JAPANESE_NOT_FREE_OF_CHARGE_BUTTON="\U0001F236"
+JAPANESE_RESERVED_BUTTON="\U0001F22F"
+JAPANESE_BARGAIN_BUTTON="\U0001F250"
+JAPANESE_DISCOUNT_BUTTON="\U0001F239"
+JAPANESE_FREE_OF_CHARGE_BUTTON="\U0001F21A"
+JAPANESE_PROHIBITED_BUTTON="\U0001F232"
+JAPANESE_ACCEPTABLE_BUTTON="\U0001F251"
+JAPANESE_APPLICATION_BUTTON="\U0001F238"
+JAPANESE_PASSING_GRADE_BUTTON="\U0001F234"
+JAPANESE_VACANCY_BUTTON="\U0001F233"
+JAPANESE_CONGRATULATIONS_BUTTON="\U0003297"
+JAPANESE_SECRET_BUTTON="\U0003299"
+JAPANESE_OPEN_FOR_BUSINESS_BUTTON="\U0001F23A"
+JAPANESE_NO_VACANCY_BUTTON="\U0001F235"
+RED_CIRCLE="\U0001F534"
+ORANGE_CIRCLE="\U0001F7E0"
+YELLOW_CIRCLE="\U0001F7E1"
+GREEN_CIRCLE="\U0001F7E2"
+BLUE_CIRCLE="\U0001F535"
+PURPLE_CIRCLE="\U0001F7E3"
+BROWN_CIRCLE="\U0001F7E4"
+BLACK_CIRCLE="\U00026AB"
+WHITE_CIRCLE="\U00026AA"
+RED_SQUARE="\U0001F7E5"
+ORANGE_SQUARE="\U0001F7E7"
+YELLOW_SQUARE="\U0001F7E8"
+GREEN_SQUARE="\U0001F7E9"
+BLUE_SQUARE="\U0001F7E6"
+PURPLE_SQUARE="\U0001F7EA"
+BROWN_SQUARE="\U0001F7EB"
+BLACK_LARGE_SQUARE="\U0002B1B"
+WHITE_LARGE_SQUARE="\U0002B1C"
+BLACK_MEDIUM_SQUARE="\U00025FC"
+WHITE_MEDIUM_SQUARE="\U00025FB"
+BLACK_MEDIUMSMALL_SQUARE="\U00025FE"
+WHITE_MEDIUMSMALL_SQUARE="\U00025FD"
+BLACK_SMALL_SQUARE="\U00025AA"
+WHITE_SMALL_SQUARE="\U00025AB"
+LARGE_ORANGE_DIAMOND="\U0001F536"
+LARGE_BLUE_DIAMOND="\U0001F537"
+SMALL_ORANGE_DIAMOND="\U0001F538"
+SMALL_BLUE_DIAMOND="\U0001F539"
+RED_TRIANGLE_POINTED_UP="\U0001F53A"
+RED_TRIANGLE_POINTED_DOWN="\U0001F53B"
+DIAMOND_WITH_A_DOT="\U0001F4A0"
+RADIO_BUTTON="\U0001F518"
+WHITE_SQUARE_BUTTON="\U0001F533"
+BLACK_SQUARE_BUTTON="\U0001F532"
+CHEQUERED_FLAG="\U0001F3C1"
+TRIANGULAR_FLAG="\U0001F6A9"
+CROSSED_FLAGS="\U0001F38C"
+BLACK_FLAG="\U0001F3F4"
+WHITE_FLAG="\U0001F3F3"
+RAINBOW_FLAG="\U0001F3F3"
+TRANSGENDER_FLAG="\U0001F3F3"
+PIRATE_FLAG="\U0001F3F4"
+FLAG_ASCENSION_ISLAND="\U0001F1E6"
+FLAG_ANDORRA="\U0001F1E6"
+FLAG_UNITED_ARAB_EMIRATES="\U0001F1E6"
+FLAG_AFGHANISTAN="\U0001F1E6"
+FLAG_ANTIGUA__BARBUDA="\U0001F1E6"
+FLAG_ANGUILLA="\U0001F1E6"
+FLAG_ALBANIA="\U0001F1E6"
+FLAG_ARMENIA="\U0001F1E6"
+FLAG_ANGOLA="\U0001F1E6"
+FLAG_ANTARCTICA="\U0001F1E6"
+FLAG_ARGENTINA="\U0001F1E6"
+FLAG_AMERICAN_SAMOA="\U0001F1E6"
+FLAG_AUSTRIA="\U0001F1E6"
+FLAG_AUSTRALIA="\U0001F1E6"
+FLAG_ARUBA="\U0001F1E6"
+FLAG_ALAND_ISLANDS="\U0001F1E6"
+FLAG_AZERBAIJAN="\U0001F1E6"
+FLAG_BOSNIA__HERZEGOVINA="\U0001F1E7"
+FLAG_BARBADOS="\U0001F1E7"
+FLAG_BANGLADESH="\U0001F1E7"
+FLAG_BELGIUM="\U0001F1E7"
+FLAG_BURKINA_FASO="\U0001F1E7"
+FLAG_BULGARIA="\U0001F1E7"
+FLAG_BAHRAIN="\U0001F1E7"
+FLAG_BURUNDI="\U0001F1E7"
+FLAG_BENIN="\U0001F1E7"
+FLAG_ST_BARTHÉLEMY="\U0001F1E7"
+FLAG_BERMUDA="\U0001F1E7"
+FLAG_BRUNEI="\U0001F1E7"
+FLAG_BOLIVIA="\U0001F1E7"
+FLAG_CARIBBEAN_NETHERLANDS="\U0001F1E7"
+FLAG_BRAZIL="\U0001F1E7"
+FLAG_BAHAMAS="\U0001F1E7"
+FLAG_BHUTAN="\U0001F1E7"
+FLAG_BOUVET_ISLAND="\U0001F1E7"
+FLAG_BOTSWANA="\U0001F1E7"
+FLAG_BELARUS="\U0001F1E7"
+FLAG_BELIZE="\U0001F1E7"
+FLAG_CANADA="\U0001F1E8"
+FLAG_COCOS_KEELING_ISLANDS="\U0001F1E8"
+FLAG_CONGO__KINSHASA="\U0001F1E8"
+FLAG_CENTRAL_AFRICAN_REPUBLIC="\U0001F1E8"
+FLAG_CONGO__BRAZZAVILLE="\U0001F1E8"
+FLAG_SWITZERLAND="\U0001F1E8"
+FLAG_CÔTE_D_IVOIRE="\U0001F1E8"
+FLAG_COOK_ISLANDS="\U0001F1E8"
+FLAG_CHILE="\U0001F1E8"
+FLAG_CAMEROON="\U0001F1E8"
+FLAG_CHINA="\U0001F1E8"
+FLAG_COLOMBIA="\U0001F1E8"
+FLAG_CLIPPERTON_ISLAND="\U0001F1E8"
+FLAG_COSTA_RICA="\U0001F1E8"
+FLAG_CUBA="\U0001F1E8"
+FLAG_CAPE_VERDE="\U0001F1E8"
+FLAG_CURAÇAO="\U0001F1E8"
+FLAG_CHRISTMAS_ISLAND="\U0001F1E8"
+FLAG_CYPRUS="\U0001F1E8"
+FLAG_CZECHIA="\U0001F1E8"
+FLAG_GERMANY="\U0001F1E9"
+FLAG_DIEGO_GARCIA="\U0001F1E9"
+FLAG_DJIBOUTI="\U0001F1E9"
+FLAG_DENMARK="\U0001F1E9"
+FLAG_DOMINICA="\U0001F1E9"
+FLAG_DOMINICAN_REPUBLIC="\U0001F1E9"
+FLAG_ALGERIA="\U0001F1E9"
+FLAG_CEUTA__MELILLA="\U0001F1EA"
+FLAG_ECUADOR="\U0001F1EA"
+FLAG_ESTONIA="\U0001F1EA"
+FLAG_EGYPT="\U0001F1EA"
+FLAG_WESTERN_SAHARA="\U0001F1EA"
+FLAG_ERITREA="\U0001F1EA"
+FLAG_SPAIN="\U0001F1EA"
+FLAG_ETHIOPIA="\U0001F1EA"
+FLAG_EUROPEAN_UNION="\U0001F1EA"
+FLAG_FINLAND="\U0001F1EB"
+FLAG_FIJI="\U0001F1EB"
+FLAG_FALKLAND_ISLANDS="\U0001F1EB"
+FLAG_MICRONESIA="\U0001F1EB"
+FLAG_FAROE_ISLANDS="\U0001F1EB"
+FLAG_FRANCE="\U0001F1EB"
+FLAG_GABON="\U0001F1EC"
+FLAG_UNITED_KINGDOM="\U0001F1EC"
+FLAG_GRENADA="\U0001F1EC"
+FLAG_GEORGIA="\U0001F1EC"
+FLAG_FRENCH_GUIANA="\U0001F1EC"
+FLAG_GUERNSEY="\U0001F1EC"
+FLAG_GHANA="\U0001F1EC"
+FLAG_GIBRALTAR="\U0001F1EC"
+FLAG_GREENLAND="\U0001F1EC"
+FLAG_GAMBIA="\U0001F1EC"
+FLAG_GUINEA="\U0001F1EC"
+FLAG_GUADELOUPE="\U0001F1EC"
+FLAG_EQUATORIAL_GUINEA="\U0001F1EC"
+FLAG_GREECE="\U0001F1EC"
+FLAG_SOUTH_GEORGIA__SOUTH_SANDWICH_ISLANDS="\U0001F1EC"
+FLAG_GUATEMALA="\U0001F1EC"
+FLAG_GUAM="\U0001F1EC"
+FLAG_GUINEABISSAU="\U0001F1EC"
+FLAG_GUYANA="\U0001F1EC"
+FLAG_HONG_KONG_SAR_CHINA="\U0001F1ED"
+FLAG_HEARD__MCDONALD_ISLANDS="\U0001F1ED"
+FLAG_HONDURAS="\U0001F1ED"
+FLAG_CROATIA="\U0001F1ED"
+FLAG_HAITI="\U0001F1ED"
+FLAG_HUNGARY="\U0001F1ED"
+FLAG_CANARY_ISLANDS="\U0001F1EE"
+FLAG_INDONESIA="\U0001F1EE"
+FLAG_IRELAND="\U0001F1EE"
+FLAG_ISRAEL="\U0001F1EE"
+FLAG_ISLE_OF_MAN="\U0001F1EE"
+FLAG_INDIA="\U0001F1EE"
+FLAG_BRITISH_INDIAN_OCEAN_TERRITORY="\U0001F1EE"
+FLAG_IRAQ="\U0001F1EE"
+FLAG_IRAN="\U0001F1EE"
+FLAG_ICELAND="\U0001F1EE"
+FLAG_ITALY="\U0001F1EE"
+FLAG_JERSEY="\U0001F1EF"
+FLAG_JAMAICA="\U0001F1EF"
+FLAG_JORDAN="\U0001F1EF"
+FLAG_JAPAN="\U0001F1EF"
+FLAG_KENYA="\U0001F1F0"
+FLAG_KYRGYZSTAN="\U0001F1F0"
+FLAG_CAMBODIA="\U0001F1F0"
+FLAG_KIRIBATI="\U0001F1F0"
+FLAG_COMOROS="\U0001F1F0"
+FLAG_ST_KITTS__NEVIS="\U0001F1F0"
+FLAG_NORTH_KOREA="\U0001F1F0"
+FLAG_SOUTH_KOREA="\U0001F1F0"
+FLAG_KUWAIT="\U0001F1F0"
+FLAG_CAYMAN_ISLANDS="\U0001F1F0"
+FLAG_KAZAKHSTAN="\U0001F1F0"
+FLAG_LAOS="\U0001F1F1"
+FLAG_LEBANON="\U0001F1F1"
+FLAG_ST_LUCIA="\U0001F1F1"
+FLAG_LIECHTENSTEIN="\U0001F1F1"
+FLAG_SRI_LANKA="\U0001F1F1"
+FLAG_LIBERIA="\U0001F1F1"
+FLAG_LESOTHO="\U0001F1F1"
+FLAG_LITHUANIA="\U0001F1F1"
+FLAG_LUXEMBOURG="\U0001F1F1"
+FLAG_LATVIA="\U0001F1F1"
+FLAG_LIBYA="\U0001F1F1"
+FLAG_MOROCCO="\U0001F1F2"
+FLAG_MONACO="\U0001F1F2"
+FLAG_MOLDOVA="\U0001F1F2"
+FLAG_MONTENEGRO="\U0001F1F2"
+FLAG_ST_MARTIN="\U0001F1F2"
+FLAG_MADAGASCAR="\U0001F1F2"
+FLAG_MARSHALL_ISLANDS="\U0001F1F2"
+FLAG_NORTH_MACEDONIA="\U0001F1F2"
+FLAG_MALI="\U0001F1F2"
+FLAG_MYANMAR_BURMA="\U0001F1F2"
+FLAG_MONGOLIA="\U0001F1F2"
+FLAG_MACAO_SAR_CHINA="\U0001F1F2"
+FLAG_NORTHERN_MARIANA_ISLANDS="\U0001F1F2"
+FLAG_MARTINIQUE="\U0001F1F2"
+FLAG_MAURITANIA="\U0001F1F2"
+FLAG_MONTSERRAT="\U0001F1F2"
+FLAG_MALTA="\U0001F1F2"
+FLAG_MAURITIUS="\U0001F1F2"
+FLAG_MALDIVES="\U0001F1F2"
+FLAG_MALAWI="\U0001F1F2"
+FLAG_MEXICO="\U0001F1F2"
+FLAG_MALAYSIA="\U0001F1F2"
+FLAG_MOZAMBIQUE="\U0001F1F2"
+FLAG_NAMIBIA="\U0001F1F3"
+FLAG_NEW_CALEDONIA="\U0001F1F3"
+FLAG_NIGER="\U0001F1F3"
+FLAG_NORFOLK_ISLAND="\U0001F1F3"
+FLAG_NIGERIA="\U0001F1F3"
+FLAG_NICARAGUA="\U0001F1F3"
+FLAG_NETHERLANDS="\U0001F1F3"
+FLAG_NORWAY="\U0001F1F3"
+FLAG_NEPAL="\U0001F1F3"
+FLAG_NAURU="\U0001F1F3"
+FLAG_NIUE="\U0001F1F3"
+FLAG_NEW_ZEALAND="\U0001F1F3"
+FLAG_OMAN="\U0001F1F4"
+FLAG_PANAMA="\U0001F1F5"
+FLAG_PERU="\U0001F1F5"
+FLAG_FRENCH_POLYNESIA="\U0001F1F5"
+FLAG_PAPUA_NEW_GUINEA="\U0001F1F5"
+FLAG_PHILIPPINES="\U0001F1F5"
+FLAG_PAKISTAN="\U0001F1F5"
+FLAG_POLAND="\U0001F1F5"
+FLAG_ST_PIERRE__MIQUELON="\U0001F1F5"
+FLAG_PITCAIRN_ISLANDS="\U0001F1F5"
+FLAG_PUERTO_RICO="\U0001F1F5"
+FLAG_PALESTINIAN_TERRITORIES="\U0001F1F5"
+FLAG_PORTUGAL="\U0001F1F5"
+FLAG_PALAU="\U0001F1F5"
+FLAG_PARAGUAY="\U0001F1F5"
+FLAG_QATAR="\U0001F1F6"
+FLAG_REUNION="\U0001F1F7"
+FLAG_ROMANIA="\U0001F1F7"
+FLAG_SERBIA="\U0001F1F7"
+FLAG_RUSSIA="\U0001F1F7"
+FLAG_RWANDA="\U0001F1F7"
+FLAG_SAUDI_ARABIA="\U0001F1F8"
+FLAG_SOLOMON_ISLANDS="\U0001F1F8"
+FLAG_SEYCHELLES="\U0001F1F8"
+FLAG_SUDAN="\U0001F1F8"
+FLAG_SWEDEN="\U0001F1F8"
+FLAG_SINGAPORE="\U0001F1F8"
+FLAG_ST_HELENA="\U0001F1F8"
+FLAG_SLOVENIA="\U0001F1F8"
+FLAG_SVALBARD__JAN_MAYEN="\U0001F1F8"
+FLAG_SLOVAKIA="\U0001F1F8"
+FLAG_SIERRA_LEONE="\U0001F1F8"
+FLAG_SAN_MARINO="\U0001F1F8"
+FLAG_SENEGAL="\U0001F1F8"
+FLAG_SOMALIA="\U0001F1F8"
+FLAG_SURINAME="\U0001F1F8"
+FLAG_SOUTH_SUDAN="\U0001F1F8"
+FLAG_SAO_TOME__PRINCIPE="\U0001F1F8"
+FLAG_EL_SALVADOR="\U0001F1F8"
+FLAG_SINT_MAARTEN="\U0001F1F8"
+FLAG_SYRIA="\U0001F1F8"
+FLAG_ESWATINI="\U0001F1F8"
+FLAG_TRISTAN_DA_CUNHA="\U0001F1F9"
+FLAG_TURKS__CAICOS_ISLANDS="\U0001F1F9"
+FLAG_CHAD="\U0001F1F9"
+FLAG_FRENCH_SOUTHERN_TERRITORIES="\U0001F1F9"
+FLAG_TOGO="\U0001F1F9"
+FLAG_THAILAND="\U0001F1F9"
+FLAG_TAJIKISTAN="\U0001F1F9"
+FLAG_TOKELAU="\U0001F1F9"
+FLAG_TIMORLESTE="\U0001F1F9"
+FLAG_TURKMENISTAN="\U0001F1F9"
+FLAG_TUNISIA="\U0001F1F9"
+FLAG_TONGA="\U0001F1F9"
+FLAG_TURKEY="\U0001F1F9"
+FLAG_TRINIDAD__TOBAGO="\U0001F1F9"
+FLAG_TUVALU="\U0001F1F9"
+FLAG_TAIWAN="\U0001F1F9"
+FLAG_TANZANIA="\U0001F1F9"
+FLAG_UKRAINE="\U0001F1FA"
+FLAG_UGANDA="\U0001F1FA"
+FLAG_US_OUTLYING_ISLANDS="\U0001F1FA"
+FLAG_UNITED_NATIONS="\U0001F1FA"
+FLAG_UNITED_STATES="\U0001F1FA"
+FLAG_URUGUAY="\U0001F1FA"
+FLAG_UZBEKISTAN="\U0001F1FA"
+FLAG_VATICAN_CITY="\U0001F1FB"
+FLAG_ST_VINCENT__GRENADINES="\U0001F1FB"
+FLAG_VENEZUELA="\U0001F1FB"
+FLAG_BRITISH_VIRGIN_ISLANDS="\U0001F1FB"
+FLAG_US_VIRGIN_ISLANDS="\U0001F1FB"
+FLAG_VIETNAM="\U0001F1FB"
+FLAG_VANUATU="\U0001F1FB"
+FLAG_WALLIS__FUTUNA="\U0001F1FC"
+FLAG_SAMOA="\U0001F1FC"
+FLAG_KOSOVO="\U0001F1FD"
+FLAG_YEMEN="\U0001F1FE"
+FLAG_MAYOTTE="\U0001F1FE"
+FLAG_SOUTH_AFRICA="\U0001F1FF"
+FLAG_ZAMBIA="\U0001F1FF"
+FLAG_ZIMBABWE="\U0001F1FF"
+FLAG_ENGLAND="\U0001F3F4"
+FLAG_SCOTLAND="\U0001F3F4"
+FLAG_WALES="\U0001F3F4"
