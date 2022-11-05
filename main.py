@@ -4,18 +4,40 @@ from utils import loadConfiguration, getConfigFileVariable
 import tuya
 import os
 import datetime
-import sensoreDHT11 as dht11
 import emojis
 
-EMOJI_LUCE_ACCESA = "\U0001F31E"
-EMOJI_LUCE_SPENTA = "\U0001F31A"
-EMOJI_FOTO = "\U0001F4F8"
-EMOJI_VIDEO = "\U0001F3A5"
-EMOJI_UMIDITA = "\U0001F4A7"
-EMOJI_TEMP = "\U0001F321"
+def getRandomHelloMessage():
+    import random
+    hellos = [
+        "Hello",
+        "Hi",
+        "Tungjatjeta",
+        "Salam",
+        "Kaixo",
+        "Degemer mad"
+        "Zdrasti",
+        "Salve",
+        "Ciao",
+        "Dobar dan",
+        "Hola"
+    ]
+    emo = [
+        emojis.SMILING_FACE_WITH_OPEN_HANDS,
+        emojis.FACE_WITH_HAND_OVER_MOUTH,
+        emojis.NEUTRAL_FACE,
+        emojis.FACE_WITHOUT_MOUTH,
+        emojis.FACE_IN_CLOUDS,
+        emojis.LYING_FACE,
+        emojis.SLEEPING_FACE,
+        emojis.FACE_WITH_MEDICAL_MASK,
+        emojis.COWBOY_HAT_FACE,
+        emojis.SMILING_FACE_WITH_SUNGLASSES
+    ]
+    return f'{random.choice(hellos)} {random.choice(emo)}'
+
 
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello {emojis.UPSIDEDOWN_FACE} {update.effective_user.first_name}')
+    await update.message.reply_text(f'{getRandomHelloMessage()} {update.effective_user.first_name}')
 
 async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
     config = loadConfiguration()
@@ -76,9 +98,12 @@ async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     try:
         k = await context.bot.send_message(update.message.chat_id, "Recupero del file in corso...")
         f = open("logBot.txt", "rb")
-        await context.bot.send_document(chat_id=update.message.chat_id, document=f, caption="logBot")
+        if not f.read(1):
+            await context.bot.edit_message_text(chat_id=k.chat_id, message_id=k.message_id, text="Il file dei log è vuoto")
+        else:
+            await context.bot.send_document(chat_id=update.message.chat_id, document=f, caption="logBot")
+            await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
         f.close()
-        await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
@@ -182,6 +207,7 @@ async def getConfigFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 async def readHT(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    import sensoreDHT11 as dht11
     k = await context.bot.send_message(update.message.chat_id, "Calcolo della temperatura e dell'umidità in corso...")
     try:
         h, t = dht11.readHumidityTemperature()
