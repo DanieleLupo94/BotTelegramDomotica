@@ -5,6 +5,12 @@ import tuya
 import os
 import datetime
 import emojis
+try:
+    import display
+    from display import scriviFrasi as dis
+except:
+    def dis(msg):
+        print(msg)
 
 def getRandomHelloMessage():
     import random
@@ -19,7 +25,8 @@ def getRandomHelloMessage():
         "Salve",
         "Ciao",
         "Dobar dan",
-        "Hola"
+        "Hola",
+        f"Awaaavvv {emojis.WOMAN_ZOMBIE}"
     ]
     emo = [
         emojis.SMILING_FACE_WITH_OPEN_HANDS,
@@ -31,13 +38,15 @@ def getRandomHelloMessage():
         emojis.SLEEPING_FACE,
         emojis.FACE_WITH_MEDICAL_MASK,
         emojis.COWBOY_HAT_FACE,
-        emojis.SMILING_FACE_WITH_SUNGLASSES
+        emojis.SMILING_FACE_WITH_SUNGLASSES,
+        emojis.WOMAN_ZOMBIE
     ]
     return f'{random.choice(hellos)} {random.choice(emo)}'
 
 
 async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'{getRandomHelloMessage()} {update.effective_user.first_name}')
+    dis([f"{update.effective_user.first_name}: {update.message.text}"])
 
 async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
     config = loadConfiguration()
@@ -113,10 +122,12 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto scattando una foto...")
+        dis(["Cheeeese!"])
         now = datetime.datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         filename = f"{filename}.png"
         os.system(f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
+        dis(["Foto fatta!"])
         f = open(filename, "rb")
         await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_photo")
         await context.bot.send_photo(chat_id=update.message.chat_id, photo=f, caption=f"{filename}")
@@ -132,11 +143,13 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto registrando un video...")
+        dis(["I can see you!!"])
         now = datetime.datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         video = f"{filename}.h264"
         filename = f"{filename}.mp4"
         os.system("raspivid -t 5000 -n -o {}".format(video))
+        dis(["Video fatto :)"])
         os.system("MP4Box -add {} -fps 30 {}".format(video, filename))
         f = open(filename, "rb")
         await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_video")
@@ -212,6 +225,7 @@ async def readHT(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         h, t = dht11.readHumidityTemperature()
         msg = f'{emojis.DROPLET}{h}% {emojis.THERMOMETER}{t}C'
+        dis([f'Umidità: {h}%', f'Temperatura: {t}C'])
         await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
