@@ -192,6 +192,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return await getLogFile(query, context)
     elif "command:downloadConfigFile" in data:
         return await getConfigFile(query, context)
+    elif "command:startnodered" in data:
+        return await startNodeRedServer(query, context)
+    elif "command:stopnodered" in data:
+        return await stopNodeRedServer(query, context)
     await query.edit_message_text(text=f"Azione non definita")
 
 async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -237,9 +241,27 @@ async def adminPanel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     keyboard = [
         [InlineKeyboardButton(f"{emojis.KEY} Nuovo token tuya", callback_data="command:newTuyaToken"), InlineKeyboardButton(f"{emojis.OLD_KEY} Stampa token tuya", callback_data="command:printTuyaToken")],
         [InlineKeyboardButton(f"{emojis.SCROLL} Logs", callback_data="command:downloadLogs"), InlineKeyboardButton(f"{emojis.WRENCH} Config file", callback_data="command:downloadConfigFile")],
-    ]
+        [InlineKeyboardButton(f"Start nodered", callback_data="command:startnodered"), InlineKeyboardButton(f"Ferma nodered", callback_data="command:stopnodered")]]
+
+    
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Pannello admin', reply_markup=reply_markup)
+
+async def startNodeRedServer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
+    os.system("node-red-start &")
+    await update.message.reply_text(f'Avvio del server nodered')
+
+
+async def stopNodeRedServer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    config = loadConfiguration()
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+        return await default_message_handler(update, context)
+    os.system("node-red-stop &")
+    update.message.reply_text(f'Stop del server nodered')
+
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
@@ -258,6 +280,9 @@ app.add_handler(CommandHandler("printtoken", printToken))
 app.add_handler(CommandHandler("getconfigfile", getConfigFile))
 app.add_handler(CommandHandler("readht", readHT))
 app.add_handler(CommandHandler("adminpanel", adminPanel))
+app.add_handler(CommandHandler("startnodered", startNodeRedServer))
+app.add_handler(CommandHandler("stopnodered", stopNodeRedServer))
+
 
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_handler))
 
@@ -266,6 +291,9 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_
 
 try:
     app.run_polling()
+    f = open("logBot.txt", "a+")
+    print('Bot avviato con successo', file=f)
+    f.close()
 except Exception as e:
     f = open("logBot.txt", "a+")
     print(f'Errore: {repr(e)}', file=f)

@@ -21,7 +21,7 @@ disp.begin()
 
 def scriviFrasi(frasi):
 	if len(frasi) == 1:
-		scriviFraseMultiline(frasi[0])
+		return scriviFraseMultiline(frasi[0])
 	if len(frasi) > 8:
 		print("Posso mostrare al massimo 8 frasi")
 
