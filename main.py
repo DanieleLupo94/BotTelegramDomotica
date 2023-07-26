@@ -183,7 +183,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     elif "command:video" in data:
         return await getRec(query, context)
     elif "command:humidityTemperature" in data:
-        return await readHT(query, context)
+        return await readFromNodered(query, context)
     elif "command:newTuyaToken" in data:
         return await newToken(query, context)
     elif "command:printTuyaToken" in data:
@@ -260,8 +260,16 @@ async def stopNodeRedServer(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
         return await default_message_handler(update, context)
     os.system("node-red-stop &")
-    update.message.reply_text(f'Stop del server nodered')
+    await update.message.reply_text(f'Stop del server nodered')
 
+async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    import noderedconnector
+    lastValue = noderedconnector.readLastValue()
+    if (lastValue is None):
+        return await update.message.reply_text(f'Nessun valore registrato')
+    when = datetime.datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
+    when = when.strftime('%d/%m/%Y %H:%M:%S')
+    return await update.message.reply_text(f'{emojis.MANTELPIECE_CLOCK} {when}\n  {emojis.DROPLET}{lastValue["humidity"]}%       {emojis.THERMOMETER}{lastValue["temperature"]}°')
 
 config = loadConfiguration()
 app = ApplicationBuilder().token(config["bot_token"]).build()
@@ -290,10 +298,11 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_
 #app.add_error_handler(error_handler)
 
 try:
-    app.run_polling()
     f = open("logBot.txt", "a+")
     print('Bot avviato con successo', file=f)
     f.close()
+    os.system("node-red-start &")
+    app.run_polling()
 except Exception as e:
     f = open("logBot.txt", "a+")
     print(f'Errore: {repr(e)}', file=f)
