@@ -1,3 +1,5 @@
+import logging
+import telegram
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
 from utils import loadConfiguration, getConfigFileVariable
@@ -11,6 +13,10 @@ try:
 except:
     def dis(msg):
         print(msg)
+
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
 
 def getRandomHelloMessage():
     import random
@@ -48,9 +54,10 @@ async def default_message_handler(update: Update, context: ContextTypes.DEFAULT_
     await update.message.reply_text(f'{getRandomHelloMessage()} {update.effective_user.first_name}')
     dis([f"{update.effective_user.first_name}: {update.message.text}"])
 
-async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
+
+async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio=False) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Accensione della luce in corso...")
@@ -66,9 +73,10 @@ async def accendiLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancel
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
-async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio = False) -> None:
+
+async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancellaMessaggio=False) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Spegnimento della luce in corso...")
@@ -84,9 +92,10 @@ async def spegniLuce(update: Update, context: ContextTypes.DEFAULT_TYPE, cancell
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+
 async def newToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Richiesta del token in corso...")
@@ -100,9 +109,10 @@ async def newToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+
 async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Recupero del file in corso...")
@@ -116,9 +126,10 @@ async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+
 async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto scattando una foto...")
@@ -126,10 +137,11 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         now = datetime.datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         filename = f"{filename}.png"
-        os.system(f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
+        os.system(
+            f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
         dis(["Foto fatta!"])
         f = open(filename, "rb")
-        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_photo")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action="upload_photo")
         await context.bot.send_photo(chat_id=update.message.chat_id, photo=f, caption=f"{filename}")
         f.close()
         await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
@@ -137,9 +149,10 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+
 async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto registrando un video...")
@@ -152,7 +165,7 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         dis(["Video fatto :)"])
         os.system("MP4Box -add {} -fps 30 {}".format(video, filename))
         f = open(filename, "rb")
-        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_video")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action="upload_video")
         await context.bot.send_video(chat_id=update.message.chat_id, video=f, caption=f"{filename}")
         f.close()
         await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
@@ -161,14 +174,19 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+
 async def keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
-        [InlineKeyboardButton(f"{emojis.SUN_WITH_FACE} Accendi la luce", callback_data="command:accendi"), InlineKeyboardButton(f"{emojis.NEW_MOON_FACE} Spegni la luce", callback_data="command:spegni")],
-        [InlineKeyboardButton(f"{emojis.CAMERA_WITH_FLASH} Foto", callback_data="command:foto"), InlineKeyboardButton(f"{emojis.MOVIE_CAMERA} Video", callback_data="command:video")],
-        [InlineKeyboardButton(f"{emojis.DROPLET} Umidità e temperatura {emojis.THERMOMETER}", callback_data="command:humidityTemperature")]
+        [InlineKeyboardButton(f"{emojis.SUN_WITH_FACE} Accendi la luce", callback_data="command:accendi"), InlineKeyboardButton(
+            f"{emojis.NEW_MOON_FACE} Spegni la luce", callback_data="command:spegni")],
+        [InlineKeyboardButton(f"{emojis.CAMERA_WITH_FLASH} Foto", callback_data="command:foto"), InlineKeyboardButton(
+            f"{emojis.MOVIE_CAMERA} Video", callback_data="command:video")],
+        [InlineKeyboardButton(f"{emojis.DROPLET} Umidità e temperatura {emojis.THERMOMETER}",
+                              callback_data="command:humidityTemperature")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Azioni disponibili', reply_markup=reply_markup)
+
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     query = update.callback_query
@@ -198,9 +216,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return await stopNodeRedServer(query, context)
     await query.edit_message_text(text=f"Azione non definita")
 
+
 async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Leggo il token dal file...")
@@ -209,19 +228,21 @@ async def printToken(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
 
+
 async def getConfigFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     try:
         k = await context.bot.send_message(update.message.chat_id, "Recupero del file di configurazione in corso...")
-        fileName = getConfigFileVariable() 
+        fileName = getConfigFileVariable()
         f = open(f"{fileName}", "rb")
-        await context.bot.send_chat_action(chat_id=k.chat_id, action = "upload_document")
+        await context.bot.send_chat_action(chat_id=k.chat_id, action="upload_document")
         await context.bot.sendDocument(chat_id=k.chat_id, document=f, filename=f"{fileName}")
         f.close()
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
+
 
 async def readHT(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     import sensoreDHT11 as dht11
@@ -233,23 +254,26 @@ async def readHT(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await context.bot.edit_message_text(f'{msg}', chat_id=update.message.chat_id, message_id=k.message_id)
     except Exception as e:
         await update.message.reply_text(f'Errore: {repr(e)}')
-    
+
+
 async def adminPanel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     keyboard = [
-        [InlineKeyboardButton(f"{emojis.KEY} Nuovo token tuya", callback_data="command:newTuyaToken"), InlineKeyboardButton(f"{emojis.OLD_KEY} Stampa token tuya", callback_data="command:printTuyaToken")],
-        [InlineKeyboardButton(f"{emojis.SCROLL} Logs", callback_data="command:downloadLogs"), InlineKeyboardButton(f"{emojis.WRENCH} Config file", callback_data="command:downloadConfigFile")],
+        [InlineKeyboardButton(f"{emojis.KEY} Nuovo token tuya", callback_data="command:newTuyaToken"), InlineKeyboardButton(
+            f"{emojis.OLD_KEY} Stampa token tuya", callback_data="command:printTuyaToken")],
+        [InlineKeyboardButton(f"{emojis.SCROLL} Logs", callback_data="command:downloadLogs"), InlineKeyboardButton(
+            f"{emojis.WRENCH} Config file", callback_data="command:downloadConfigFile")],
         [InlineKeyboardButton(f"Start nodered", callback_data="command:startnodered"), InlineKeyboardButton(f"Ferma nodered", callback_data="command:stopnodered")]]
 
-    
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Pannello admin', reply_markup=reply_markup)
 
+
 async def startNodeRedServer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     os.system("node-red-start &")
     await update.message.reply_text(f'Avvio del server nodered')
@@ -257,10 +281,11 @@ async def startNodeRedServer(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 async def stopNodeRedServer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
-    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}" ):
+    if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
         return await default_message_handler(update, context)
     os.system("node-red-stop &")
     await update.message.reply_text(f'Stop del server nodered')
+
 
 async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     import noderedconnector
@@ -269,41 +294,51 @@ async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         return await update.message.reply_text(f'Nessun valore registrato')
     when = datetime.datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
     when = when.strftime('%d/%m/%Y %H:%M:%S')
-    return await update.message.reply_text(f'{emojis.MANTELPIECE_CLOCK} {when}\n  {emojis.DROPLET}{lastValue["humidity"]}%       {emojis.THERMOMETER}{lastValue["temperature"]}°')
-
-config = loadConfiguration()
-app = ApplicationBuilder().token(config["bot_token"]).build()
-
-# Setto gli handler
-app.add_handler(CallbackQueryHandler(button))
-
-app.add_handler(CommandHandler("accendiluce", accendiLuce))
-app.add_handler(CommandHandler("spegniluce", spegniLuce))
-app.add_handler(CommandHandler("newtoken", newToken))
-app.add_handler(CommandHandler("getlogfile", getLogFile))
-app.add_handler(CommandHandler("getpic", getPic))
-app.add_handler(CommandHandler("getrec", getRec))
-app.add_handler(CommandHandler("keyboard", keyboard))
-app.add_handler(CommandHandler("printtoken", printToken))
-app.add_handler(CommandHandler("getconfigfile", getConfigFile))
-app.add_handler(CommandHandler("readht", readHT))
-app.add_handler(CommandHandler("adminpanel", adminPanel))
-app.add_handler(CommandHandler("startnodered", startNodeRedServer))
-app.add_handler(CommandHandler("stopnodered", stopNodeRedServer))
+    msg = f'{emojis.MANTELPIECE_CLOCK} {when} {emojis.DROPLET}{lastValue["humidity"]}% {emojis.THERMOMETER}{lastValue["temperature"]}°'
+    await bot.set_my_short_description(f"{msg}")
+    return await update.message.reply_text(msg)
 
 
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, default_message_handler))
+def main():
+    config = loadConfiguration()
+    app = ApplicationBuilder().token(config["bot_token"]).build()
+    global bot
+    bot = telegram.Bot(config["bot_token"])
 
-# Error handler
-#app.add_error_handler(error_handler)
+    # Setto gli handler
+    app.add_handler(CallbackQueryHandler(button))
 
-try:
-    f = open("logBot.txt", "a+")
-    print('Bot avviato con successo', file=f)
-    f.close()
-    os.system("node-red-start &")
-    app.run_polling()
-except Exception as e:
-    f = open("logBot.txt", "a+")
-    print(f'Errore: {repr(e)}', file=f)
-    f.close()
+    app.add_handler(CommandHandler("accendiluce", accendiLuce))
+    app.add_handler(CommandHandler("spegniluce", spegniLuce))
+    app.add_handler(CommandHandler("newtoken", newToken))
+    app.add_handler(CommandHandler("getlogfile", getLogFile))
+    app.add_handler(CommandHandler("getpic", getPic))
+    app.add_handler(CommandHandler("getrec", getRec))
+    app.add_handler(CommandHandler("keyboard", keyboard))
+    app.add_handler(CommandHandler("printtoken", printToken))
+    app.add_handler(CommandHandler("getconfigfile", getConfigFile))
+    app.add_handler(CommandHandler("readht", readHT))
+    app.add_handler(CommandHandler("adminpanel", adminPanel))
+    app.add_handler(CommandHandler("startnodered", startNodeRedServer))
+    app.add_handler(CommandHandler("stopnodered", stopNodeRedServer))
+
+    app.add_handler(MessageHandler(
+        filters.TEXT & ~filters.COMMAND, default_message_handler))
+
+    # Error handler
+    # app.add_error_handler(error_handler)
+
+    try:
+        f = open("logBot.txt", "a+")
+        print('Bot avviato con successo', file=f)
+        f.close()
+        # os.system("node-red-start &")
+        app.run_polling()
+    except Exception as e:
+        f = open("logBot.txt", "a+")
+        print(f'Errore: {repr(e)}', file=f)
+        f.close()
+
+
+if __name__ == "__main__":
+    main()
