@@ -1,12 +1,15 @@
 import logging
+from threading import Thread
 import telegram
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
 from utils import loadConfiguration, getConfigFileVariable
 import tuya
 import os
+import time
 import datetime
 import emojis
+
 try:
     import display
     from display import scriviFrasi as dis
@@ -16,7 +19,6 @@ except:
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-
 
 def getRandomHelloMessage():
     import random
@@ -295,50 +297,65 @@ async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     when = datetime.datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
     when = when.strftime('%d/%m/%Y %H:%M:%S')
     msg = f'{emojis.MANTELPIECE_CLOCK} {when} {emojis.DROPLET}{lastValue["humidity"]}% {emojis.THERMOMETER}{lastValue["temperature"]}°'
+    global bot
     await bot.set_my_short_description(f"{msg}")
     return await update.message.reply_text(msg)
 
-
-def main():
-    config = loadConfiguration()
-    app = ApplicationBuilder().token(config["bot_token"]).build()
+async def setDescriptionWithInformation():
     global bot
-    bot = telegram.Bot(config["bot_token"])
+    import noderedconnector
+    lastValue = noderedconnector.readLastValue()
+    when = datetime.datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
+    when = when.strftime('%d/%m/%Y %H:%M:%S')
+    if (lastValue is None):
+        await bot.set_my_short_description(f"{when} Nessun dato...")
+    msg = f'{emojis.MANTELPIECE_CLOCK} {when} {emojis.DROPLET}{lastValue["humidity"]}% {emojis.THERMOMETER}{lastValue["temperature"]}°'
+    await bot.set_my_short_description(f"{msg}")
+    #await time.sleep(60)
+    #await setDescriptionWithInformation()
 
-    # Setto gli handler
-    app.add_handler(CallbackQueryHandler(button))
+async def loopintodescription(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await setDescriptionWithInformation()
 
-    app.add_handler(CommandHandler("accendiluce", accendiLuce))
-    app.add_handler(CommandHandler("spegniluce", spegniLuce))
-    app.add_handler(CommandHandler("newtoken", newToken))
-    app.add_handler(CommandHandler("getlogfile", getLogFile))
-    app.add_handler(CommandHandler("getpic", getPic))
-    app.add_handler(CommandHandler("getrec", getRec))
-    app.add_handler(CommandHandler("keyboard", keyboard))
-    app.add_handler(CommandHandler("printtoken", printToken))
-    app.add_handler(CommandHandler("getconfigfile", getConfigFile))
-    app.add_handler(CommandHandler("readht", readHT))
-    app.add_handler(CommandHandler("adminpanel", adminPanel))
-    app.add_handler(CommandHandler("startnodered", startNodeRedServer))
-    app.add_handler(CommandHandler("stopnodered", stopNodeRedServer))
+config = loadConfiguration()
+global bot
+bot = telegram.Bot(config["bot_token"])
 
-    app.add_handler(MessageHandler(
-        filters.TEXT & ~filters.COMMAND, default_message_handler))
+config = loadConfiguration()
+app = ApplicationBuilder().token(config["bot_token"]).build()
 
-    # Error handler
-    # app.add_error_handler(error_handler)
+# Setto gli handler
+app.add_handler(CallbackQueryHandler(button))
 
-    try:
-        f = open("logBot.txt", "a+")
-        print('Bot avviato con successo', file=f)
-        f.close()
-        # os.system("node-red-start &")
-        app.run_polling()
-    except Exception as e:
-        f = open("logBot.txt", "a+")
-        print(f'Errore: {repr(e)}', file=f)
-        f.close()
+app.add_handler(CommandHandler("accendiluce", accendiLuce))
+app.add_handler(CommandHandler("spegniluce", spegniLuce))
+app.add_handler(CommandHandler("newtoken", newToken))
+app.add_handler(CommandHandler("getlogfile", getLogFile))
+app.add_handler(CommandHandler("getpic", getPic))
+app.add_handler(CommandHandler("getrec", getRec))
+app.add_handler(CommandHandler("keyboard", keyboard))
+app.add_handler(CommandHandler("printtoken", printToken))
+app.add_handler(CommandHandler("getconfigfile", getConfigFile))
+app.add_handler(CommandHandler("readht", readHT))
+app.add_handler(CommandHandler("adminpanel", adminPanel))
+app.add_handler(CommandHandler("startnodered", startNodeRedServer))
+app.add_handler(CommandHandler("stopnodered", stopNodeRedServer))
+app.add_handler(CommandHandler("loopintodescription", loopintodescription))
 
 
-if __name__ == "__main__":
-    main()
+app.add_handler(MessageHandler(
+    filters.TEXT & ~filters.COMMAND, default_message_handler))
+
+# Error handler
+# app.add_error_handler(error_handler)
+
+try:
+    f = open("logBot.txt", "a+")
+    print('Bot avviato con successo', file=f)
+    f.close()
+    os.system("node-red-start &")
+    app.run_polling()
+except Exception as e:
+    f = open("logBot.txt", "a+")
+    print(f'Errore: {repr(e)}', file=f)
+    f.close()
