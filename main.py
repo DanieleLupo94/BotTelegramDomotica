@@ -1,3 +1,4 @@
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import logging
 from threading import Thread
 import telegram
@@ -19,6 +20,7 @@ except:
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
 
 def getRandomHelloMessage():
     import random
@@ -301,6 +303,7 @@ async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     await bot.set_my_short_description(f"{msg}")
     return await update.message.reply_text(msg)
 
+
 async def setDescriptionWithInformation():
     global bot
     import noderedconnector
@@ -311,11 +314,6 @@ async def setDescriptionWithInformation():
         await bot.set_my_short_description(f"{when} Nessun dato...")
     msg = f'{emojis.MANTELPIECE_CLOCK} {when} {emojis.DROPLET}{lastValue["humidity"]}% {emojis.THERMOMETER}{lastValue["temperature"]}°'
     await bot.set_my_short_description(f"{msg}")
-    #await time.sleep(60)
-    #await setDescriptionWithInformation()
-
-async def loopintodescription(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await setDescriptionWithInformation()
 
 config = loadConfiguration()
 global bot
@@ -340,7 +338,6 @@ app.add_handler(CommandHandler("readht", readHT))
 app.add_handler(CommandHandler("adminpanel", adminPanel))
 app.add_handler(CommandHandler("startnodered", startNodeRedServer))
 app.add_handler(CommandHandler("stopnodered", stopNodeRedServer))
-app.add_handler(CommandHandler("loopintodescription", loopintodescription))
 
 
 app.add_handler(MessageHandler(
@@ -348,6 +345,11 @@ app.add_handler(MessageHandler(
 
 # Error handler
 # app.add_error_handler(error_handler)
+
+scheduler = AsyncIOScheduler()
+# logging.getLogger('apscheduler').setLevel(logging.DEBUG)
+job = scheduler.add_job(setDescriptionWithInformation, 'interval', seconds=10)
+scheduler.start()
 
 try:
     f = open("logBot.txt", "a+")
