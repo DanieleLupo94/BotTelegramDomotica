@@ -11,6 +11,10 @@ import os
 import time
 import datetime
 import emojis
+import io
+import matplotlib.pyplot as plt
+import datetime
+
 
 try:
     import display
@@ -150,11 +154,11 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         now = datetime.datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         filename = f"{filename}.png"
-        #os.system(
-         #   f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
+        # os.system(
+        #   f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
         photo = capture_photo()
         dis(["Foto fatta!"])
-        #f = open(filename, "rb")
+        # f = open(filename, "rb")
         await context.bot.send_chat_action(chat_id=k.chat_id, action="upload_photo")
         await context.bot.send_photo(chat_id=update.message.chat_id, photo=photo, caption=f"{filename}")
         f.close()
@@ -196,7 +200,9 @@ async def keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         [InlineKeyboardButton(f"{emojis.CAMERA_WITH_FLASH} Foto", callback_data="command:foto"), InlineKeyboardButton(
             f"{emojis.MOVIE_CAMERA} Video", callback_data="command:video")],
         [InlineKeyboardButton(f"{emojis.DROPLET} Umidità e temperatura {emojis.THERMOMETER}",
-                              callback_data="command:humidityTemperature")]
+                              callback_data="command:humidityTemperature")],
+        [InlineKeyboardButton(
+            f"{emojis.CHART_INCREASING} Grafico umidità e temperatura {emojis.CHART_DECREASING}", callback_data="command:getchart")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Azioni disponibili', reply_markup=reply_markup)
@@ -228,6 +234,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return await startNodeRedServer(query, context)
     elif "command:stopnodered" in data:
         return await stopNodeRedServer(query, context)
+    elif "command:getchart" in data:
+        return await getchart(query, context)
     await query.edit_message_text(text=f"Azione non definita")
 
 
@@ -312,6 +320,90 @@ async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     global bot
     await bot.set_my_short_description(f"{msg}")
     return await update.message.reply_text(msg)
+
+
+def createChart():
+    with open("./temperature.csv", "r", encoding="utf-8") as file:
+        lines = file.readlines()[-10000:]
+        filteredLines = []
+        for l in lines:
+            if len(l.strip()) > 0:
+                filteredLines.append(l.strip())
+
+        xValues = []
+        yTemp = []
+        yHum = []
+        maxTemp = 0
+        minTemp = 100
+        maxHum = 0
+        minHum = 200
+        for l in filteredLines:
+            values = l.split(",")
+            ms = float(values[1])
+            xValues.append(datetime.datetime.fromtimestamp(ms/1000.0))
+            yTemp.append(float(values[0]))
+            yHum.append(float(values[2]))
+
+            maxTemp = max(yTemp)
+            maxHum = max(yHum)
+
+            minTemp = min(yTemp)
+            minHum = min(yHum)
+
+        plt.figure(figsize=(20, 12))  # Set the figure size (adjust as needed)
+
+        plt.plot(xValues, yTemp, label='Temperature')
+        plt.plot(xValues, yHum, label='Humidity')
+
+        textPosition = len(xValues)/2 + len(xValues)/4
+        # print(f'{textPosition}')
+
+        textPosition = xValues[int(textPosition)]
+
+        plt.axhline(maxTemp, color='red', linestyle='--',
+                    label=f'Max temperature {maxTemp}')
+
+        plt.text(textPosition, maxTemp, f'Max temperature = {maxTemp}°C', color='red',
+                 fontsize=10, ha='right', va='bottom')
+
+        plt.axhline(minTemp, color='darkorange', linestyle='--',
+                    label=f'Min temperature {minTemp}')
+
+        plt.text(textPosition, minTemp, f'Min temperature = {minTemp}°C', color='darkorange',
+                 fontsize=10, ha='right', va='bottom')
+
+        plt.axhline(maxHum, color='blue', linestyle='--',
+                    label=f'Max humidity {maxHum}')
+
+        plt.text(textPosition, maxHum, f'Max humidity = {maxHum}%', color='blue',
+                 fontsize=10, ha='right', va='bottom')
+
+        plt.axhline(minHum, color='deepskyblue', linestyle='--',
+                    label=f'Min humidity {minHum}')
+
+        plt.text(textPosition, minHum, f'Min humidity = {minHum}%', color='deepskyblue',
+                 fontsize=10, ha='right', va='bottom')
+
+        plt.xlabel('Time')
+        plt.ylabel('Temperature and Humidity')
+        plt.title('Temperature and Humidity over time')
+        plt.legend()
+
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+
+        plt.close()
+
+        return buf
+
+
+async def getchart(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    k = await context.bot.send_message(update.message.chat_id, "Sto creando il grafico...")
+    chart_buff = createChart()
+    await context.bot.send_chat_action(chat_id=k.chat_id, action="upload_photo")
+    await context.bot.send_photo(chat_id=update.message.chat_id, photo=chart_buff)
+    await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
 
 
 async def setDescriptionWithInformation():
