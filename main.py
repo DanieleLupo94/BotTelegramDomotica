@@ -1,5 +1,6 @@
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import logging
+import subprocess
 from threading import Thread
 import telegram
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -131,6 +132,14 @@ async def getLogFile(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         await update.message.reply_text(f'Errore: {repr(e)}')
 
 
+def capture_photo():
+    cmd = ['raspistill', '-t', '1000', '-o', '-']
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    photo_data = process.stdout.read()
+    process.wait()
+    return photo_data
+
+
 async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     config = loadConfiguration()
     if (f"{update.message.chat_id}" != f"{config['chat_id_admin']}"):
@@ -141,12 +150,13 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         now = datetime.datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         filename = f"{filename}.png"
-        os.system(
-            f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
+        #os.system(
+         #   f"raspistill -w 1000 -h 1000 -t 2000 -n -dt -e png -o {filename}")
+        photo = capture_photo()
         dis(["Foto fatta!"])
-        f = open(filename, "rb")
+        #f = open(filename, "rb")
         await context.bot.send_chat_action(chat_id=k.chat_id, action="upload_photo")
-        await context.bot.send_photo(chat_id=update.message.chat_id, photo=f, caption=f"{filename}")
+        await context.bot.send_photo(chat_id=update.message.chat_id, photo=photo, caption=f"{filename}")
         f.close()
         await context.bot.delete_message(chat_id=k.chat_id, message_id=k.message_id)
         os.system(f"rm {filename}")
@@ -348,7 +358,7 @@ app.add_handler(MessageHandler(
 
 scheduler = AsyncIOScheduler()
 # logging.getLogger('apscheduler').setLevel(logging.DEBUG)
-job = scheduler.add_job(setDescriptionWithInformation, 'interval', seconds=10)
+job = scheduler.add_job(setDescriptionWithInformation, 'interval', seconds=60)
 scheduler.start()
 
 try:
