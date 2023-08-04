@@ -13,7 +13,7 @@ import datetime
 import emojis
 import io
 import matplotlib.pyplot as plt
-import datetime
+from datetime import datetime
 
 
 try:
@@ -151,7 +151,7 @@ async def getPic(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto scattando una foto...")
         dis(["Cheeeese!"])
-        now = datetime.datetime.now()
+        now = datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         filename = f"{filename}.png"
         # os.system(
@@ -175,7 +175,7 @@ async def getRec(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         k = await context.bot.send_message(update.message.chat_id, "Sto registrando un video...")
         dis(["I can see you!!"])
-        now = datetime.datetime.now()
+        now = datetime.now()
         filename = now.strftime("%Y%m%d%H%M%S")
         video = f"{filename}.h264"
         filename = f"{filename}.mp4"
@@ -314,7 +314,7 @@ async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     lastValue = noderedconnector.readLastValue()
     if (lastValue is None):
         return await update.message.reply_text(f'Nessun valore registrato')
-    when = datetime.datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
+    when = datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
     when = when.strftime('%d/%m/%Y %H:%M:%S')
     msg = f'{emojis.MANTELPIECE_CLOCK} {when} {emojis.DROPLET}{lastValue["humidity"]}% {emojis.THERMOMETER}{lastValue["temperature"]}°'
     global bot
@@ -325,7 +325,7 @@ async def readFromNodered(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 def createChart():
     daily_data = {}
 
-    with (open("./temperature.csv", "r")) as f:
+    with (open("/home/pi/temperature.csv", "r")) as f:
         allLines = f.readlines()
         allLines.reverse()
         for l in allLines:
@@ -354,6 +354,9 @@ def createChart():
                 }
 
     daily_averages = {}
+    xValues = []
+    yTemp = []
+    yHum = []
     for date, data in daily_data.items():
         avg_temperature = sum(data['temperature']) / len(data['temperature'])
         avg_humidity = sum(data['humidity']) / len(data['humidity'])
@@ -361,23 +364,18 @@ def createChart():
             'average_temperature': avg_temperature,
             'average_humidity': avg_humidity
         }
-
-    xValues = []
-    yTemp = []
-    yHum = []
-    # Print the daily averages
-    for date, data in daily_averages.items():
-        print(
-            f"Date: {date}, Average Temperature: {data['average_temperature']:.2f}, Average Humidity: {data['average_humidity']:.2f}")
         xValues.append(date)
-        yTemp.append(float(f"{data['average_temperature']:.2f}"))
-        yHum.append(float(f"{data['average_humidity']:.2f}"))
-
+        yTemp.append(int(avg_temperature))
+        yHum.append(int(avg_humidity))
     maxTemp = max(yTemp)
+    maxTemp = int(maxTemp)
     maxHum = max(yHum)
+    maxHum = int(maxHum)
 
     minTemp = min(yTemp)
+    minTemp = int(minTemp)
     minHum = min(yHum)
+    minHum = int(minHum)
 
     plt.figure(figsize=(20, 12))  # Set the figure size (adjust as needed)
 
@@ -439,7 +437,7 @@ async def setDescriptionWithInformation():
     global bot
     import noderedconnector
     lastValue = noderedconnector.readLastValue()
-    when = datetime.datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
+    when = datetime.fromtimestamp(int(lastValue["timestamp"])/1000.0)
     when = when.strftime('%d/%m/%Y %H:%M:%S')
     if (lastValue is None):
         await bot.set_my_short_description(f"{when} Nessun dato...")
