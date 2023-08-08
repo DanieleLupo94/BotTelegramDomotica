@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-import datetime
-
+from datetime import datetime
+import io
 
 def createChart():
     daily_data = {}
